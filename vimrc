@@ -5,6 +5,10 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+"
+"============================
+"
+
 "vundle
 Plugin 'gmarik/Vundle.vim'
 " bufexplorer
@@ -26,6 +30,17 @@ Plugin 'mattn/emmet-vim'
 Plugin 'rking/ag.vim'
 let g:agprg="ag --column"
 
+" color themes
+" tomorrow theme: https://github.com/chriskempson/tomorrow-theme
+"Plugin 'vim-scripts/earendel'
+"Plugin 'tomasr/molokai'
+"Plugin 'altercation/vim-colors-solarized'
+
+" let g:molokai_original = 1
+
+"
+"============================
+"
 call vundle#end()
 filetype plugin indent on
 syntax on
@@ -40,6 +55,7 @@ if has("gui_running")
 
     set guifont=Consolas\ 11
     set guifontwide=Microsoft\ Yahei\ 10
+    colorscheme evening
 else
     colorscheme elflord
 endif
