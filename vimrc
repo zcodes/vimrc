@@ -22,6 +22,9 @@ Plugin 'honza/vim-snippets'
 "Emmet
 Plugin 'mattn/emmet-vim'
 
+" File Searching
+Plugin 'rking/ag.vim'
+let g:agprg="ag --column"
 
 call vundle#end()
 filetype plugin indent on
@@ -37,6 +40,8 @@ if has("gui_running")
 
     set guifont=Consolas\ 11
     set guifontwide=Microsoft\ Yahei\ 10
+else
+    colorscheme elflord
 endif
 
 " editing
