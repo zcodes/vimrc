@@ -24,6 +24,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
 "Emmet
+" C-y , expand expression
 Plugin 'mattn/emmet-vim'
 
 " File Searching
@@ -37,6 +38,14 @@ let g:agprg="ag --column"
 "Plugin 'altercation/vim-colors-solarized'
 
 " let g:molokai_original = 1
+
+"markdown
+Plugin 'plasticboy/vim-markdown'
+
+" comment
+" gcc 注释行
+" gc 注释/取消注释块
+Plugin 'tpope/vim-commentary'
 
 "
 "============================
