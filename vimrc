@@ -47,6 +47,8 @@ Plugin 'plasticboy/vim-markdown'
 " gc 注释/取消注释块
 Plugin 'tpope/vim-commentary'
 
+Plugin 'kien/ctrlp.vim'
+
 "
 "============================
 "
