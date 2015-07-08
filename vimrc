@@ -39,6 +39,9 @@ let g:agprg="ag --column"
 
 " let g:molokai_original = 1
 
+" JavaScript
+Plugin 'pangloss/vim-javascript'
+
 "markdown
 Plugin 'plasticboy/vim-markdown'
 
