@@ -45,12 +45,29 @@ Plugin 'pangloss/vim-javascript'
 "markdown
 Plugin 'plasticboy/vim-markdown'
 
+" Twig
+Plugin 'evidens/vim-twig'
+
+" Blade Template
+Plugin 'xsbeats/vim-blade'
+
 " comment
 " gcc 注释行
 " gc 注释/取消注释块
 Plugin 'tpope/vim-commentary'
 
 Plugin 'kien/ctrlp.vim'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'StanAngeloff/php.vim'
+
+" git plugin
+Plugin 'airblade/vim-gitgutter'
+
+" SuperTabs
+Plugin 'ervandew/supertab'
+
+" Taglist
+Plugin 'zcodes/taglist.vim'
 
 "
 "============================
@@ -108,5 +125,10 @@ autocmd BufNewFile,BufRead *.rb setl ts=2 sts=2 sw=2
 "key bindings
 nmap <F3> :NERDTreeToggle<cr>
 nmap <F4> :NERDTreeFocus<cr>
+nmap <F5> :TlistToggle<cr>
+
+" Taglist settings
+let Tlist_Ctags_Cmd = 'ctags-exuberant'
+let Tlist_Use_Right_Window = 1
 
 " vim: ts=4 sts=4 sw=4 et
