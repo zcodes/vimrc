@@ -2,8 +2,13 @@ set nocompatible
 filetype off
 
 " use vundle to manage plugins
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+if has("win32")
+    set rtp+=$VIM/vimfiles/bundle/Vundle.vim
+    call vundle#begin($VIM . '/vimfiles/bundle')
+else
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+endif
 
 "
 "============================
@@ -53,8 +58,18 @@ if has("gui_running")
     set guioptions-=b
     set guioptions-=L
 
-    set guifont=Consolas\ 11
-    set guifontwide=Microsoft\ Yahei\ 10
+    " 设置中文字体
+    if has("win32")
+        set guifont=PT\ Mono:h10
+        set guifont=Microsoft\ Yahei\ Mono:h10
+        set langmenu=en
+        source $VIMRUNTIME/delmenu.vim
+        source $VIMRUNTIME/menu.vim
+        language messages en_US.utf-8
+    else
+        set guifont=Consolas\ 11
+        set guifontwide=Microsoft\ Yahei\ 10
+    endif
     colorscheme evening
 else
     colorscheme elflord
