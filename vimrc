@@ -92,7 +92,7 @@ if has("gui_running")
     " 设置中文字体
     if has("win32")
         set guifont=PT\ Mono:h10
-        set guifont=Microsoft\ Yahei\ Mono:h10
+        set guifontwide=Microsoft\ Yahei\ Mono:h10
         set langmenu=en
         source $VIMRUNTIME/delmenu.vim
         source $VIMRUNTIME/menu.vim
