@@ -51,6 +51,9 @@ Plugin 'evidens/vim-twig'
 " Blade Template
 Plugin 'xsbeats/vim-blade'
 
+" Handlebars
+Plugin 'mustache/vim-mustache-handlebars'
+
 " comment
 " gcc 注释行
 " gc 注释/取消注释块
@@ -84,8 +87,11 @@ if has("gui_running")
     set guioptions-=b
     set guioptions-=L
 
-    set guifont=Consolas\ 11
-    set guifontwide=Microsoft\ Yahei\ 10
+    "set guifont=Source\ Code\ Pro\ 10
+    "set guifontwide=Source\ Sans\ SC\ 10
+    "这是中文字体吗
+    set guifont=PT\ Mono\ 10
+    set guifontwide=Source\ Sans\ SC\ 10
     colorscheme evening
 else
     colorscheme elflord
@@ -123,12 +129,13 @@ autocmd BufNewFile,BufRead *.[ch],*.cpp setl ts=8 sts=8 sw=8 noet
 autocmd BufNewFile,BufRead *.rb setl ts=2 sts=2 sw=2
 
 "key bindings
-nmap <F3> :NERDTreeToggle<cr>
-nmap <F4> :NERDTreeFocus<cr>
+nmap <F3> :NERDTreeFocus<cr>
+nmap <F4> :NERDTreeClose<cr>
 nmap <F5> :TlistToggle<cr>
 
 " Taglist settings
 let Tlist_Ctags_Cmd = 'ctags-exuberant'
 let Tlist_Use_Right_Window = 1
+let Tlist_Show_One_File = 1
 
 " vim: ts=4 sts=4 sw=4 et
