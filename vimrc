@@ -145,7 +145,13 @@ nmap <F4> :NERDTreeClose<cr>
 nmap <F5> :TlistToggle<cr>
 
 " Taglist settings
-let Tlist_Ctags_Cmd = 'ctags-exuberant'
+if executable('ctags')
+    " for msys2
+    let Tlist_Ctags_Cmd='ctags'
+else
+    " for ubuntu
+    let Tlist_Ctags_Cmd = 'ctags-exuberant'
+endif
 let Tlist_Use_Right_Window = 1
 let Tlist_Show_One_File = 1
 
