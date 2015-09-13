@@ -77,6 +77,9 @@ Plugin 'ervandew/supertab'
 " Taglist
 Plugin 'zcodes/taglist.vim'
 
+" Puppet file plugin
+Plugin 'rodjek/vim-puppet'
+
 "
 "============================
 "
