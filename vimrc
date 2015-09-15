@@ -80,6 +80,10 @@ Plugin 'zcodes/taglist.vim'
 " Puppet file plugin
 Plugin 'rodjek/vim-puppet'
 
+" css and less
+Plugin 'JulesWang/css.vim'
+Plugin 'genoma/vim-less'
+
 "
 "============================
 "
@@ -141,6 +145,9 @@ set incsearch
 set ts=4 sts=4 sw=4 et
 autocmd BufNewFile,BufRead *.[ch],*.cpp setl ts=8 sts=8 sw=8 noet
 autocmd BufNewFile,BufRead *.rb setl ts=2 sts=2 sw=2
+
+" Semantic UI
+autocmd BufNewFile,BufRead *.overrides,*.variables setl filetype=less
 
 "key bindings
 nmap <F3> :NERDTreeFocus<cr>
