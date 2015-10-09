@@ -84,6 +84,9 @@ Plugin 'rodjek/vim-puppet'
 Plugin 'JulesWang/css.vim'
 Plugin 'genoma/vim-less'
 
+" Plugin for python
+Plugin 'klen/python-mode'
+
 "
 "============================
 "
@@ -145,6 +148,11 @@ set incsearch
 set ts=4 sts=4 sw=4 et
 autocmd BufNewFile,BufRead *.[ch],*.cpp setl ts=8 sts=8 sw=8 noet
 autocmd BufNewFile,BufRead *.rb setl ts=2 sts=2 sw=2
+
+let g:pymode_rope = 0
+let g:pymode_rope_complete_on_dot = 0
+let g:pymode_rope_autoimport = 0
+autocmd BufNewFile,BufRead *.py setl ts=8 et sw=4 sts=4
 
 " Semantic UI
 autocmd BufNewFile,BufRead *.overrides,*.variables setl filetype=less
