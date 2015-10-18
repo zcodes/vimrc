@@ -157,6 +157,9 @@ autocmd BufNewFile,BufRead *.py setl ts=8 et sw=4 sts=4
 " Semantic UI
 autocmd BufNewFile,BufRead *.overrides,*.variables setl filetype=less
 
+"NERDTree
+let NERDTreeDirArrows=0
+
 "key bindings
 nmap <F3> :NERDTreeFocus<cr>
 nmap <F4> :NERDTreeClose<cr>
