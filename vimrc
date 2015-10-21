@@ -38,9 +38,16 @@ let g:agprg="ag --column"
 
 " color themes
 " tomorrow theme: https://github.com/chriskempson/tomorrow-theme
-"Plugin 'vim-scripts/earendel'
+Plugin 'wimstefan/Lightning'
+Plugin 'romainl/Apprentice'
+Plugin 'vim-scripts/moria'
+" Plugin 'vim-scripts/bclear'
+" Plugin 'vim-scripts/beauty256'
+" Plugin 'iissnan/tangoX'
+Plugin 'vim-scripts/earendel'
 "Plugin 'tomasr/molokai'
 "Plugin 'altercation/vim-colors-solarized'
+Plugin 'zcodes/vim-color-cleanroom'
 
 " let g:molokai_original = 1
 
@@ -100,10 +107,10 @@ if has("gui_running")
         source $VIMRUNTIME/menu.vim
         language messages en_US.utf-8
     else
-        set guifont=PT\ Mono\ 11
+        set guifont=Fira\ Mono\ 10
         set guifontwide=Source\Sans\ SC\ 10
     endif
-    colorscheme evening
+    colorscheme cleanroom
 else
     colorscheme elflord
 endif
