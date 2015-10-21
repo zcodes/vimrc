@@ -15,7 +15,7 @@ endif
 "
 
 "vundle
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 " bufexplorer
 Plugin 'c9s/bufexplorer'
 " nerdtree
