@@ -3,8 +3,8 @@ filetype off
 
 " use vundle to manage plugins
 if has("win32")
-    set rtp+=$VIM/vimfiles/bundle/Vundle.vim
-    call vundle#begin($VIM . '/vimfiles/bundle')
+    set rtp+=~/vimfiles/bundle/Vundle.vim
+    call vundle#begin($HOME . '/vimfiles/bundle')
 else
     set rtp+=~/.vim/bundle/Vundle.vim
     call vundle#begin()
@@ -16,6 +16,12 @@ endif
 
 "vundle
 Plugin 'gmarik/Vundle.vim'
+
+if has("win32")
+    Plugin 'zcodes/vim-misc'
+    Plugin 'zcodes/vim-shell'
+endif
+
 " bufexplorer
 Plugin 'c9s/bufexplorer'
 " nerdtree
@@ -104,7 +110,7 @@ if has("gui_running")
 
     if has("win32")
         set guifont=PT\ Mono:h10
-        set guifontwide=Microsoft\ Yahei\ Mono:h10
+        set guifontwide=SimHei:h11
         set langmenu=en
         source $VIMRUNTIME/delmenu.vim
         source $VIMRUNTIME/menu.vim
@@ -148,6 +154,8 @@ set incsearch
 set ts=4 sts=4 sw=4 et
 autocmd BufNewFile,BufRead *.[ch],*.cpp setl ts=8 sts=8 sw=8 noet
 autocmd BufNewFile,BufRead *.rb setl ts=2 sts=2 sw=2
+" 删除空白
+autocmd BufWritePre * :%s/\s\+$//e
 
 let g:pymode_rope = 0
 let g:pymode_rope_complete_on_dot = 0
