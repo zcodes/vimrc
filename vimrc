@@ -100,6 +100,9 @@ Plugin 'genoma/vim-less'
 " Plugin for python
 Plugin 'klen/python-mode'
 
+" Plugin for jade template engine
+Plugin 'digitaltoad/vim-jade'
+
 "
 "============================
 "
@@ -116,8 +119,8 @@ if has("gui_running")
     set guioptions-=L
 
     if has("win32")
-        set guifont=PT\ Mono:h10
-        set guifontwide=SimHei:h11
+        set guifont=Fira\ Mono:h11
+        set guifontwide=SimHei:h12
         set langmenu=en
         source $VIMRUNTIME/delmenu.vim
         source $VIMRUNTIME/menu.vim
@@ -161,6 +164,9 @@ set incsearch
 set ts=4 sts=4 sw=4 et
 autocmd BufNewFile,BufRead *.[ch],*.cpp setl ts=8 sts=8 sw=8 noet
 autocmd BufNewFile,BufRead *.rb setl ts=2 sts=2 sw=2
+autocmd BufNewFile,BufRead *.js setl ts=2 sts=2 sw=2
+autocmd BufNewFile,BufRead *.jade setl ts=2 sts=2 sw=2
+
 " 删除空白
 autocmd BufWritePre * :%s/\s\+$//e
 
