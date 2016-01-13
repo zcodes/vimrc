@@ -126,7 +126,7 @@ if has("gui_running")
         source $VIMRUNTIME/menu.vim
         language messages en_US.utf-8
     else
-        set guifont=Fira\ Mono\ 10
+        set guifont=Fira\ Mono\ 11
         set guifontwide=Source\Sans\ SC\ 10
     endif
     colorscheme evening
