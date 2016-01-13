@@ -103,6 +103,9 @@ Plugin 'klen/python-mode'
 " Plugin for jade template engine
 Plugin 'digitaltoad/vim-jade'
 
+" Plugin for coffee-script
+Plugin 'kchmck/vim-coffee-script'
+
 "
 "============================
 "
@@ -159,6 +162,9 @@ set fileformats=unix,dos,mac
 " searchings
 set hlsearch
 set incsearch
+
+" no fold
+set foldlevel=999
 
 " tabs
 set ts=4 sts=4 sw=4 et
