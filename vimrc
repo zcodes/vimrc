@@ -40,7 +40,7 @@ Plugin 'mattn/emmet-vim'
 
 " File Searching
 Plugin 'rking/ag.vim'
-let g:agprg="ag --column"
+let g:ag_prg="ag --vimgrep"
 
 " color themes
 " tomorrow theme: https://github.com/chriskempson/tomorrow-theme
