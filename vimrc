@@ -185,6 +185,9 @@ autocmd BufNewFile,BufRead *.py setl ts=8 et sw=4 sts=4
 autocmd BufNewFile,BufRead *.overrides,*.variables setl filetype=less
 
 "NERDTree
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="~"
+let g:NERDTreeMinimalUI=1
 let NERDTreeDirArrows=0
 
 "key bindings
