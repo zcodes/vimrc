@@ -126,6 +126,7 @@ if has("gui_running")
     set guioptions-=b
     set guioptions-=L
 
+    " 字体设置
     if has("win32")
         set guifont=Fira\ Mono:h11
         set guifontwide=SimHei:h12
@@ -137,6 +138,7 @@ if has("gui_running")
         set guifont=Fira\ Mono\ Medium\ 12
         set guifontwide=思源黑体\ Medium\ 12
     endif
+
     colorscheme evening
 else
     colorscheme elflord
@@ -154,6 +156,7 @@ set autoindent
 set ruler
 set showcmd
 set showmode
+set formatoptions=tcqm
 
 " file encodings
 set encoding=utf-8
@@ -201,13 +204,11 @@ nmap <F4> :NERDTreeClose<cr>
 nmap <F5> :TlistToggle<cr>
 
 " Taglist settings
-if executable('ctags')
-    " for msys2
-    let Tlist_Ctags_Cmd='ctags'
-else
-    " for ubuntu
-    let Tlist_Ctags_Cmd = 'ctags-exuberant'
-endif
+" for ubuntu
+" this fixed in 'zcodes/taglibs.vim'
+" if executable('ctags-exuberant')
+"     let Tlist_Ctags_Cmd='ctags-exuberant'
+" endif
 let Tlist_Use_Right_Window = 1
 let Tlist_Show_One_File = 1
 
