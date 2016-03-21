@@ -54,6 +54,8 @@ let g:ag_prg="ag --vimgrep"
 " Plugin 'tomasr/molokai'
 " Plugin 'altercation/vim-colors-solarized'
 " Plugin 'zcodes/vim-color-cleanroom'
+" Plugin 'marciomazza/vim-brogrammer-theme'
+" Plugin 'jscappini/material.vim'
 
 " let g:molokai_original = 1
 
@@ -105,6 +107,9 @@ Plugin 'digitaltoad/vim-jade'
 
 " Plugin for coffee-script
 Plugin 'kchmck/vim-coffee-script'
+
+" Plugin for vue.js
+Plugin 'posva/vim-vue'
 
 "
 "============================
