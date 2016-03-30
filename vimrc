@@ -108,8 +108,11 @@ Plugin 'digitaltoad/vim-jade'
 " Plugin for coffee-script
 Plugin 'kchmck/vim-coffee-script'
 
+" Plugin for html
+Plugin 'othree/html5.vim'
+
 " Plugin for vue.js
-Plugin 'posva/vim-vue'
+" Plugin 'posva/vim-vue'
 
 "
 "============================
@@ -177,9 +180,8 @@ set foldlevel=999
 " tabs
 set ts=4 sts=4 sw=4 et
 autocmd BufNewFile,BufRead *.[ch],*.cpp setl ts=8 sts=8 sw=8 noet
-autocmd BufNewFile,BufRead *.rb setl ts=2 sts=2 sw=2
-autocmd BufNewFile,BufRead *.js setl ts=2 sts=2 sw=2
-autocmd BufNewFile,BufRead *.jade setl ts=2 sts=2 sw=2
+autocmd BufNewFile,BufRead *.rb,*.js,*.jade,*.coffee setl ts=2 sts=2 sw=2
+autocmd BufNewFile,BufRead *.vue setl ts=2 sts=2 sw=2 filetype=html
 
 " 删除空白
 autocmd BufWritePre * :%s/\s\+$//e
