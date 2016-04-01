@@ -11,7 +11,7 @@ else
 endif
 
 "
-"============================
+" ==============================
 "
 
 "vundle
@@ -24,14 +24,14 @@ endif
 
 " bufexplorer
 Plugin 'c9s/bufexplorer'
+
 " nerdtree
 Plugin 'scrooloose/nerdtree'
 
-"snipmate
+"snipmate and snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
-"snippets
 Plugin 'honza/vim-snippets'
 
 "Emmet
@@ -42,8 +42,25 @@ Plugin 'mattn/emmet-vim'
 Plugin 'rking/ag.vim'
 let g:ag_prg="ag --vimgrep"
 
+" comment
+Plugin 'tpope/vim-commentary'
+
+" Ctrl-P find file
+Plugin 'kien/ctrlp.vim'
+
+" git plugin
+Plugin 'airblade/vim-gitgutter'
+
+" SuperTabs
+Plugin 'ervandew/supertab'
+
+" Taglist
+Plugin 'zcodes/taglist.vim'
+
+" ------------------------------
 " color themes
-" tomorrow theme: https://github.com/chriskempson/tomorrow-theme
+" ------------------------------
+" Plugin 'chriskempson/tomorrow-theme'
 " Plugin 'wimstefan/Lightning'
 " Plugin 'romainl/Apprentice'
 " Plugin 'vim-scripts/moria'
@@ -56,66 +73,42 @@ let g:ag_prg="ag --vimgrep"
 " Plugin 'zcodes/vim-color-cleanroom'
 " Plugin 'marciomazza/vim-brogrammer-theme'
 " Plugin 'jscappini/material.vim'
+" Plugin 'mhinz/vim-janah'
+" Plugin 'the31k/vim-colors-tayra'
+" Plugin 'GGalizzi/cake-vim'
+" Plugin 'DeepAnchor/enigma.vim'
+" Plugin 'vim-scripts/obsidian2.vim'
+" Plugin 'trevorrjohn/vim-obsidian'
+" Plugin 'adampasz/stonewashed-themes'
+" Plugin 'petelewis/vim-evolution'
+" Plugin 'mkarmona/colorsbox'
+" Plugin 'notpratheek/vim-luna'
+" Plugin 'mkarmona/materialbox'
+" Plugin 'NLKNguyen/papercolor-theme'
+" Plugin 'fent/vim-frozen'
+" Plugin 'jlund3/colorschemer'
+" Plugin 'scheakur/vim-scheakur'
 
-" let g:molokai_original = 1
-
-" JavaScript
+" ------------------------------
+" filetype plugin
+" ------------------------------
 Plugin 'pangloss/vim-javascript'
-
-"markdown
 Plugin 'plasticboy/vim-markdown'
-
-" Twig
 Plugin 'evidens/vim-twig'
-
-" Blade Template
 Plugin 'xsbeats/vim-blade'
-
-" Handlebars
 Plugin 'mustache/vim-mustache-handlebars'
-
-" comment
-" gcc 注释行
-" gc 注释/取消注释块
-Plugin 'tpope/vim-commentary'
-
-Plugin 'kien/ctrlp.vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'StanAngeloff/php.vim'
-
-" git plugin
-Plugin 'airblade/vim-gitgutter'
-
-" SuperTabs
-Plugin 'ervandew/supertab'
-
-" Taglist
-Plugin 'zcodes/taglist.vim'
-
-" Puppet file plugin
 Plugin 'rodjek/vim-puppet'
-
-" css and less
 Plugin 'JulesWang/css.vim'
 Plugin 'genoma/vim-less'
-
-" Plugin for python
 Plugin 'klen/python-mode'
-
-" Plugin for jade template engine
 Plugin 'digitaltoad/vim-jade'
-
-" Plugin for coffee-script
 Plugin 'kchmck/vim-coffee-script'
-
-" Plugin for html
 Plugin 'othree/html5.vim'
 
-" Plugin for vue.js
-" Plugin 'posva/vim-vue'
-
 "
-"============================
+" ==============================
 "
 call vundle#end()
 filetype plugin indent on
@@ -123,16 +116,14 @@ syntax on
 
 
 if has("gui_running")
-    set guioptions-=T
-    set guioptions-=m
-    set guioptions-=r
-    set guioptions-=b
-    set guioptions-=L
+    set guioptions=aegit
 
-    " 字体设置
+    " font setting
     if has("win32")
         set guifont=Fira\ Mono:h11
         set guifontwide=SimHei:h12
+
+        " fix menu encoding in windows.
         set langmenu=en
         source $VIMRUNTIME/delmenu.vim
         source $VIMRUNTIME/menu.vim
@@ -141,11 +132,10 @@ if has("gui_running")
         set guifont=Fira\ Mono\ Medium\ 12
         set guifontwide=思源黑体\ Medium\ 12
     endif
-
-    colorscheme evening
-else
-    colorscheme elflord
 endif
+
+" color scheme settings
+colorscheme evening
 
 " editing
 set noswapfile
