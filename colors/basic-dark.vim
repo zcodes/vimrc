@@ -324,7 +324,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
     " Python Highlighting
     call <SID>X("pythonInclude", s:red, "", "italic")
-    call <SID>X("pythonStatement", s:aqua, "", "italic")
+    call <SID>X("pythonStatement", s:blue, "", "italic")
     call <SID>X("pythonConditional", s:blue, "", "")
     call <SID>X("pythonRepeat", s:blue, "", "")
     call <SID>X("pythonException", s:red, "", "")
