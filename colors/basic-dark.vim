@@ -15,13 +15,17 @@ let s:selection = "546e7a"
 let s:line = "37474f"
 let s:comment = "78909c"
 let s:red = "ee877d"
-let s:orange = "f57c00"
-let s:yellow = "fff59d"
+let s:orange = "ffb74d"
+let s:yellow = "fff176"
 let s:green = "88b888"
 let s:aqua = "00b8d4"
 let s:blue = "6699cc"
 let s:purple = "ce93d8"
 let s:window = "37474f"
+
+" let s:green = "81c784"
+" let s:aqua = "00b8d4"
+" let s:blue = "64b5f6"
 
 set background=dark
 hi clear
@@ -272,18 +276,18 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("Todo", s:red, s:background, "underline,italic,bold")
     call <SID>X("Title", s:comment, "", "")
     call <SID>X("Cursor", "", s:foreground, "")
-    call <SID>X("Identifier", s:aqua, "", "none")
-    call <SID>X("Statement", s:foreground, "", "")
+    call <SID>X("Identifier", s:foreground, "", "none")
+    call <SID>X("Statement", s:yellow, "", "")
     call <SID>X("Conditional", s:foreground, "", "")
-    call <SID>X("Repeat", s:foreground, "", "")
+    call <SID>X("Repeat", s:yellow, "", "")
     call <SID>X("Structure", s:purple, "", "")
-    call <SID>X("Function", s:blue, "", "")
+    call <SID>X("Function", s:aqua, "", "italic")
     call <SID>X("Constant", s:foreground, "", "")
     call <SID>X("String", s:green, "", "")
     call <SID>X("Special", s:foreground, "", "")
     call <SID>X("PreProc", s:aqua, "", "italic")
     call <SID>X("Operator", s:foreground, "", "none")
-    call <SID>X("Type", s:blue, "", "none")
+    call <SID>X("Type", s:blue, "", "italic")
     call <SID>X("Define", s:purple, "", "none")
     call <SID>X("Include", s:blue, "", "")
     "call <SID>X("Ignore", "666666", "", "")
@@ -298,8 +302,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("cRepeat", s:red, "", "")
 
     " PHP Highlighting
-    call <SID>X("phpVarSelector", s:aqua, "", "")
-    call <SID>X("phpKeyword", s:blue, "", "")
+    call <SID>X("phpVarSelector", s:foreground, "", "italic")
+    call <SID>X("phpKeyword", s:aqua, "", "italic")
     call <SID>X("phpRepeat", s:red, "", "")
     call <SID>X("phpConditional", s:blue, "", "underline")
     call <SID>X("phpStatement", s:blue, "", "underline")
@@ -307,7 +311,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
     " Ruby Highlighting
     call <SID>X("rubySymbol", s:green, "", "")
-    call <SID>X("rubyConstant", s:yellow, "", "")
+    call <SID>X("rubyConstant", s:foreground, "", "")
     call <SID>X("rubyAttribute", s:blue, "", "")
     call <SID>X("rubyInclude", s:blue, "", "")
     call <SID>X("rubyLocalVariableOrMethod", s:orange, "", "")
@@ -347,9 +351,9 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("javaScriptMember", s:orange, "", "")
 
     " HTML Highlighting
-    call <SID>X("htmlTag", s:blue, "", "")
-    call <SID>X("htmlTagName", s:blue, "", "")
-    call <SID>X("htmlArg", s:aqua, "", "")
+    call <SID>X("htmlTag", s:foreground, "", "")
+    call <SID>X("htmlTagName", s:foreground, "", "")
+    call <SID>X("htmlArg", s:foreground, "", "")
     call <SID>X("htmlScriptTag", s:blue, "", "")
 
     " Diff Highlighting
