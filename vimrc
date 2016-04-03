@@ -57,6 +57,9 @@ Plugin 'ervandew/supertab'
 " Taglist
 Plugin 'zcodes/taglist.vim'
 
+" Powerline
+" Plugin 'Lokaltog/vim-powerline'
+
 " Update Last Change Time
 " Plugin 'vim-scripts/update-time'
 
@@ -142,7 +145,8 @@ if has("gui_running")
 endif
 
 " color scheme settings
-colorscheme basic-light
+" colorscheme basic-light
+colorscheme basic-dark
 
 " editing
 set noswapfile
@@ -157,6 +161,7 @@ set ruler
 set showcmd
 set showmode
 set formatoptions=tcqm
+set laststatus=2
 
 " file encodings
 set encoding=utf-8
@@ -210,5 +215,12 @@ nmap <F5> :TlistToggle<cr>
 " endif
 let Tlist_Use_Right_Window = 1
 let Tlist_Show_One_File = 1
+
+" Enable powerline
+" TODO get powerline works
+" let g:Powerline_symbols = 'compatible'
+" let g:Powerline_dividers_override = ['>>', '>', '<<', '<']
+" let g:Powerline_theme = 'default'
+" let g:Powerline_colorscheme = 'solarized'
 
 " vim: ts=4 sts=4 sw=4 et
