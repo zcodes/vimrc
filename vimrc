@@ -57,6 +57,9 @@ Plugin 'ervandew/supertab'
 " Taglist
 Plugin 'zcodes/taglist.vim'
 
+" Update Last Change Time
+" Plugin 'vim-scripts/update-time'
+
 " ------------------------------
 " color themes
 " ------------------------------
