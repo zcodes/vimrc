@@ -60,7 +60,7 @@ Plugin 'zcodes/taglist.vim'
 " ------------------------------
 " color themes
 " ------------------------------
-" Plugin 'chriskempson/tomorrow-theme'
+" Plugin 'chriskempson/vim-tomorrow-theme'
 " Plugin 'wimstefan/Lightning'
 " Plugin 'romainl/Apprentice'
 " Plugin 'vim-scripts/moria'
@@ -88,6 +88,9 @@ Plugin 'zcodes/taglist.vim'
 " Plugin 'fent/vim-frozen'
 " Plugin 'jlund3/colorschemer'
 " Plugin 'scheakur/vim-scheakur'
+" Plugin 'endel/vim-github-colorscheme'
+" Plugin 'nelstrom/vim-mac-classic-theme'
+" Plugin 'DAddYE/soda.vim'
 
 " ------------------------------
 " filetype plugin
