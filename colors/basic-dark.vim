@@ -22,6 +22,7 @@ let s:aqua = "00b8d4"
 let s:blue = "6699cc"
 let s:purple = "ce93d8"
 let s:window = "37474f"
+let s:grey = "b0bec5"
 
 " let s:green = "81c784"
 " let s:aqua = "00b8d4"
@@ -276,7 +277,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("Todo", s:red, s:background, "underline,italic,bold")
     call <SID>X("Title", s:comment, "", "")
     call <SID>X("Cursor", "", s:foreground, "")
-    call <SID>X("Identifier", s:foreground, "", "none")
+    call <SID>X("Identifier", s:grey, "", "italic")
     call <SID>X("Statement", s:yellow, "", "")
     call <SID>X("Conditional", s:foreground, "", "")
     call <SID>X("Repeat", s:yellow, "", "")
@@ -302,12 +303,12 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("cRepeat", s:red, "", "")
 
     " PHP Highlighting
-    call <SID>X("phpVarSelector", s:foreground, "", "italic")
+    call <SID>X("phpVarSelector", s:grey, "", "italic")
     call <SID>X("phpKeyword", s:aqua, "", "italic")
     call <SID>X("phpRepeat", s:red, "", "")
     call <SID>X("phpConditional", s:blue, "", "underline")
     call <SID>X("phpStatement", s:blue, "", "underline")
-    call <SID>X("phpMemberSelector", s:foreground, "", "")
+    call <SID>X("phpMemberSelector", s:grey, "", "italic")
 
     " Ruby Highlighting
     call <SID>X("rubySymbol", s:green, "", "")
