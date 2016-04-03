@@ -6,21 +6,22 @@
 " the theme file original copyed from Tomorrow theme.
 " see: https://github.com/chriskempson/vim-tomorrow-theme.git for it.
 "
+" most of the colors based on Google Material Design.
 
 " default base colors
-let s:foreground = "bbbbbb"
-let s:background = "000000"
-let s:selection = "555555"
-let s:line = "202020"
-let s:comment = "999999"
+let s:foreground = "cfd8dc"
+let s:background = "263238"
+let s:selection = "546e7a"
+let s:line = "37474f"
+let s:comment = "78909c"
 let s:red = "ee877d"
-let s:orange = "d0b03c"
+let s:orange = "f57c00"
 let s:yellow = "fff59d"
 let s:green = "88b888"
-let s:aqua = "3e999f"
+let s:aqua = "00b8d4"
 let s:blue = "6699cc"
-let s:purple = "c8a0d1"
-let s:window = "333333"
+let s:purple = "ce93d8"
+let s:window = "37474f"
 
 set background=dark
 hi clear
