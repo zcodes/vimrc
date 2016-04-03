@@ -123,7 +123,8 @@ if has("gui_running")
 
     " font setting
     if has("win32")
-        set guifont=Fira\ Mono:h11
+        " set guifont=Fira_Mono_Medium:h12
+        set guifont=Source_Code_Pro_Semibold:h12
         set guifontwide=SimHei:h12
 
         " fix menu encoding in windows.
