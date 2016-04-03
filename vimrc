@@ -142,7 +142,7 @@ if has("gui_running")
 endif
 
 " color scheme settings
-colorscheme basic-dark
+colorscheme basic-light
 
 " editing
 set noswapfile
