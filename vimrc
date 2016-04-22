@@ -1,3 +1,8 @@
+"
+" my personal .vimrc file
+"
+" Author: zcodes <zcodes@163.com>
+"
 set nocompatible
 filetype off
 
@@ -10,11 +15,9 @@ else
     call vundle#begin()
 endif
 
+" Plugins {{{1
 "
-" ==============================
-"
-
-"vundle
+" vundle
 Plugin 'VundleVim/Vundle.vim'
 
 if has("win32")
@@ -28,13 +31,13 @@ Plugin 'c9s/bufexplorer'
 " nerdtree
 Plugin 'scrooloose/nerdtree'
 
-"snipmate and snippets
+" snipmate and snippets
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 
-"Emmet
+" Emmet
 " C-y , expand expression
 Plugin 'mattn/emmet-vim'
 
@@ -63,8 +66,7 @@ Plugin 'zcodes/taglist.vim'
 " Update Last Change Time
 " Plugin 'vim-scripts/update-time'
 
-" ------------------------------
-" color themes
+" color themes {{{2
 " ------------------------------
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'mkarmona/colorsbox'
@@ -97,9 +99,10 @@ Plugin 'mkarmona/materialbox'
 " Plugin 'endel/vim-github-colorscheme'
 " Plugin 'nelstrom/vim-mac-classic-theme'
 " Plugin 'DAddYE/soda.vim'
+"
+" 2}}}
 
-" ------------------------------
-" filetype plugin
+" filetype plugin {{{2
 " ------------------------------
 Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
@@ -116,24 +119,23 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'othree/html5.vim'
 
+" 2}}}
+
 " preview colors
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'lilydjwg/colorizer'
 
-"
-" ==============================
-"
 call vundle#end()
+" 1}}}
+
 filetype plugin indent on
 syntax on
-
 
 if has("gui_running")
     set guioptions=aegit
 
     " font setting
     if has("win32")
-        " set guifont=Fira_Mono_Medium:h12
         set guifont=Source_Code_Pro_Semibold:h12
         set guifontwide=SimHei:h12
 
@@ -153,14 +155,19 @@ endif
 colorscheme basic-dark
 
 " editing
-set noswapfile
-set nobackup
+set noswapfile " no swapfile when editing
+set nobackup " don't create backup files
 set backspace=indent,eol,start
 set autoread
-set nu
+set nu " show line number
 set cursorline " highlight current line
+" enable list mode, show tabs, eof, trail ...
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+
+" mouse setting
+set mouse=a
+set mousemodel=popup
 
 set smartindent
 set autoindent
@@ -197,6 +204,9 @@ set fileencodings=utf-8,gbk,gb2312,latin-1
 set fileformat=unix
 set fileformats=unix,dos,mac
 
+set fixendofline
+set foldenable
+
 " searchings
 set hlsearch
 set incsearch
@@ -213,6 +223,7 @@ autocmd BufNewFile,BufRead *.vue setl ts=2 sts=2 sw=2 filetype=html
 " 删除空白
 autocmd BufWritePre * :%s/\s\+$//e
 
+" Python pymode setting
 let g:pymode_rope = 0
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope_autoimport = 0
@@ -254,4 +265,4 @@ let Tlist_Show_One_File = 1
 " let g:Powerline_theme = 'default'
 " let g:Powerline_colorscheme = 'solarized'
 
-" vim: ts=4 sts=4 sw=4 et
+" vim: ts=4 sts=4 sw=4 et fdm=marker:
