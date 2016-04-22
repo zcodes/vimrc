@@ -32,7 +32,7 @@ set background=dark
 hi clear
 syntax reset
 
-let g:colors_name = "Basic-Dark"
+let g:colors_name = "basic-dark"
 
 if has("gui_running") || &t_Co == 88 || &t_Co == 256
     " Returns an approximate grey index for the given grey level
