@@ -116,6 +116,10 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'othree/html5.vim'
 
+" preview colors
+Plugin 'gorodinskiy/vim-coloresque'
+Plugin 'lilydjwg/colorizer'
+
 "
 " ==============================
 "
@@ -227,6 +231,12 @@ let NERDTreeDirArrows=0
 nmap <F3> :NERDTreeFocus<cr>
 nmap <F4> :NERDTreeClose<cr>
 nmap <F5> :TlistToggle<cr>
+
+" Emmet Settings
+" TODO use <tab> expand abbr.
+" https://github.com/mattn/emmet-vim/issues/168
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,blade EmmetInstall
 
 " Taglist settings
 " for ubuntu
