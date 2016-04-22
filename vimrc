@@ -154,14 +154,35 @@ set nobackup
 set backspace=indent,eol,start
 set autoread
 set nu
+set cursorline " highlight current line
+set list
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
 
 set smartindent
 set autoindent
-set ruler
-set showcmd
+set nojoinspaces
+set splitright
+set splitbelow
+
+if has('cmdline_info')
+    set ruler
+    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
+    set showcmd
+endif
+
 set showmode
 set formatoptions=tcqm
-set laststatus=2
+
+if has('statusline')
+    set laststatus=2
+
+    set statusline=%<%f
+    set statusline+=\ %w%h%m%r
+    set statusline+=\ [%{&ff}/%Y]
+    set statusline+=\ [%{getcwd()}]
+    set statusline+=%=%-14.(%l,%c%V%)\ %p%%
+endif
+set hidden " allow switch buffer without saving.
 
 " file encodings
 set encoding=utf-8
