@@ -53,6 +53,7 @@ Plugin 'kien/ctrlp.vim'
 
 " git plugin
 Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
 
 " SuperTabs
 Plugin 'ervandew/supertab'
