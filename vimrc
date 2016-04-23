@@ -60,6 +60,10 @@ Plugin 'ervandew/supertab'
 " Taglist
 Plugin 'zcodes/taglist.vim'
 
+" airline
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
 " Powerline
 " Plugin 'Lokaltog/vim-powerline'
 
@@ -260,11 +264,12 @@ autocmd FileType html,css,blade EmmetInstall
 let Tlist_Use_Right_Window = 1
 let Tlist_Show_One_File = 1
 
-" Enable powerline
-" TODO get powerline works
-" let g:Powerline_symbols = 'compatible'
-" let g:Powerline_dividers_override = ['>>', '>', '<<', '<']
-" let g:Powerline_theme = 'default'
-" let g:Powerline_colorscheme = 'solarized'
+" airline settings
+if has('gui_running')
+    let g:airline_theme = 'tomorrow'
+else
+    let g:airline_theme = 'raven'
+endif
+let g:airline_powerline_fonts=0
 
 " vim: ts=4 sts=4 sw=4 et fdm=marker:
