@@ -204,7 +204,9 @@ set fileencodings=utf-8,gbk,gb2312,latin-1
 set fileformat=unix
 set fileformats=unix,dos,mac
 
-set fixendofline
+if exists('+fixendofline')
+    set fixendofline
+endif
 set foldenable
 
 " searchings
