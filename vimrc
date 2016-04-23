@@ -137,6 +137,14 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 
+" file encodings
+" Note: move encoding stuff here for fix listchars option cause invalid
+" character error on windows.
+scriptencoding utf-8
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=utf-8,gbk,gb2312,latin-1
+
 if has("gui_running")
     set guioptions=aegit
 
@@ -169,7 +177,7 @@ set nu " show line number
 set cursorline " highlight current line
 " enable list mode, show tabs, eof, trail ...
 set list
-set listchars=tab:›\ ,trail:•,extends:#,nbsp:.
+set listchars=tab:›\ ,trail:•,precedes:«,extends:»,nbsp:. " ,eol:¬
 
 " mouse setting
 set mouse=a
@@ -200,11 +208,6 @@ if has('statusline')
     set statusline+=%=%-14.(%l,%c%V%)\ %p%%
 endif
 set hidden " allow switch buffer without saving.
-
-" file encodings
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8,gbk,gb2312,latin-1
 
 " file line endings
 set fileformat=unix
