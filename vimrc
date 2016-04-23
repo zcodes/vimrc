@@ -58,7 +58,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'ervandew/supertab'
 
 " Taglist
-Plugin 'zcodes/taglist.vim'
+" Plugin 'zcodes/taglist.vim'
+Plugin 'majutsushi/tagbar'
 
 " airline
 Plugin 'vim-airline/vim-airline'
@@ -247,7 +248,7 @@ let NERDTreeDirArrows=0
 "key bindings
 nmap <F3> :NERDTreeFocus<cr>
 nmap <F4> :NERDTreeClose<cr>
-nmap <F5> :TlistToggle<cr>
+nmap <F5> :TagbarToggle<cr>
 
 " Emmet Settings
 " TODO use <tab> expand abbr.
@@ -261,8 +262,12 @@ autocmd FileType html,css,blade EmmetInstall
 " if executable('ctags-exuberant')
 "     let Tlist_Ctags_Cmd='ctags-exuberant'
 " endif
-let Tlist_Use_Right_Window = 1
-let Tlist_Show_One_File = 1
+" let Tlist_Use_Right_Window = 1
+" let Tlist_Show_One_File = 1
+
+" Tagbar settings
+let g:tagbar_show_linenumbers = 2
+let g:tagbar_foldlevel = 2
 
 " airline settings
 if has('gui_running')
