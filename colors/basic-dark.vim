@@ -313,7 +313,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("phpDefine", s:purple, "", "")
     call <SID>X("phpConditional", s:purple, "", "underline")
     call <SID>X("phpStatement", s:purple, "", "underline")
-    call <SID>X("phpClasses", s:blue, "", "")
+    call <SID>X("phpClasses", s:orange, "", "")
     call <SID>X("phpDocTags", s:aqua, "", "")
     call <SID>X("phpDocParam", s:green, "", "underline")
     call <SID>X("phpRegion", s:blue, "", "")
