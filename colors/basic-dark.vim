@@ -303,12 +303,21 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("cRepeat", s:red, "", "")
 
     " PHP Highlighting
-    call <SID>X("phpVarSelector", s:grey, "", "italic")
-    call <SID>X("phpKeyword", s:aqua, "", "italic")
+    call <SID>X("phpVarSelector", s:red, "", "")
+    call <SID>X("phpIdentifier", s:red, "", "")
+    call <SID>X("phpFCKeyword", s:purple, "", "")
+    call <SID>X("phpSCKeyword", s:purple, "", "")
+    call <SID>X("phpKeyword", s:purple, "", "")
+    call <SID>X("phpType", s:purple, "", "")
     call <SID>X("phpRepeat", s:red, "", "")
-    call <SID>X("phpConditional", s:blue, "", "underline")
-    call <SID>X("phpStatement", s:blue, "", "underline")
-    call <SID>X("phpMemberSelector", s:grey, "", "italic")
+    call <SID>X("phpDefine", s:purple, "", "")
+    call <SID>X("phpConditional", s:purple, "", "underline")
+    call <SID>X("phpStatement", s:purple, "", "underline")
+    call <SID>X("phpClasses", s:blue, "", "")
+    call <SID>X("phpDocTags", s:aqua, "", "")
+    call <SID>X("phpDocParam", s:green, "", "underline")
+    call <SID>X("phpRegion", s:blue, "", "")
+    call <SID>X("phpMemberSelector", s:grey, "", "bold")
 
     " Ruby Highlighting
     call <SID>X("rubySymbol", s:green, "", "")

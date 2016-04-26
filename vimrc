@@ -235,6 +235,10 @@ autocmd BufNewFile,BufRead *.vue setl ts=2 sts=2 sw=2 filetype=html
 " 删除空白
 autocmd BufWritePre * :%s/\s\+$//e
 
+" php.vim settings
+" let g:php_syntax_extensions_enabled = []
+" let g:php_syntax_extensions_disabled = []
+
 " Python pymode setting
 let g:pymode_rope = 0
 let g:pymode_rope_complete_on_dot = 0
