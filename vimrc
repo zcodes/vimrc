@@ -122,7 +122,7 @@ Plugin 'JulesWang/css.vim'
 Plugin 'genoma/vim-less'
 Plugin 'klen/python-mode'
 Plugin 'digitaltoad/vim-jade'
-Plugin 'kchmck/vim-coffee-script'
+Plugin 'zcodes/vim-coffee-script'
 Plugin 'othree/html5.vim'
 
 " 2}}}
