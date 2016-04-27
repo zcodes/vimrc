@@ -228,9 +228,10 @@ set foldlevel=999
 " tabs
 set ts=4 sts=4 sw=4 et
 autocmd BufNewFile,BufRead *.[ch],*.cpp setl ts=8 sts=8 sw=8 noet
-autocmd BufNewFile,BufRead *.rb,*.js,*.jade,*.coffee setl ts=2 sts=2 sw=2
+autocmd BufNewFile,BufRead *.rb,*.js,*.jade setl ts=2 sts=2 sw=2
 autocmd BufNewFile,BufRead *.html,*.blade.php setl ts=2 sts=2 sw=2
 autocmd BufNewFile,BufRead *.vue setl ts=2 sts=2 sw=2 filetype=html
+autocmd BufNewFile,BufRead *.coffee setl ts=2 sts=2 sw=2 fdm=indent nofen
 
 " 删除空白
 autocmd BufWritePre * :%s/\s\+$//e

@@ -356,6 +356,11 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("coffeeSpecialIdent", s:red, "", "")
     call <SID>X("coffeeObject", s:orange, "", "")
     call <SID>X("coffeeObjAssign", s:blue, "", "")
+    call <SID>X("coffeeArrow", s:purple, "", "")
+    call <SID>X("coffeeBoolean", s:foreground, "", "")
+    call <SID>X("coffeeGlobal", s:foreground, "", "")
+    call <SID>X("coffeeModuleKeyword", s:aqua, "", "")
+    call <SID>X("coffeeFuncCall", s:blue, "", "")
 
     " JavaScript Highlighting
     call <SID>X("javaScriptBraces", s:foreground, "", "")
