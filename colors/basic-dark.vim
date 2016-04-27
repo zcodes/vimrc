@@ -352,6 +352,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     " CoffeeScript Highlighting
     call <SID>X("coffeeKeyword", s:purple, "", "")
     call <SID>X("coffeeConditional", s:purple, "", "")
+    call <SID>X("coffeeSpecialVar", s:orange, "", "")
+    call <SID>X("coffeeSpecialIdent", s:red, "", "")
+    call <SID>X("coffeeObject", s:orange, "", "")
+    call <SID>X("coffeeObjAssign", s:blue, "", "")
 
     " JavaScript Highlighting
     call <SID>X("javaScriptBraces", s:foreground, "", "")
