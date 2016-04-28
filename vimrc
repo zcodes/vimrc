@@ -131,6 +131,9 @@ Plugin 'othree/html5.vim'
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'lilydjwg/colorizer'
 
+" auto-pairs
+Plugin 'jiangmiao/auto-pairs'
+
 call vundle#end()
 " 1}}}
 
