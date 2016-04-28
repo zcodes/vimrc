@@ -376,6 +376,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("htmlArg", s:foreground, "", "")
     call <SID>X("htmlScriptTag", s:blue, "", "")
 
+    " Blade Tempalte Highlight
+    call <SID>X("bladeDelimiter", s:orange, "", "")
+    call <SID>X("bladeKeyword", s:blue, "", "bold")
+
     " Diff Highlighting
     call <SID>X("diffAdded", s:green, "", "")
     call <SID>X("diffRemoved", s:red, "", "")
