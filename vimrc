@@ -113,7 +113,6 @@ Plugin 'mkarmona/materialbox'
 Plugin 'pangloss/vim-javascript'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'evidens/vim-twig'
-Plugin 'xsbeats/vim-blade'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'StanAngeloff/php.vim'
@@ -124,6 +123,7 @@ Plugin 'klen/python-mode'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'zcodes/vim-coffee-script'
 Plugin 'othree/html5.vim'
+Plugin 'zcodes/vim-blade'
 
 " 2}}}
 
