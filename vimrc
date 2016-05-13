@@ -264,10 +264,49 @@ nmap <F4> :NERDTreeClose<cr>
 nmap <F5> :TagbarToggle<cr>
 
 " Emmet Settings
-" TODO use <tab> expand abbr.
 " https://github.com/mattn/emmet-vim/issues/168
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,blade EmmetInstall
+let g:user_emmet_complete_tag = 1
+autocmd FileType html,css,blade,twig EmmetInstall
+
+" SuperTab Settings
+" g:SuperTabDefaultCompletionType
+" g:SuperTabContextDefaultCompletionType
+" b:SuperTabContextDefaultCompletionType
+" let g:SuperTabDefaultCompletionType = 'context'
+
+autocmd FileType html,css,blade
+            \ if &omnifunc != '' |
+            \   call SuperTabChain(&omnifunc, "<c-p>") |
+            \ endif
+
+" https://github.com/mattn/emmet-vim/issues/168
+" TODO snipmate position not work !
+function! s:emmet_with_snipmate()
+    if snipMate#CanBeTriggered()
+        return "\<plug>snipMateNextOrTrigger"
+    endif
+
+    let line = getline('.')
+    if col('.') < len(line)
+        let line = matchstr(line, '[">][^<"]*\%'.col('.').'c[^>"]*[<"]')
+
+        if len(line) >= 2
+            return "\<Plug>(emmet-move-next)"
+        endif
+    endif
+
+    if pumvisible()
+        return "\<c-n>"
+    endif
+
+    if emmet#isExpandable()
+        return "\<plug>(emmet-expand-abbr)"
+    endif
+
+    return "\<tab>"
+endfunction
+auto FileType html,css,blade,twig imap <buffer><expr><tab> <sid>emmet_with_snipmate()
 
 " Taglist settings
 " for ubuntu
