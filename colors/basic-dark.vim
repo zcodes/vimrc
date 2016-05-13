@@ -277,18 +277,18 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("Todo", s:red, s:background, "underline,bold")
     call <SID>X("Title", s:comment, "", "")
     call <SID>X("Cursor", "", s:foreground, "")
-    call <SID>X("Identifier", s:grey, "", "italic")
+    call <SID>X("Identifier", s:grey, "", "")
     call <SID>X("Statement", s:yellow, "", "")
     call <SID>X("Conditional", s:foreground, "", "")
     call <SID>X("Repeat", s:yellow, "", "")
     call <SID>X("Structure", s:purple, "", "")
-    call <SID>X("Function", s:aqua, "", "italic")
+    call <SID>X("Function", s:aqua, "", "")
     call <SID>X("Constant", s:foreground, "", "")
     call <SID>X("String", s:green, "", "")
     call <SID>X("Special", s:foreground, "", "")
-    call <SID>X("PreProc", s:aqua, "", "italic")
+    call <SID>X("PreProc", s:aqua, "", "")
     call <SID>X("Operator", s:foreground, "", "none")
-    call <SID>X("Type", s:blue, "", "italic")
+    call <SID>X("Type", s:blue, "", "")
     call <SID>X("Define", s:purple, "", "none")
     call <SID>X("Include", s:blue, "", "")
     "call <SID>X("Ignore", "666666", "", "")
@@ -297,8 +297,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("vimCommand", s:blue, "", "none")
 
     " C Highlighting
-    call <SID>X("cType", s:blue, "", "italic")
-    call <SID>X("cStorageClass", s:blue, "", "italic")
+    call <SID>X("cType", s:blue, "", "")
+    call <SID>X("cStorageClass", s:blue, "", "")
     call <SID>X("cConditional", s:red, "", "")
     call <SID>X("cRepeat", s:red, "", "")
 
@@ -333,12 +333,12 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("rubyRepeat", s:purple, "", "")
 
     " Python Highlighting
-    call <SID>X("pythonInclude", s:red, "", "italic")
-    call <SID>X("pythonStatement", s:blue, "", "italic")
+    call <SID>X("pythonInclude", s:red, "", "")
+    call <SID>X("pythonStatement", s:blue, "", "")
     call <SID>X("pythonConditional", s:blue, "", "")
     call <SID>X("pythonRepeat", s:blue, "", "")
     call <SID>X("pythonException", s:red, "", "")
-    call <SID>X("pythonFunction", s:aqua, "", "italic")
+    call <SID>X("pythonFunction", s:aqua, "", "")
 
     " Go Highlighting
     call <SID>X("goStatement", s:purple, "", "")
