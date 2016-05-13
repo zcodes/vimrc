@@ -1,0 +1,48 @@
+snippet sec
+	@section('${1}')
+		${0}
+	@endsection
+
+snippet secl
+	@section('${1}', '${2}')
+
+snippet sec.show
+	@section('${1}')
+		${0}
+	@show
+
+snippet ext
+	@extends('${0}')
+
+snippet foreach
+	@foreach (${1})
+		${0}
+	@endforeach
+
+snippet forelse
+	@forelse (${1})
+		${2}
+	@else
+		${3}
+	@endforelse
+
+snippet if
+	@if (${0})
+	@endif
+
+snippet ife
+	@if (${0})
+		${1}
+	@else
+		${2}
+	@endif
+
+snippet iff
+	@if (${1})
+		${2}
+	@elseif (${3})
+		${4}
+	@else
+		${5}
+	@endif
+
