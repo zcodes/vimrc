@@ -35,6 +35,7 @@ set fileencodings=utf-8,gbk,gb2312,latin-1
 
 if has("gui_running")
     set guioptions=aegit
+    set cursorline " highlight current line
 
     " font setting
     if has("win32")
@@ -62,7 +63,6 @@ set nobackup " don't create backup files
 set backspace=indent,eol,start
 set autoread
 set nu " show line number
-set cursorline " highlight current line
 " enable list mode, show tabs, eof, trail ...
 set list
 exec 'set listchars=tab:›\ ,trail:•,precedes:«,extends:»,nbsp:.'
@@ -118,7 +118,7 @@ set foldlevel=999
 set ts=4 sts=4 sw=4 et
 autocmd BufNewFile,BufRead *.[ch],*.cpp setl ts=8 sts=8 sw=8 noet
 autocmd BufNewFile,BufRead *.rb,*.js,*.jade setl ts=2 sts=2 sw=2
-autocmd BufNewFile,BufRead *.html,*.blade.php setl ts=2 sts=2 sw=2
+autocmd BufNewFile,BufRead *.html,*.blade.php,*.css,*.less setl ts=2 sts=2 sw=2
 autocmd BufNewFile,BufRead *.vue setl ts=2 sts=2 sw=2 filetype=html
 autocmd BufNewFile,BufRead *.coffee setl ts=2 sts=2 sw=2 fdm=indent nofen
 
