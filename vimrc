@@ -124,6 +124,7 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'zcodes/vim-coffee-script'
 Plugin 'othree/html5.vim'
 Plugin 'zcodes/vim-blade'
+Plugin 'chase/vim-ansible-yaml'
 
 " 2}}}
 
@@ -230,11 +231,11 @@ set foldlevel=999
 
 " tabs
 set ts=4 sts=4 sw=4 et
-autocmd BufNewFile,BufRead *.[ch],*.cpp setl ts=8 sts=8 sw=8 noet
-autocmd BufNewFile,BufRead *.rb,*.js,*.jade setl ts=2 sts=2 sw=2
-autocmd BufNewFile,BufRead *.html,*.blade.php setl ts=2 sts=2 sw=2
+autocmd BufNewFile,BufRead *.html,*.less,*.css,*.js,
+            \*.blade.php,*.rb,*.jade setl ts=2 sts=2 sw=2
 autocmd BufNewFile,BufRead *.vue setl ts=2 sts=2 sw=2 filetype=html
 autocmd BufNewFile,BufRead *.coffee setl ts=2 sts=2 sw=2 fdm=indent nofen
+autocmd BufNewFile,BufRead *.[ch],*.cpp setl ts=8 sts=8 sw=8 noet
 
 " 删除空白
 autocmd BufWritePre * :%s/\s\+$//e
@@ -273,9 +274,9 @@ autocmd FileType html,css,blade,twig EmmetInstall
 " g:SuperTabDefaultCompletionType
 " g:SuperTabContextDefaultCompletionType
 " b:SuperTabContextDefaultCompletionType
-" let g:SuperTabDefaultCompletionType = 'context'
+let g:SuperTabDefaultCompletionType = 'context'
 
-autocmd FileType html,css,blade
+autocmd FileType html,css,blade,twig
             \ if &omnifunc != '' |
             \   call SuperTabChain(&omnifunc, "<c-p>") |
             \ endif
