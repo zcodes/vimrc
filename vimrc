@@ -39,8 +39,9 @@ if has("gui_running")
 
     " font setting
     if has("win32")
-        set guifont=Source_Code_Pro_Semibold:h12
-        set guifontwide=SimHei:h12
+        " just leave example here. use s:vim_home/vimrc.local setting fonts.
+        " set guifont=Source_Code_Pro_Semibold:h12
+        " set guifontwide=SimHei:h12
 
         " fix menu encoding in windows.
         set langmenu=en
@@ -48,8 +49,9 @@ if has("gui_running")
         source $VIMRUNTIME/menu.vim
         language messages en_US.utf-8
     else
-        set guifont=Fira\ Mono\ Medium\ 12
-        set guifontwide=思源黑体\ Medium\ 12
+        " just leave example here. use s:vim_home/vimrc.local setting fonts.
+        " set guifont=Fira\ Mono\ Medium\ 12
+        " set guifontwide=思源黑体\ Medium\ 12
     endif
 endif
 
@@ -217,6 +219,10 @@ let g:airline_powerline_fonts=0
 
 if has("win32") && filereadable(s:vim_home . '/vimrc.win')
     exec 'source ' . s:vim_home . '/vimrc.win'
+endif
+
+if filereadable(s:vim_home . '/vimrc.local')
+    exec 'source ' . s:vim_home . '/vimrc.local'
 endif
 
 " vim: ts=4 sts=4 sw=4 et fdm=marker:
