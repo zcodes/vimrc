@@ -40,7 +40,9 @@ if has("gui_running")
     " font setting
     if has("win32")
         " just leave example here. use s:vim_home/vimrc.local setting fonts.
+        " two style for font's name.
         " set guifont=Source_Code_Pro_Semibold:h12
+        " set guifont=Source\ Code\ Pro\ Semibold:h12
         " set guifontwide=SimHei:h12
 
         " fix menu encoding in windows.
@@ -48,7 +50,7 @@ if has("gui_running")
         source $VIMRUNTIME/delmenu.vim
         source $VIMRUNTIME/menu.vim
         language messages en_US.utf-8
-    else
+    " else
         " just leave example here. use s:vim_home/vimrc.local setting fonts.
         " set guifont=Fira\ Mono\ Medium\ 12
         " set guifontwide=思源黑体\ Medium\ 12
