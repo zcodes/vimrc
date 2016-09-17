@@ -125,6 +125,7 @@ autocmd BufNewFile,BufRead *.html,*.less,*.css,*.js,
 autocmd BufNewFile,BufRead *.vue setl ts=2 sts=2 sw=2 filetype=html
 autocmd BufNewFile,BufRead *.coffee setl ts=2 sts=2 sw=2 fdm=indent nofen
 autocmd BufNewFile,BufRead *.[ch],*.cpp setl ts=8 sts=8 sw=8 noet
+autocmd BufNewFile,BufRead *.go setl ts=4 sts=4 sw=4 noet
 
 " 删除空白
 autocmd BufWritePre * :%s/\s\+$//e
@@ -151,9 +152,9 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 " By default vim-go shows errors for the fmt command, to disable it:
-let g:go_fmt_fail_silently = 1
+" let g:go_fmt_fail_silently = 1
 " Disable auto fmt on save:
-let g:go_fmt_autosave = 0
+" let g:go_fmt_autosave = 0
 " Disable opening browser after posting your snippet to play.golang.org:
 let g:go_play_open_browser = 0
 " Disable updating dependencies when installing/updating binaries:
