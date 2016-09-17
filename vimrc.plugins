@@ -108,6 +108,7 @@ Plugin 'digitaltoad/vim-jade'
 Plugin 'zcodes/vim-coffee-script'
 Plugin 'othree/html5.vim'
 Plugin 'zcodes/vim-blade'
+Plugin 'fatih/vim-go'
 
 " 2}}}
 

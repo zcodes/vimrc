@@ -139,6 +139,43 @@ let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope_autoimport = 0
 autocmd BufNewFile,BufRead *.py setl ts=8 et sw=4 sts=4
 
+" Vim-go settings
+" use :GoInstallBinaries install additional tools
+" and set it's installtion path
+" let g:go_bin_path = expand("~/.gotools")
+" syntax-highlighting options
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+" By default vim-go shows errors for the fmt command, to disable it:
+let g:go_fmt_fail_silently = 1
+" Disable auto fmt on save:
+let g:go_fmt_autosave = 0
+" Disable opening browser after posting your snippet to play.golang.org:
+let g:go_play_open_browser = 0
+" Disable updating dependencies when installing/updating binaries:
+let g:go_get_update = 0
+
+" keybinds for vim-go
+au FileType go nmap <leader>gr <Plug>(go-run)
+au FileType go nmap <leader>gb <Plug>(go-build)
+au FileType go nmap <leader>gt <Plug>(go-test)
+au FileType go nmap <leader>gc <Plug>(go-coverage)
+
+" other keys, just comment here.
+" au FileType go nmap <Leader>ds <Plug>(go-def-split)
+" au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+" au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+" au FileType go nmap <Leader>gd <Plug>(go-doc)
+" au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+" au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+" au FileType go nmap <Leader>s <Plug>(go-implements)
+" au FileType go nmap <Leader>i <Plug>(go-info)
+" au FileType go nmap <Leader>e <Plug>(go-rename)
+
 " Semantic UI
 autocmd BufNewFile,BufRead *.overrides,*.variables setl filetype=less
 
