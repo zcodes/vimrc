@@ -26,8 +26,11 @@ Plugin 'honza/vim-snippets'
 Plugin 'mattn/emmet-vim'
 
 " File Searching
-Plugin 'rking/ag.vim'
-let g:ag_prg="ag --vimgrep"
+" Plugin 'rking/ag.vim'
+" let g:ag_prg="ag --vimgrep"
+" let g:ag_mapping_message = 0
+Plugin 'mileszs/ack.vim'
+let g:ackprg='ag --vimgrep'
 
 " comment
 Plugin 'tpope/vim-commentary'
