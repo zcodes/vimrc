@@ -31,7 +31,7 @@ syntax on
 scriptencoding utf-8
 set encoding=utf-8
 set fileencoding=utf-8
-set fileencodings=utf-8,gbk,gb2312,latin-1
+set fileencodings=utf-8,gbk,gb2312,gb18030,ucs-bom,utf16-le,latin-1
 
 if has("gui_running")
     set guioptions=aegit
