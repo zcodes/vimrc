@@ -138,6 +138,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 let g:pymode_rope = 0
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope_autoimport = 0
+" let max line length is 120
+" let g:pymode_options_max_line_length=120
 autocmd BufNewFile,BufRead *.py setl ts=8 et sw=4 sts=4
 
 " Vim-go settings

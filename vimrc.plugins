@@ -112,6 +112,8 @@ Plugin 'zcodes/vim-coffee-script'
 Plugin 'othree/html5.vim'
 Plugin 'zcodes/vim-blade'
 Plugin 'fatih/vim-go'
+" Plugin 'AndrewRadev/vim-eco'
+Plugin 'zcodes/vim-eco'
 
 " 2}}}
 
