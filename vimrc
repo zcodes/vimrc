@@ -31,7 +31,7 @@ syntax on
 scriptencoding utf-8
 set encoding=utf-8
 set fileencoding=utf-8
-set fileencodings=utf-8,gbk,gb2312,latin-1
+set fileencodings=utf-8,gbk,gb2312,gb18030,ucs-bom,utf16-le,latin-1
 
 if has("gui_running")
     set guioptions=aegit
@@ -39,17 +39,21 @@ if has("gui_running")
 
     " font setting
     if has("win32")
-        set guifont=Source_Code_Pro_Semibold:h12
-        set guifontwide=SimHei:h12
+        " just leave example here. use s:vim_home/vimrc.local setting fonts.
+        " two style for font's name.
+        " set guifont=Source_Code_Pro_Semibold:h12
+        " set guifont=Source\ Code\ Pro\ Semibold:h12
+        " set guifontwide=SimHei:h12
 
         " fix menu encoding in windows.
         set langmenu=en
         source $VIMRUNTIME/delmenu.vim
         source $VIMRUNTIME/menu.vim
         language messages en_US.utf-8
-    else
-        set guifont=Fira\ Mono\ Medium\ 12
-        set guifontwide=思源黑体\ Medium\ 12
+    " else
+        " just leave example here. use s:vim_home/vimrc.local setting fonts.
+        " set guifont=Fira\ Mono\ Medium\ 12
+        " set guifontwide=思源黑体\ Medium\ 12
     endif
 endif
 
@@ -121,6 +125,7 @@ autocmd BufNewFile,BufRead *.html,*.less,*.css,*.js,
 autocmd BufNewFile,BufRead *.vue setl ts=2 sts=2 sw=2 filetype=html
 autocmd BufNewFile,BufRead *.coffee setl ts=2 sts=2 sw=2 fdm=indent nofen
 autocmd BufNewFile,BufRead *.[ch],*.cpp setl ts=8 sts=8 sw=8 noet
+autocmd BufNewFile,BufRead *.go setl ts=4 sts=4 sw=4 noet
 
 " 删除空白
 autocmd BufWritePre * :%s/\s\+$//e
@@ -133,7 +138,46 @@ autocmd BufWritePre * :%s/\s\+$//e
 let g:pymode_rope = 0
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope_autoimport = 0
+" let max line length is 120
+" let g:pymode_options_max_line_length=120
 autocmd BufNewFile,BufRead *.py setl ts=8 et sw=4 sts=4
+
+" Vim-go settings
+" use :GoInstallBinaries install additional tools
+" and set it's installtion path
+" let g:go_bin_path = expand("~/.gotools")
+" syntax-highlighting options
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+" By default vim-go shows errors for the fmt command, to disable it:
+" let g:go_fmt_fail_silently = 1
+" Disable auto fmt on save:
+" let g:go_fmt_autosave = 0
+" Disable opening browser after posting your snippet to play.golang.org:
+let g:go_play_open_browser = 0
+" Disable updating dependencies when installing/updating binaries:
+let g:go_get_update = 0
+
+" keybinds for vim-go
+au FileType go nmap <leader>gr <Plug>(go-run)
+au FileType go nmap <leader>gb <Plug>(go-build)
+au FileType go nmap <leader>gt <Plug>(go-test)
+au FileType go nmap <leader>gc <Plug>(go-coverage)
+
+" other keys, just comment here.
+" au FileType go nmap <Leader>ds <Plug>(go-def-split)
+" au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+" au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+" au FileType go nmap <Leader>gd <Plug>(go-doc)
+" au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+" au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+" au FileType go nmap <Leader>s <Plug>(go-implements)
+" au FileType go nmap <Leader>i <Plug>(go-info)
+" au FileType go nmap <Leader>e <Plug>(go-rename)
 
 " Semantic UI
 autocmd BufNewFile,BufRead *.overrides,*.variables setl filetype=less
@@ -217,6 +261,10 @@ let g:airline_powerline_fonts=0
 
 if has("win32") && filereadable(s:vim_home . '/vimrc.win')
     exec 'source ' . s:vim_home . '/vimrc.win'
+endif
+
+if filereadable(s:vim_home . '/vimrc.local')
+    exec 'source ' . s:vim_home . '/vimrc.local'
 endif
 
 " vim: ts=4 sts=4 sw=4 et fdm=marker:
