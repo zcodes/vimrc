@@ -115,6 +115,7 @@ Plugin 'zcodes/vim-blade'
 Plugin 'fatih/vim-go'
 " Plugin 'AndrewRadev/vim-eco'
 Plugin 'zcodes/vim-eco'
+Plugin 'leafgarland/typescript-vim'
 
 " 2}}}
 
