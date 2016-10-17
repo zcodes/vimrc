@@ -11,3 +11,7 @@ cd ~/.vim && sh bootstrap.sh
 
 then, open vim and execute command :PluginInstall
 
+# TODOs
+
+- [  ] Check Plugin is enabled or not
+
