@@ -133,6 +133,12 @@ augroup tabWidth
     autocmd BufNewFile,BufRead *.overrides,*.variables setl filetype=less
 augroup END
 
+augroup MyRubyCustom
+    autocmd FileType ruby compiler ruby
+    " execute current editing ruby file directly
+    autocmd FileType ruby nmap <Leader>e :!ruby %<cr>
+augroup END
+
 
 " php.vim settings
 " let g:php_syntax_extensions_enabled = []
