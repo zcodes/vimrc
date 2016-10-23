@@ -50,7 +50,7 @@ if has("gui_running")
         source $VIMRUNTIME/delmenu.vim
         source $VIMRUNTIME/menu.vim
         language messages en_US.utf-8
-    " else
+        " else
         " just leave example here. use s:vim_home/vimrc.local setting fonts.
         " set guifont=Fira\ Mono\ Medium\ 12
         " set guifontwide=思源黑体\ Medium\ 12
@@ -120,15 +120,25 @@ set foldlevel=999
 
 " tabs
 set ts=4 sts=4 sw=4 et
-autocmd BufNewFile,BufRead *.html,*.less,*.css,*.js,
-            \*.blade.php,*.rb,*.jade setl ts=2 sts=2 sw=2
-autocmd BufNewFile,BufRead *.vue setl ts=2 sts=2 sw=2 filetype=html
-autocmd BufNewFile,BufRead *.coffee setl ts=2 sts=2 sw=2 fdm=indent nofen
-autocmd BufNewFile,BufRead *.[ch],*.cpp setl ts=8 sts=8 sw=8 noet
-autocmd BufNewFile,BufRead *.go setl ts=4 sts=4 sw=4 noet
+augroup tabWidth
+    autocmd BufNewFile,BufRead *.html,*.less,*.css,*.js,
+                \*.blade.php,*.rb,*.jade setl ts=2 sts=2 sw=2
+    autocmd BufNewFile,BufRead *.vue setl ts=2 sts=2 sw=2 filetype=html
+    autocmd BufNewFile,BufRead *.coffee setl ts=2 sts=2 sw=2 fdm=indent nofen
+    autocmd BufNewFile,BufRead *.[ch],*.cpp setl ts=8 sts=8 sw=8 noet
+    autocmd BufNewFile,BufRead *.go setl ts=4 sts=4 sw=4 noet
+    autocmd BufNewFile,BufRead *.py setl ts=8 et sw=4 sts=4
 
-" 删除空白
-autocmd BufWritePre * :%s/\s\+$//e
+    " Semantic UI
+    autocmd BufNewFile,BufRead *.overrides,*.variables setl filetype=less
+augroup END
+
+augroup MyRubyCustom
+    autocmd FileType ruby compiler ruby
+    " execute current editing ruby file directly
+    autocmd FileType ruby nmap <Leader>e :!ruby %<cr>
+augroup END
+
 
 " php.vim settings
 " let g:php_syntax_extensions_enabled = []
@@ -138,7 +148,8 @@ autocmd BufWritePre * :%s/\s\+$//e
 let g:pymode_rope = 0
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_rope_autoimport = 0
-autocmd BufNewFile,BufRead *.py setl ts=8 et sw=4 sts=4
+" let max line length is 120
+" let g:pymode_options_max_line_length=120
 
 " Vim-go settings
 " use :GoInstallBinaries install additional tools
@@ -177,8 +188,6 @@ au FileType go nmap <leader>gc <Plug>(go-coverage)
 " au FileType go nmap <Leader>i <Plug>(go-info)
 " au FileType go nmap <Leader>e <Plug>(go-rename)
 
-" Semantic UI
-autocmd BufNewFile,BufRead *.overrides,*.variables setl filetype=less
 
 "NERDTree
 let g:NERDTreeDirArrowExpandable="+"
@@ -256,6 +265,13 @@ else
     let g:airline_theme = 'raven'
 endif
 let g:airline_powerline_fonts=0
+
+augroup whiteSpace
+    " remove whitespace
+    autocmd BufWritePre * :%s/\s\+$//e
+    " pangu.vim
+    autocmd BufWritePre *.markdown,*.md,*.txt call PanGuSpacing()
+augroup END
 
 if has("win32") && filereadable(s:vim_home . '/vimrc.win')
     exec 'source ' . s:vim_home . '/vimrc.win'
