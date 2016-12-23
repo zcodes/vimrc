@@ -1,17 +1,16 @@
 # vimrc
 
-My personal .vimrc files.
+vim 的配置文件
 
-# setup
+# 安装
 
 ```sh
 git clone https://github.com/zcodes/vimrc ~/.vim
 cd ~/.vim && sh bootstrap.sh
 ```
 
-then, open vim and execute command :PluginInstall
+# TODO
 
-# TODOs
-
-- [  ] Check Plugin is enabled or not
+- [ ] check plugin is enabled or not
+- [ ] split plugin settings into vimrc.plugin
 

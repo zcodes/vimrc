@@ -1,12 +1,13 @@
 "
-" my personal .vimrc file
+" vim 配置文件
 "
 " Author: zcodes <zcodes@163.com>
 "
 set nocompatible
 filetype off
 
-" use vundle to manage plugins
+" 使用 Vundle 管理插件
+" 项目地址: https://github.com/VundleVim/Vundle.vim
 if has("win32")
     let s:vim_home = expand('~/vimfiles')
 else
@@ -15,7 +16,7 @@ endif
 exec 'set rtp+=' . s:vim_home . '/bundle/Vundle.vim'
 call vundle#begin(s:vim_home . '/bundle')
 
-" include plugins
+" 插件单独分在 vimrc.plugins 文件中
 if filereadable(s:vim_home . '/vimrc.plugins')
     exec 'source ' . s:vim_home . '/vimrc.plugins'
 endif
@@ -25,9 +26,7 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 
-" file encodings
-" Note: move encoding stuff here for fix listchars option cause invalid
-" character error on windows.
+" 文件编码设置
 scriptencoding utf-8
 set encoding=utf-8
 set fileencoding=utf-8
@@ -39,25 +38,16 @@ if has("gui_running")
 
     " font setting
     if has("win32")
-        " just leave example here. use s:vim_home/vimrc.local setting fonts.
-        " two style for font's name.
-        " set guifont=Source_Code_Pro_Semibold:h12
-        " set guifont=Source\ Code\ Pro\ Semibold:h12
-        " set guifontwide=SimHei:h12
-
         " fix menu encoding in windows.
         set langmenu=en
         source $VIMRUNTIME/delmenu.vim
         source $VIMRUNTIME/menu.vim
         language messages en_US.utf-8
-        " else
-        " just leave example here. use s:vim_home/vimrc.local setting fonts.
-        " set guifont=Fira\ Mono\ Medium\ 12
-        " set guifontwide=思源黑体\ Medium\ 12
     endif
 endif
 
 " color scheme settings
+" 自制 vim 主题，平时以 basic-dark 为主
 " colorscheme basic-light
 colorscheme basic-dark
 
@@ -138,7 +128,6 @@ augroup MyRubyCustom
     " execute current editing ruby file directly
     autocmd FileType ruby nmap <Leader>e :!ruby %<cr>
 augroup END
-
 
 " php.vim settings
 " let g:php_syntax_extensions_enabled = []
@@ -245,16 +234,7 @@ function! s:emmet_with_snipmate()
 endfunction
 auto FileType html,css,blade,twig imap <buffer><expr><tab> <sid>emmet_with_snipmate()
 
-" Taglist settings
-" for ubuntu
-" this fixed in 'zcodes/taglibs.vim'
-" if executable('ctags-exuberant')
-"     let Tlist_Ctags_Cmd='ctags-exuberant'
-" endif
-" let Tlist_Use_Right_Window = 1
-" let Tlist_Show_One_File = 1
-
-" Tagbar settings
+" tagbar settings
 let g:tagbar_show_linenumbers = 2
 let g:tagbar_foldlevel = 2
 
@@ -277,6 +257,7 @@ if has("win32") && filereadable(s:vim_home . '/vimrc.win')
     exec 'source ' . s:vim_home . '/vimrc.win'
 endif
 
+" 加载自定义文件 vimrc.local
 if filereadable(s:vim_home . '/vimrc.local')
     exec 'source ' . s:vim_home . '/vimrc.local'
 endif
