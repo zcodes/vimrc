@@ -36,7 +36,20 @@ let g:ackprg='ag --vimgrep'
 Plugin 'tpope/vim-commentary'
 
 " Ctrl-P find file
-Plugin 'kien/ctrlp.vim'
+" Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+if has('win32')
+    set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
+    " let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'
+else
+    set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+    " let g:ctrlp_user_command = 'find %s -type f'
+endif
+" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+            \ 'dir': '\v[\/]\.(git|hg|svn)$',
+            \ 'file': '\v\.(exe|so|dll)$',
+            \ }
 
 " git plugin
 Plugin 'airblade/vim-gitgutter'
