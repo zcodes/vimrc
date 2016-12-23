@@ -132,7 +132,7 @@ Plugin 'jiangmiao/auto-pairs'
 " vim-choosewin
 Plugin 't9md/vim-choosewin'
 nmap - <Plug>(choosewin)
-let g:choosewin_overlay_enable = 1
+let g:choosewin_overlay_enable = 0
 
 " pangu
 Plugin 'hotoo/pangu.vim'
