@@ -38,11 +38,13 @@ Plugin 'tpope/vim-commentary'
 " Ctrl-P find file
 " Plugin 'kien/ctrlp.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_use_caching = 1
 if has('win32')
-    set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
+    set wildignore+=*\\tmp\\*,*\\.git\\*,*\\.hg\\*,*\\.svn\\*,*.swp,*.zip,*.exe
     " let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'
 else
-    set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/tmp/*,*.so,*.swp,*.zip
     " let g:ctrlp_user_command = 'find %s -type f'
 endif
 " let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
