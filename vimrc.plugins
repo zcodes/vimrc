@@ -37,6 +37,7 @@ Plugin 'tpope/vim-commentary'
 
 " Ctrl-P find file
 " Plugin 'kien/ctrlp.vim'
+" https://ctrlpvim.github.io/ctrlp.vim/
 Plugin 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_use_caching = 1
