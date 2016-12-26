@@ -250,7 +250,7 @@ augroup whiteSpace
     " remove whitespace
     autocmd BufWritePre * :%s/\s\+$//e
     " pangu.vim
-    autocmd BufWritePre *.markdown,*.md,*.txt call PanGuSpacing()
+    autocmd BufWritePre *.markdown,*.md,*.txt,*.wiki call PanGuSpacing()
 augroup END
 
 if has("win32") && filereadable(s:vim_home . '/vimrc.win')
