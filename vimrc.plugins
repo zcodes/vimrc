@@ -156,5 +156,24 @@ Plugin 'hotoo/pangu.vim'
 " text align
 Plugin 'godlygeek/tabular'
 
+" vimwiki
+Plugin 'vimwiki/vimwiki'
+let wiki_vim = {}
+if has('win32')
+    let wiki_vim.base_path = '~/vimfiles/'
+else
+    let wiki_vim.base_path = '~/.vim/'
+endif
+let wiki_vim.path = wiki_vim.base_path . 'wiki/'
+let wiki_vim.path_html = wiki_vim.base_path . 'wiki_html/'
+let wiki_vim.template_path = wiki_vim.base_path . 'wiki_templates/'
+let wiki_vim.template_default = 'default'
+let wiki_vim.template_ext = '.html'
+
+let wiki_user = {}
+let wiki_user.path = '~/vimwiki'
+let wiki_user.paht_html = '~/vimwiki_html'
+let g:vimwiki_list = [wiki_vim, wiki_user]
+
 " 1}}}
 " vim: ts=4 sts=4 sw=4 et fdm=marker

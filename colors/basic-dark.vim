@@ -384,6 +384,13 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("diffAdded", s:green, "", "")
     call <SID>X("diffRemoved", s:red, "", "")
 
+    call <SID>X("VimwikiHeader1", s:red, "", "")
+    call <SID>X("VimwikiHeader2", s:green, "", "")
+    call <SID>X("VimwikiHeader3", s:blue, "", "")
+    call <SID>X("VimwikiHeader4", s:aqua, "", "")
+    call <SID>X("VimwikiHeader5", s:orange, "", "")
+    call <SID>X("VimwikiHeader6", s:yellow, "", "")
+
     " Delete Functions
     delf <SID>X
     delf <SID>rgb

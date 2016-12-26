@@ -1,0 +1,4 @@
+= Vimrc =
+
+== 插件 ==
+* [[vimwiki|Vimwiki]]
