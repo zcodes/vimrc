@@ -169,6 +169,7 @@ let wiki_vim.path_html = wiki_vim.base_path . 'wiki_html/'
 let wiki_vim.template_path = wiki_vim.base_path . 'wiki_templates/'
 let wiki_vim.template_default = 'default'
 let wiki_vim.template_ext = '.html'
+let wiki_vim.auto_export = 1
 
 let wiki_user = {}
 let wiki_user.path = '~/vimwiki'
