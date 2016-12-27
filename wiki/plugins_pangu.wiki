@@ -1,0 +1,15 @@
+= 盘古之白 =
+
+盘古之白是针对 [[https://github.com/mzlogin/chinese-copywriting-guidelines|《中文文案排版指北》]] 的辅助插件，可以自动对不规范的格式做一些转换，比如给中文和英文之间添加空格。
+
+== pangu.vim ==
+
+插件地址: [[https://github.com/zcodes/pangu.vim|pangu.vim]]
+
+这是在原来插件基础上做减法的一个分支，原来的插件有点“激进”，对一些情况在无法判断的基础上做出了强制的转换，导致某些情况下会出错误，或是改变编辑者的原意。作为一个编辑器插件，此处遵循的准则是：功能可以没有，但是不能是一个错误的功能。
+
+{{{class="brush: vimwiki"
+%% 这两种情况下无需处理，而不是强制处理
+[[hello|中文]]
+https://www.baidu.com/s?wd=中文&lang=中文
+}}}

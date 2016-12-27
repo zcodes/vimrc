@@ -1,5 +1,10 @@
 = Vimrc =
 
+== 基本内容 ==
+* [[base_get_help|获取帮助]]
+
 == 安装 ==
+
 == 插件 ==
-* [[vimwiki|Vimwiki]]
+* [[plugins_vimwiki|Vimwiki]]
+* [[plugins_pangu|盘古之白]]
