@@ -1,5 +1,5 @@
 "
-" Plugins {{{1
+" Plugins
 "
 " vundle
 Plugin 'VundleVim/Vundle.vim'
@@ -12,18 +12,33 @@ endif
 " bufexplorer
 Plugin 'c9s/bufexplorer'
 
-" nerdtree
+" nerdtree {{{
 Plugin 'scrooloose/nerdtree'
+let g:NERDTreeDirArrowExpandable="+"
+let g:NERDTreeDirArrowCollapsible="~"
+let g:NERDTreeMinimalUI=1
+let NERDTreeDirArrows=0
+nmap <F3> :NERDTreeFocus<cr>
+nmap <F4> :NERDTreeClose<cr>
+nmap <F5> :TagbarToggle<cr>
+" }}}
 
-" snipmate and snippets
+" snipmate and snippets {{{
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+" }}}
 
-" Emmet
+" Emmet {{{
 " C-y , expand expression
 Plugin 'mattn/emmet-vim'
+
+" https://github.com/mattn/emmet-vim/issues/168
+let g:user_emmet_install_global = 0
+let g:user_emmet_complete_tag = 1
+autocmd FileType html,css,blade,twig EmmetInstall
+" }}}
 
 " File Searching
 " Plugin 'rking/ag.vim'
@@ -35,7 +50,7 @@ let g:ackprg='ag --vimgrep'
 " comment
 Plugin 'tpope/vim-commentary'
 
-" Ctrl-P find file
+" ctrlp {{{
 " Plugin 'kien/ctrlp.vim'
 " https://ctrlpvim.github.io/ctrlp.vim/
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -53,6 +68,7 @@ let g:ctrlp_custom_ignore = {
             \ 'dir': '\v[\/]\.(git|hg|svn)$',
             \ 'file': '\v\.(exe|so|dll)$',
             \ }
+" }}}
 
 " git plugin
 Plugin 'airblade/vim-gitgutter'
@@ -64,18 +80,27 @@ Plugin 'ervandew/supertab'
 " Taglist
 " Plugin 'zcodes/taglist.vim'
 Plugin 'majutsushi/tagbar'
+let g:tagbar_show_linenumbers = 2
+let g:tagbar_foldlevel = 2
 
-" airline
+" airline {{{
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+if has('gui_running')
+    let g:airline_theme = 'tomorrow'
+else
+    let g:airline_theme = 'raven'
+endif
+let g:airline_powerline_fonts=0
 
 " Powerline
 " Plugin 'Lokaltog/vim-powerline'
+" }}}
 
 " Update Last Change Time
 " Plugin 'vim-scripts/update-time'
 
-" color themes {{{2
+" color themes {{{
 " ------------------------------
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'mkarmona/colorsbox'
@@ -109,9 +134,9 @@ Plugin 'mkarmona/materialbox'
 " Plugin 'nelstrom/vim-mac-classic-theme'
 " Plugin 'DAddYE/soda.vim'
 "
-" 2}}}
+" }}}
 
-" filetype plugin {{{2
+" filetype plugin {{{
 " ------------------------------
 Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
@@ -132,31 +157,39 @@ Plugin 'fatih/vim-go'
 " Plugin 'AndrewRadev/vim-eco'
 Plugin 'zcodes/vim-eco'
 Plugin 'leafgarland/typescript-vim'
-
-" 2}}}
+" }}}
 
 " preview colors
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'lilydjwg/colorizer'
 
-" auto-pairs
+" auto-pairs {{{
 Plugin 'jiangmiao/auto-pairs'
 " <BS> will conflict with SCIM with 'Embered Preedit String into client
 " window' option enabled
 " let g:AutoPairsMapBS = 0
-"
-" vim-choosewin
+" }}}
+
+" vim-choosewin {{{
 Plugin 't9md/vim-choosewin'
 nmap - <Plug>(choosewin)
 let g:choosewin_overlay_enable = 0
+" }}}
 
-" pangu
-Plugin 'hotoo/pangu.vim'
+" pangu {{{
+Plugin 'zcodes/pangu.vim'
+if has('autocmd')
+    augroup enablePanGu
+        au!
+        autocmd BufWritePre *.markdown,*.md,*.txt,*.wiki call PanGuSpacing()
+    augroup END
+endif
+" }}}
 
 " text align
 Plugin 'godlygeek/tabular'
 
-" vimwiki
+" vimwiki {{{
 Plugin 'vimwiki/vimwiki'
 let wiki_vim = {}
 if has('win32')
@@ -175,6 +208,6 @@ let wiki_user = {}
 let wiki_user.path = '~/vimwiki'
 let wiki_user.paht_html = '~/vimwiki_html'
 let g:vimwiki_list = [wiki_vim, wiki_user]
+" }}}
 
-" 1}}}
 " vim: ts=4 sts=4 sw=4 et fdm=marker

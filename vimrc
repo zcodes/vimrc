@@ -43,8 +43,13 @@ if has("gui_running")
         source $VIMRUNTIME/delmenu.vim
         source $VIMRUNTIME/menu.vim
         language messages en_US.utf-8
+
+        set guioptions-=t
     endif
 endif
+
+set ttimeout  " time out for key codes
+set ttimeoutlen=100 " wait up to 100ms after Esc for speical key
 
 " color scheme settings
 " 自制 vim 主题，平时以 basic-dark 为主
@@ -63,8 +68,10 @@ exec 'set listchars=tab:›\ ,trail:•,precedes:«,extends:»,nbsp:.'
 " ,eol:¬
 
 " mouse setting
-set mouse=a
-set mousemodel=popup
+if has('mouse')
+    set mouse=a
+    set mousemodel=popup
+endif
 
 set smartindent
 set autoindent
@@ -103,10 +110,21 @@ set foldenable
 
 " searchings
 set hlsearch
-set incsearch
+if has('reltime')
+    set incsearch
+endif
 
 " no fold
 set foldlevel=999
+
+" Show @@@ in the last line if it is truncated
+set display=truncate
+
+" Show a few lines of context around the cursor.
+set scrolloff=5
+
+" Don't use Ex mode, use Q for formating.
+map Q gq
 
 " tabs
 set ts=4 sts=4 sw=4 et
@@ -177,24 +195,6 @@ au FileType go nmap <leader>gc <Plug>(go-coverage)
 " au FileType go nmap <Leader>i <Plug>(go-info)
 " au FileType go nmap <Leader>e <Plug>(go-rename)
 
-
-"NERDTree
-let g:NERDTreeDirArrowExpandable="+"
-let g:NERDTreeDirArrowCollapsible="~"
-let g:NERDTreeMinimalUI=1
-let NERDTreeDirArrows=0
-
-"key bindings
-nmap <F3> :NERDTreeFocus<cr>
-nmap <F4> :NERDTreeClose<cr>
-nmap <F5> :TagbarToggle<cr>
-
-" Emmet Settings
-" https://github.com/mattn/emmet-vim/issues/168
-let g:user_emmet_install_global = 0
-let g:user_emmet_complete_tag = 1
-autocmd FileType html,css,blade,twig EmmetInstall
-
 " SuperTab Settings
 " g:SuperTabDefaultCompletionType
 " g:SuperTabContextDefaultCompletionType
@@ -234,24 +234,25 @@ function! s:emmet_with_snipmate()
 endfunction
 auto FileType html,css,blade,twig imap <buffer><expr><tab> <sid>emmet_with_snipmate()
 
-" tagbar settings
-let g:tagbar_show_linenumbers = 2
-let g:tagbar_foldlevel = 2
+if has('autocmd')
+    augroup whiteSpace
+        " remove whitespace
+        autocmd BufWritePre * :%s/\s\+$//e
+    augroup END
 
-" airline settings
-if has('gui_running')
-    let g:airline_theme = 'tomorrow'
-else
-    let g:airline_theme = 'raven'
+    augroup vimStartup
+        au!
+        autocmd BufReadPost *
+                    \ if line("'\"") >= 1 && line("'\"") <= line("$") |
+                    \     exe "normal! g`\"" |
+                    \ endif
+    augroup END
 endif
-let g:airline_powerline_fonts=0
 
-augroup whiteSpace
-    " remove whitespace
-    autocmd BufWritePre * :%s/\s\+$//e
-    " pangu.vim
-    autocmd BufWritePre *.markdown,*.md,*.txt,*.wiki call PanGuSpacing()
-augroup END
+if !exists(":DiffOrig")
+    command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+                \ | wincmd p | diffthis
+endif
 
 if has("win32") && filereadable(s:vim_home . '/vimrc.win')
     exec 'source ' . s:vim_home . '/vimrc.win'
