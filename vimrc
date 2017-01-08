@@ -54,7 +54,7 @@ set ttimeoutlen=100 " wait up to 100ms after Esc for speical key
 " color scheme settings
 " 自制 vim 主题，平时以 basic-dark 为主
 " colorscheme basic-light
-colorscheme basic-dark
+silent! colorscheme basic-dark
 
 " editing
 set noswapfile " no swapfile when editing
