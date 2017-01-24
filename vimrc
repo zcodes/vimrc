@@ -118,7 +118,7 @@ endif
 set foldlevel=999
 
 " Show @@@ in the last line if it is truncated
-set display=truncate
+" set display=truncate
 
 " Show a few lines of context around the cursor.
 set scrolloff=5
