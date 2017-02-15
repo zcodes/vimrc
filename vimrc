@@ -7,7 +7,7 @@ set nocompatible
 filetype off
 
 " 使用 Vundle 管理插件
-" 项目地址: https://github.com/VundleVim/Vundle.vim
+" Vundle: https://github.com/VundleVim/Vundle.vim
 if has("win32")
     let s:vim_home = expand('~/vimfiles')
 else
@@ -23,6 +23,9 @@ endif
 
 call vundle#end()
 
+"
+" 配置从这里开始
+"
 filetype plugin indent on
 syntax on
 
@@ -32,8 +35,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,gbk,gb2312,gb18030,ucs-bom,utf16-le,latin-1
 
-if has("gui_running")
-    set guioptions=aegit
+if has#gui()
     set cursorline " highlight current line
 
     " font setting
@@ -44,7 +46,9 @@ if has("gui_running")
         source $VIMRUNTIME/menu.vim
         language messages en_US.utf-8
 
-        set guioptions-=t
+        set guioptions=aegi
+    else
+        set guioptions=aegit
     endif
 endif
 
@@ -106,7 +110,6 @@ set fileformats=unix,dos,mac
 if exists('+fixendofline')
     set fixendofline
 endif
-set foldenable
 
 " searchings
 set hlsearch
@@ -114,11 +117,12 @@ if has('reltime')
     set incsearch
 endif
 
-" no fold
+" 代码折叠
+set foldenable
 set foldlevel=999
 
 " Show @@@ in the last line if it is truncated
-set display=truncate
+" set display=truncate
 
 " Show a few lines of context around the cursor.
 set scrolloff=5
@@ -146,93 +150,6 @@ augroup MyRubyCustom
     " execute current editing ruby file directly
     autocmd FileType ruby nmap <Leader>e :!ruby %<cr>
 augroup END
-
-" php.vim settings
-" let g:php_syntax_extensions_enabled = []
-" let g:php_syntax_extensions_disabled = []
-
-" Python pymode setting
-let g:pymode_rope = 0
-let g:pymode_rope_complete_on_dot = 0
-let g:pymode_rope_autoimport = 0
-" let max line length is 120
-" let g:pymode_options_max_line_length=120
-
-" Vim-go settings
-" use :GoInstallBinaries install additional tools
-" and set it's installtion path
-" let g:go_bin_path = expand("~/.gotools")
-" syntax-highlighting options
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-" By default vim-go shows errors for the fmt command, to disable it:
-" let g:go_fmt_fail_silently = 1
-" Disable auto fmt on save:
-" let g:go_fmt_autosave = 0
-" Disable opening browser after posting your snippet to play.golang.org:
-let g:go_play_open_browser = 0
-" Disable updating dependencies when installing/updating binaries:
-let g:go_get_update = 0
-
-" keybinds for vim-go
-au FileType go nmap <leader>gr <Plug>(go-run)
-au FileType go nmap <leader>gb <Plug>(go-build)
-au FileType go nmap <leader>gt <Plug>(go-test)
-au FileType go nmap <leader>gc <Plug>(go-coverage)
-
-" other keys, just comment here.
-" au FileType go nmap <Leader>ds <Plug>(go-def-split)
-" au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-" au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-" au FileType go nmap <Leader>gd <Plug>(go-doc)
-" au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-" au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-" au FileType go nmap <Leader>s <Plug>(go-implements)
-" au FileType go nmap <Leader>i <Plug>(go-info)
-" au FileType go nmap <Leader>e <Plug>(go-rename)
-
-" SuperTab Settings
-" g:SuperTabDefaultCompletionType
-" g:SuperTabContextDefaultCompletionType
-" b:SuperTabContextDefaultCompletionType
-let g:SuperTabDefaultCompletionType = 'context'
-
-autocmd FileType html,css,blade,twig
-            \ if &omnifunc != '' |
-            \   call SuperTabChain(&omnifunc, "<c-p>") |
-            \ endif
-
-" https://github.com/mattn/emmet-vim/issues/168
-" TODO snipmate position not work !
-function! s:emmet_with_snipmate()
-    if snipMate#CanBeTriggered()
-        return "\<plug>snipMateNextOrTrigger"
-    endif
-
-    let line = getline('.')
-    if col('.') < len(line)
-        let line = matchstr(line, '[">][^<"]*\%'.col('.').'c[^>"]*[<"]')
-
-        if len(line) >= 2
-            return "\<Plug>(emmet-move-next)"
-        endif
-    endif
-
-    if pumvisible()
-        return "\<c-n>"
-    endif
-
-    if emmet#isExpandable()
-        return "\<plug>(emmet-expand-abbr)"
-    endif
-
-    return "\<tab>"
-endfunction
-auto FileType html,css,blade,twig imap <buffer><expr><tab> <sid>emmet_with_snipmate()
 
 if has('autocmd')
     augroup whiteSpace

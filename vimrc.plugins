@@ -30,7 +30,7 @@ Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 " }}}
 
-" Emmet {{{
+" {{{emmet
 " C-y , expand expression
 Plugin 'mattn/emmet-vim'
 
@@ -38,6 +38,34 @@ Plugin 'mattn/emmet-vim'
 let g:user_emmet_install_global = 0
 let g:user_emmet_complete_tag = 1
 autocmd FileType html,css,blade,twig,jsp EmmetInstall
+
+" https://github.com/mattn/emmet-vim/issues/168
+" TODO snipmate position not work !
+function! s:emmet_with_snipmate()
+    if snipMate#CanBeTriggered()
+        return "\<plug>snipMateNextOrTrigger"
+    endif
+
+    let line = getline('.')
+    if col('.') < len(line)
+        let line = matchstr(line, '[">][^<"]*\%'.col('.').'c[^>"]*[<"]')
+
+        if len(line) >= 2
+            return "\<Plug>(emmet-move-next)"
+        endif
+    endif
+
+    if pumvisible()
+        return "\<c-n>"
+    endif
+
+    if emmet#isExpandable()
+        return "\<plug>(emmet-expand-abbr)"
+    endif
+
+    return "\<tab>"
+endfunction
+auto FileType html,css,blade,twig imap <buffer><expr><tab> <sid>emmet_with_snipmate()
 " }}}
 
 " File Searching
@@ -74,8 +102,19 @@ let g:ctrlp_custom_ignore = {
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 
-" SuperTabs
+" {{{supertab
 Plugin 'ervandew/supertab'
+" SuperTab Settings
+" g:SuperTabDefaultCompletionType
+" g:SuperTabContextDefaultCompletionType
+" b:SuperTabContextDefaultCompletionType
+let g:SuperTabDefaultCompletionType = 'context'
+
+autocmd FileType html,css,blade,twig
+            \ if &omnifunc != '' |
+            \   call SuperTabChain(&omnifunc, "<c-p>") |
+            \ endif
+" }}}
 
 " Taglist
 " Plugin 'zcodes/taglist.vim'
@@ -100,7 +139,7 @@ let g:airline_powerline_fonts=0
 " Update Last Change Time
 " Plugin 'vim-scripts/update-time'
 
-" color themes {{{
+" {{{color themes
 " ------------------------------
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'mkarmona/colorsbox'
@@ -137,7 +176,7 @@ Plugin 'zcodes/vim-colors-basic'
 "
 " }}}
 
-" filetype plugin {{{
+" {{{file types
 " ------------------------------
 Plugin 'pangloss/vim-javascript'
 Plugin 'elzr/vim-json'
@@ -145,16 +184,70 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'evidens/vim-twig'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'vim-ruby/vim-ruby'
+
+" {{{php.vim
 Plugin 'StanAngeloff/php.vim'
+" let g:php_syntax_extensions_enabled = []
+" let g:php_syntax_extensions_disabled = []
+" php.vim}}}
+
 Plugin 'rodjek/vim-puppet'
 Plugin 'JulesWang/css.vim'
 Plugin 'genoma/vim-less'
+
+" {{{python-mode
 Plugin 'klen/python-mode'
+let g:pymode_rope = 0
+let g:pymode_rope_complete_on_dot = 0
+let g:pymode_rope_autoimport = 0
+" let max line length is 120
+" let g:pymode_options_max_line_length=120
+" python-mode}}}
+
 Plugin 'digitaltoad/vim-jade'
 Plugin 'zcodes/vim-coffee-script'
 Plugin 'othree/html5.vim'
 Plugin 'zcodes/vim-blade'
+
+" {{{vim-go
 Plugin 'fatih/vim-go'
+" use :GoInstallBinaries install additional tools
+" and set it's installtion path
+" let g:go_bin_path = expand("~/.gotools")
+" syntax-highlighting options
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+" By default vim-go shows errors for the fmt command, to disable it:
+" let g:go_fmt_fail_silently = 1
+" Disable auto fmt on save:
+" let g:go_fmt_autosave = 0
+" Disable opening browser after posting your snippet to play.golang.org:
+let g:go_play_open_browser = 0
+" Disable updating dependencies when installing/updating binaries:
+let g:go_get_update = 0
+
+" keybinds for vim-go
+au FileType go nmap <leader>gr <Plug>(go-run)
+au FileType go nmap <leader>gb <Plug>(go-build)
+au FileType go nmap <leader>gt <Plug>(go-test)
+au FileType go nmap <leader>gc <Plug>(go-coverage)
+
+" other keys, just comment here.
+" au FileType go nmap <Leader>ds <Plug>(go-def-split)
+" au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+" au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+" au FileType go nmap <Leader>gd <Plug>(go-doc)
+" au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+" au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+" au FileType go nmap <Leader>s <Plug>(go-implements)
+" au FileType go nmap <Leader>i <Plug>(go-info)
+" au FileType go nmap <Leader>e <Plug>(go-rename)
+" vim-go}}}
+
 " Plugin 'AndrewRadev/vim-eco'
 Plugin 'zcodes/vim-eco'
 Plugin 'leafgarland/typescript-vim'
@@ -164,7 +257,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'lilydjwg/colorizer'
 
-" auto-pairs {{{
+" {{{auto-pairs
 Plugin 'jiangmiao/auto-pairs'
 " <BS> will conflict with SCIM with 'Embered Preedit String into client
 " window' option enabled
