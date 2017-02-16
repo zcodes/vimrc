@@ -41,10 +41,12 @@ if has#gui()
     " font setting
     if has("win32")
         " fix menu encoding in windows.
-        set langmenu=en
+        " TODO 在Windows上只能用中文的时候工具栏提示不乱码
         source $VIMRUNTIME/delmenu.vim
+        let $LANG='zh_CN.UTF-8'
+        set langmenu=zh_CN.UTF-8
         source $VIMRUNTIME/menu.vim
-        language messages en_US.utf-8
+        language mes zh_CN.UTF-8
 
         set guioptions=aegi
     else
@@ -65,6 +67,7 @@ set noswapfile " no swapfile when editing
 set nobackup " don't create backup files
 set backspace=indent,eol,start
 set autoread
+" set path+=**
 set nu " show line number
 " enable list mode, show tabs, eof, trail ...
 set list
@@ -133,6 +136,10 @@ map Q gq
 " 按键绑定
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+if has#gui()
+    nnoremap <leader>mv :if &go=~#'m'<bar>set go-=m<bar>else<bar>set go+=m<bar>endif<cr>
+    nnoremap <leader>Tv :if &go=~#'T'<bar>set go-=T<bar>else<bar>set go+=T<bar>endif<cr>
+endif
 inoremap jk <esc>
 " tabs
 set ts=4 sts=4 sw=4 et
