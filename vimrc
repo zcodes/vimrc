@@ -6,7 +6,7 @@
 set nocompatible
 filetype off
 
-" 使用 Vundle 管理插件
+" 使用 Vundle 管理插件 {{{
 " Vundle: https://github.com/VundleVim/Vundle.vim
 if has("win32")
     let s:vim_home = expand('~/vimfiles')
@@ -22,6 +22,7 @@ if filereadable(s:vim_home . '/vimrc.plugins')
 endif
 
 call vundle#end()
+" }}}
 
 "
 " 配置从这里开始
@@ -130,18 +131,25 @@ set foldlevel=999
 " Show a few lines of context around the cursor.
 set scrolloff=5
 
+
+" 按键绑定 {{{
+"
 " Don't use Ex mode, use Q for formating.
 map Q gq
-
-" 按键绑定
-nnoremap <leader>ev :e $MYVIMRC<cr>
+" 快速编辑配置文件
+nnoremap <leader>evi :e $MYVIMRC<cr>
+nnoremap <leader>evw :e $MYVIMRC.win<cr>
+nnoremap <leader>evp :e $MYVIMRC.plugins<cr>
+" 重新加载配置文件
 nnoremap <leader>sv :source $MYVIMRC<cr>
 if has#gui()
     nnoremap <leader>mv :if &go=~#'m'<bar>set go-=m<bar>else<bar>set go+=m<bar>endif<cr>
     nnoremap <leader>Tv :if &go=~#'T'<bar>set go-=T<bar>else<bar>set go+=T<bar>endif<cr>
 endif
 inoremap jk <esc>
-" tabs
+" }}}
+
+" tabs {{{
 set ts=4 sts=4 sw=4 et
 augroup tabWidth
     autocmd BufNewFile,BufRead *.html,*.less,*.css,*.js,
@@ -155,6 +163,7 @@ augroup tabWidth
     " Semantic UI
     autocmd BufNewFile,BufRead *.overrides,*.variables setl filetype=less
 augroup END
+" }}}
 
 augroup MyRubyCustom
     autocmd FileType ruby compiler ruby
@@ -182,6 +191,7 @@ if !exists(":DiffOrig")
                 \ | wincmd p | diffthis
 endif
 
+" Windows 下 Vim的配置: vimrc.win
 if has("win32") && filereadable(s:vim_home . '/vimrc.win')
     exec 'source ' . s:vim_home . '/vimrc.win'
 endif
