@@ -130,6 +130,10 @@ set scrolloff=5
 " Don't use Ex mode, use Q for formating.
 map Q gq
 
+" 按键绑定
+nnoremap <leader>ev :e $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+inoremap jk <esc>
 " tabs
 set ts=4 sts=4 sw=4 et
 augroup tabWidth
