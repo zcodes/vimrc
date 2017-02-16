@@ -1,7 +1,0 @@
-= 获取帮助 =
-
-== 阅读文档 ==
-
-CTRL-O :: jump to older position
-CTRL-T :: pop tag
-CTRL-] :: jump to tag
