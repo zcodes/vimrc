@@ -49,9 +49,9 @@ if has#gui()
         source $VIMRUNTIME/menu.vim
         language mes zh_CN.UTF-8
 
-        set guioptions=amegi
+        set guioptions=aegi
     else
-        set guioptions=amegit
+        set guioptions=aegit
     endif
 endif
 
