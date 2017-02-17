@@ -207,4 +207,13 @@ if filereadable(s:vim_home . '/vimrc.local')
     exec 'source ' . s:vim_home . '/vimrc.local'
 endif
 
+" python 动态链接库设置
+" 使用 'pythondll' 和 'pythonthreedll' 指定绝对路径，解决无法加载动态链接库的
+" 问题。
+if has("win32")
+    " 指定Windows下Python的动态链接库路径
+    set pythondll=C:/Python27/python27.dll
+    set pythonthreedll=C:/Python35/python35.dll
+endif
+
 " vim: ts=4 sts=4 sw=4 et fdm=marker:
