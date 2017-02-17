@@ -49,9 +49,9 @@ if has#gui()
         source $VIMRUNTIME/menu.vim
         language mes zh_CN.UTF-8
 
-        set guioptions=aegi
+        set guioptions=amegi
     else
-        set guioptions=aegit
+        set guioptions=amegit
     endif
 endif
 
@@ -147,6 +147,12 @@ if has#gui()
     nnoremap <leader>Tv :if &go=~#'T'<bar>set go-=T<bar>else<bar>set go+=T<bar>endif<cr>
 endif
 inoremap jk <esc>
+
+" 使用空格快速输入命令
+nnoremap <space> :
+vnoremap <space> :
+" ctrl-l 清除高亮搜索结果
+if maparg('<C-L>', 'n') ==#'' | nnoremap <silent><C-L> :nohlsearch<cr><c-l> | endif
 " }}}
 
 " tabs {{{
