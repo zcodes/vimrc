@@ -174,7 +174,17 @@ augroup END
 augroup MyRubyCustom
     autocmd FileType ruby compiler ruby
     " execute current editing ruby file directly
-    autocmd FileType ruby nmap <Leader>e :!ruby %<cr>
+    autocmd FileType ruby nnoremap <buffer> <F9> :exec '!ruby' shellescape(@%, 1)<cr>
+augroup END
+
+" 自定义的 Python 配置
+augroup MyPythonCustom
+    " pythom-mode 有 <leader>r 来使用 vim 支持的 Python 来运行 Python 文件
+    " 这里使用 <F9> 直接调用 python 来执行脚本，此时的 python 可以是
+    " virtualenv 中的 Python
+    "
+    " TODO 将输出内容直接导入 vim 中
+    autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
 augroup END
 
 if has('autocmd')
@@ -210,6 +220,8 @@ endif
 " python 动态链接库设置
 " 使用 'pythondll' 和 'pythonthreedll' 指定绝对路径，解决无法加载动态链接库的
 " 问题。
+"
+" Linux 下的 vim 只能加载一个版本的 Python，现在使用只编译支持 Python3 的方案
 if has("win32")
     " 指定Windows下Python的动态链接库路径
     set pythondll=C:/Python27/python27.dll

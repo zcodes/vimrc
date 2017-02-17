@@ -9,3 +9,12 @@ endfunction
 function! has#gui()
     return has("gui_running")
 endfunction
+
+function! has#windows()
+    return has("win32")
+endfunction
+
+function! has#linux()
+    return !has#windows() && substitute(system('uname'), "\n", "", "") == 'Linux'
+endfunction
+
