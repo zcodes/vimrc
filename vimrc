@@ -140,6 +140,7 @@ map Q gq
 nnoremap <leader>evi :e $MYVIMRC<cr>
 nnoremap <leader>evw :e $MYVIMRC.win<cr>
 nnoremap <leader>evp :e $MYVIMRC.plugins<cr>
+nnoremap <leader>evl :e $MYVIMRC.local<cr>
 " 重新加载配置文件
 nnoremap <leader>sv :source $MYVIMRC<cr>
 if has#gui()
