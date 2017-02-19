@@ -196,6 +196,15 @@ Plugin 'JulesWang/css.vim'
 Plugin 'genoma/vim-less'
 
 " python-mode {{{
+"
+" Use python3 default here, and python2 for fallback.
+if has('pythonx')
+    if has('python3')
+        set pyx=3
+    elseif has('python')
+        set pyx=2
+    endif
+endif
 Plugin 'python-mode/python-mode'
 let g:pymode = 1
 let g:pymode_options = 1
