@@ -119,7 +119,7 @@ autocmd FileType html,css,blade,twig
 " Taglist
 " Plugin 'zcodes/taglist.vim'
 Plugin 'majutsushi/tagbar'
-let g:tagbar_show_linenumbers = 2
+let g:tagbar_show_linenumbers = 0
 let g:tagbar_foldlevel = 2
 
 " airline {{{

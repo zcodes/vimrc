@@ -208,17 +208,28 @@ if !exists(":DiffOrig")
                 \ | wincmd p | diffthis
 endif
 
-" Windows 下 Vim的配置: vimrc.win
+" vim 帮助文档设置 {{{
+augroup VimHelp
+    au!
+    autocmd FileType help setl conceallevel=0
+augroup END
+hi link HelpBar Normal
+hi link HelpStar Normal
+" }}}
+
+" Windows 下 Vim的配置: vimrc.win {{{
 if has("win32") && filereadable(s:vim_home . '/vimrc.win')
     exec 'source ' . s:vim_home . '/vimrc.win'
 endif
+" }}}
 
-" 加载自定义文件 vimrc.local
+" 加载自定义文件 vimrc.local {{{
 if filereadable(s:vim_home . '/vimrc.local')
     exec 'source ' . s:vim_home . '/vimrc.local'
 endif
-
-" python 动态链接库设置
+" }}}
+"
+" python 动态链接库设置 {{{
 " 使用 'pythondll' 和 'pythonthreedll' 指定绝对路径，解决无法加载动态链接库的
 " 问题。
 "
@@ -228,5 +239,6 @@ if has("win32")
     set pythondll=C:/Python27/python27.dll
     set pythonthreedll=C:/Python35/python35.dll
 endif
+" }}}
 
 " vim: ts=4 sts=4 sw=4 et fdm=marker:
