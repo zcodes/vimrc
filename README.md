@@ -16,3 +16,9 @@ cd ~/.vim && sh bootstrap.sh
 - [ ] check plugin is enabled or not
 - [ ] split plugin settings into vimrc.plugin
 
+### Vim 相关
+1. https://github.com/ma6174/vim
+2. https://github.com/itchyny/lightline.vim
+3. https://github.com/junegunn/vim-easy-align
+4. https://github.com/ap/vim-buftabline
+5. https://github.com/amix/vimrc

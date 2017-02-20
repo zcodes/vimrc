@@ -3,6 +3,11 @@
 "
 " Author: zcodes <zcodes@163.com>
 "
+" Note: Every thing you need to known about Vim at:
+" https://github.com/mhinz/vim-galore
+"
+" =====================================================
+
 set nocompatible
 filetype off
 
