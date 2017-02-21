@@ -3,3 +3,4 @@ bundle/*
 vimrc.local
 wiki_html/
 .netrwhist
+tags
