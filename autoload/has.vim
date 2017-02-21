@@ -12,7 +12,7 @@ endfunction
 
 " check is Windows or not
 function! has#windows()
-    return has("win32") or has("win64")
+    return has("win32") || has("win64")
 endfunction
 
 " check is Linux or not
