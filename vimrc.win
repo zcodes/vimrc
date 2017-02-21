@@ -6,5 +6,28 @@
 " Note: a hackable for listchars not work in windows.
 set list
 set listchars=tab:›\ ,trail:•,precedes:«,extends:»,nbsp:.
+set guioptions=aegi
+
+" {{{ fix menu encoding in windows.
+" TODO 在Windows上只能用中文的时候工具栏提示不乱码
+source $VIMRUNTIME/delmenu.vim
+let $LANG='zh_CN.UTF-8'
+set langmenu=zh_CN.UTF-8
+source $VIMRUNTIME/menu.vim
+language mes zh_CN.UTF-8
+" }}}
+
+
+" python 动态链接库设置 {{{
+" 使用 'pythondll' 和 'pythonthreedll' 指定绝对路径，解决无法加载动态链接库的
+" 问题。
+"
+" Linux 下的 vim 只能加载一个版本的 Python，现在使用只编译支持 Python3 的方案
+" 指定Windows下Python的动态链接库路径
+set pythondll=C:/Python27/python27.dll
+set pythonthreedll=C:/Python35/python35.dll
+" }}}
+
+
 
 " vim: ts=4 sts=4 sw=4 et fdm=marker:

@@ -13,7 +13,7 @@ filetype off
 
 " 使用 Vundle 管理插件 {{{
 " Vundle: https://github.com/VundleVim/Vundle.vim
-if has("win32")
+if has#windows()
     let s:vim_home = expand('~/vimfiles')
 else
     let s:vim_home = expand('~/.vim')
@@ -31,8 +31,13 @@ call vundle#end()
 
 "
 " 配置从这里开始
-"
-filetype plugin indent on
+" ==============================
+
+" 让 Vim 记住更多
+set history=500
+
+filetype plugin on
+filetype indent on
 syntax on
 
 " 文件编码设置
@@ -41,46 +46,40 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8,gbk,gb2312,gb18030,ucs-bom,utf16-le,latin-1
 
+" {{{ GUI
 if has#gui()
-    set cursorline " highlight current line
-
-    " font setting
-    if has("win32")
-        " fix menu encoding in windows.
-        " TODO 在Windows上只能用中文的时候工具栏提示不乱码
-        source $VIMRUNTIME/delmenu.vim
-        let $LANG='zh_CN.UTF-8'
-        set langmenu=zh_CN.UTF-8
-        source $VIMRUNTIME/menu.vim
-        language mes zh_CN.UTF-8
-
-        set guioptions=aegi
-    else
-        set guioptions=aegit
-    endif
+    " 高亮当前行
+    set cursorline
+    set guioptions=aegit
 endif
+" }}}
 
 set ttimeout  " time out for key codes
 set ttimeoutlen=100 " wait up to 100ms after Esc for speical key
 
-" color scheme settings
+" 代码颜色主题
 " 自制 vim 主题，平时以 basic-dark 为主
-" colorscheme basic-light
 silent! colorscheme basic-dark
 
 " editing
-set noswapfile " no swapfile when editing
-set nobackup " don't create backup files
+" 不使用交换文件：不在文件所在目录下产生 .swp 文件
+set noswapfile
+" 不适用备份文件
+set nobackup
+" Backspace 按键设置
 set backspace=indent,eol,start
+" 自动加载修改的文件
 set autoread
 " set path+=**
-set nu " show line number
+" 显示行号
+set nu
+" 显示空白字符
 " enable list mode, show tabs, eof, trail ...
 set list
 exec 'set listchars=tab:›\ ,trail:•,precedes:«,extends:»,nbsp:.'
 " ,eol:¬
 
-" mouse setting
+" 鼠标设置
 if has('mouse')
     set mouse=a
     set mousemodel=popup
@@ -120,7 +119,7 @@ if exists('+fixendofline')
     set fixendofline
 endif
 
-" searchings
+" 搜索设置
 set hlsearch
 if has('reltime')
     set incsearch
@@ -177,13 +176,15 @@ augroup tabWidth
 augroup END
 " }}}
 
+" Ruby 配置 {{{
 augroup MyRubyCustom
     autocmd FileType ruby compiler ruby
     " execute current editing ruby file directly
     autocmd FileType ruby nnoremap <buffer> <F9> :exec '!ruby' shellescape(@%, 1)<cr>
 augroup END
+" }}}
 
-" 自定义的 Python 配置
+" Python 配置 {{{
 augroup MyPythonCustom
     " pythom-mode 有 <leader>r 来使用 vim 支持的 Python 来运行 Python 文件
     " 这里使用 <F9> 直接调用 python 来执行脚本，此时的 python 可以是
@@ -192,7 +193,9 @@ augroup MyPythonCustom
     " TODO 将输出内容直接导入 vim 中
     autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
 augroup END
+" }}}
 
+" 自动删除无用的空白字符 {{{
 if has('autocmd')
     augroup whiteSpace
         " remove whitespace
@@ -207,6 +210,7 @@ if has('autocmd')
                     \ endif
     augroup END
 endif
+" }}}
 
 if !exists(":DiffOrig")
     command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
@@ -223,7 +227,7 @@ hi link HelpStar Normal
 " }}}
 
 " Windows 下 Vim的配置: vimrc.win {{{
-if has("win32") && filereadable(s:vim_home . '/vimrc.win')
+if has#windows() && filereadable(s:vim_home . '/vimrc.win')
     exec 'source ' . s:vim_home . '/vimrc.win'
 endif
 " }}}
@@ -231,18 +235,6 @@ endif
 " 加载自定义文件 vimrc.local {{{
 if filereadable(s:vim_home . '/vimrc.local')
     exec 'source ' . s:vim_home . '/vimrc.local'
-endif
-" }}}
-"
-" python 动态链接库设置 {{{
-" 使用 'pythondll' 和 'pythonthreedll' 指定绝对路径，解决无法加载动态链接库的
-" 问题。
-"
-" Linux 下的 vim 只能加载一个版本的 Python，现在使用只编译支持 Python3 的方案
-if has("win32")
-    " 指定Windows下Python的动态链接库路径
-    set pythondll=C:/Python27/python27.dll
-    set pythonthreedll=C:/Python35/python35.dll
 endif
 " }}}
 
