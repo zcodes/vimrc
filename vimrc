@@ -43,8 +43,12 @@ syntax on
 " 文件编码设置
 scriptencoding utf-8
 set encoding=utf-8
-set fileencoding=utf-8
 set fileencodings=utf-8,gbk,gb2312,gb18030,ucs-bom,utf16-le,latin-1
+set fileformats=unix,dos,mac
+
+" fileencoding and fileformat 是 <buffer local> 变量，不应该全局设置
+" set fileencoding=utf-8
+" set fileformat=unix
 
 " {{{ GUI
 if has#gui()
@@ -115,9 +119,6 @@ if has('statusline')
 endif
 set hidden " allow switch buffer without saving.
 
-" file line endings
-set fileformat=unix
-set fileformats=unix,dos,mac
 
 if exists('+fixendofline')
     set fixendofline
