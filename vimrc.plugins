@@ -325,7 +325,9 @@ Plugin 'vimwiki/vimwiki'
 " Vim Powershell Plugin
 Plugin 'PProvost/vim-ps1'
 Plugin 'mhinz/vim-startify'
-Plugin 'gcmt/taboo.vim'
+" Plugin 'gcmt/taboo.vim'
+Plugin 'zcodes/taboo.vim'
+" let g:taboo_tabline = 0
 Plugin 'kien/tabman.vim'
 
 " vim: ts=4 sts=4 sw=4 et fdm=marker

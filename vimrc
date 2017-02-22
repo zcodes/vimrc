@@ -85,9 +85,12 @@ if has('mouse')
     set mousemodel=popup
 endif
 
+" 缩进
 set smartindent
 set autoindent
+" join
 set nojoinspaces
+" 窗口分割
 set splitright
 set splitbelow
 
@@ -97,6 +100,7 @@ if has('cmdline_info')
     set showcmd
 endif
 
+" 显示模式
 set showmode
 set formatoptions=tcqm
 
