@@ -332,5 +332,6 @@ Plugin 'zcodes/taboo.vim'
 let g:taboo_tab_format="%N%p%m"
 " let g:taboo_tabline = 0
 Plugin 'kien/tabman.vim'
+Plugin 'tpope/vim-surround'
 
 " vim: ts=4 sts=4 sw=4 et fdm=marker
