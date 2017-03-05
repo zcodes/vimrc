@@ -36,24 +36,27 @@ call vundle#end()
 " 让 Vim 记住更多
 set history=500
 
-filetype plugin on
-filetype indent on
+filetype indent plugin on
 syntax on
 
-" 文件编码设置
+" 脚本编码
 scriptencoding utf-8
+" 默认编码
 set encoding=utf-8
+" 启用支持的文件编码
 set fileencodings=utf-8,gbk,gb2312,gb18030,ucs-bom,utf16-le,latin-1
+" 可用的换行格式
+" Note: unix, dos, mac 三种格式的换行对应:
+" unix => \n
+" dos  => \r\n
+" mac  => \r
 set fileformats=unix,dos,mac
-
-" fileencoding and fileformat 是 <buffer local> 变量，不应该全局设置
-" set fileencoding=utf-8
-" set fileformat=unix
+" Note: 可用使用下列命令设置当前文件的编码和换行格式
+" set fileencoding=<要转换的编码，比如: utf8>
+" set fileformat=<要设置的文件还行格式，比如: unix>
 
 " {{{ GUI
 if has#gui()
-    " 高亮当前行
-    set cursorline
     set guioptions=aegit
 endif
 " }}}
@@ -77,6 +80,8 @@ set autoread
 " set path+=**
 " 显示行号
 set nu
+" 高亮当前行
+set cursorline
 " 显示空白字符
 " enable list mode, show tabs, eof, trail ...
 set list
