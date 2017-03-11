@@ -57,6 +57,7 @@ set fileformats=unix,dos,mac
 
 " {{{ GUI
 if has#gui()
+    set anti
     set guioptions=aegit
 endif
 " }}}
