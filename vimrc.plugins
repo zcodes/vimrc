@@ -79,23 +79,28 @@ let g:ackprg='ag --vimgrep'
 Plugin 'tpope/vim-commentary'
 
 " ctrlp {{{
-" Plugin 'kien/ctrlp.vim'
-" https://ctrlpvim.github.io/ctrlp.vim/
 Plugin 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_use_caching = 1
-if has('win32')
-    set wildignore+=*\\tmp\\*,*\\.git\\*,*\\.hg\\*,*\\.svn\\*,*.swp,*.zip,*.exe
-    " let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'
-else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/tmp/*,*.so,*.swp,*.zip
-    " let g:ctrlp_user_command = 'find %s -type f'
-endif
-" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_custom_ignore = {
-            \ 'dir': '\v[\/]\.(git|hg|svn)$',
-            \ 'file': '\v\.(exe|so|dll)$',
+let g:ctrlp_working_path_mode = 'raw'
+let g:ctrlp_root_markers = ['.git']
+let s:ctrlp_common_user_command = {
+            \ 'types': {
+            \ 1: ['.git', 'cd %s && git ls-files -co --exclude-standard'],
+            \ },
             \ }
+if has#windows()
+    let g:ctrlp_user_command = extend(
+                \ s:ctrlp_common_user_command, {
+                \ 'fallback': 'dir %s /-n /b /s /a-d | findstr /v /l ".jpg .png .exe .pyc"'
+                \ }
+                \ )
+else
+    let g:ctrlp_user_command = extend(
+                \ s:ctrlp_common_user_command,  {
+                \ 'fallback': 'find %s -type f |grep -v -P "\.jpg$|\.png$|\.exe$|\.pyc$"'
+                \ }
+                \ )
+endif
 " }}}
 
 " git plugin
