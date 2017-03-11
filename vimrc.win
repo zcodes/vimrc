@@ -8,6 +8,9 @@ set list
 set listchars=tab:›\ ,trail:•,precedes:«,extends:»,nbsp:.
 set guioptions=aegi
 
+" 字体渲染，详情查看 ':h rop'
+set renderoptions=type:directx,geom:1,renmode:0,taamode:1
+
 " {{{ fix menu encoding in windows.
 " TODO 在Windows上只能用中文的时候工具栏提示不乱码
 source $VIMRUNTIME/delmenu.vim
