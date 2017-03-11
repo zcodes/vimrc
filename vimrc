@@ -164,6 +164,10 @@ if has#gui()
 endif
 inoremap jk <esc>
 
+" 使用 j，k 移动时候，将 wrapped 行视作一行移动
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
+
 " 使用空格快速输入命令
 nnoremap <space> :
 vnoremap <space> :
@@ -207,26 +211,19 @@ augroup END
 " }}}
 
 " 自动删除无用的空白字符 {{{
-if has('autocmd')
-    augroup whiteSpace
-        " remove whitespace
-        autocmd BufWritePre * :%s/\s\+$//e
-    augroup END
+augroup whiteSpace
+    " remove whitespace
+    autocmd BufWritePre * :%s/\s\+$//e
+augroup END
 
-    augroup vimStartup
-        au!
-        autocmd BufReadPost *
-                    \ if line("'\"") >= 1 && line("'\"") <= line("$") |
-                    \     exe "normal! g`\"" |
-                    \ endif
-    augroup END
-endif
+augroup vimStartup
+    au!
+    autocmd BufReadPost *
+                \ if line("'\"") >= 1 && line("'\"") <= line("$") |
+                \     exe "normal! g`\""
+                \ endif
+augroup END
 " }}}
-
-if !exists(":DiffOrig")
-    command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-                \ | wincmd p | diffthis
-endif
 
 " vim 帮助文档设置 {{{
 augroup VimHelp
@@ -236,6 +233,18 @@ augroup END
 hi link HelpBar Normal
 hi link HelpStar Normal
 " }}}
+
+" 自动在相对行号间切换
+augroup RelativeLineNumbers
+    au!
+    autocmd InsertEnter * :set norelativenumber
+    autocmd InsertLeave * :set relativenumber
+augroup END
+
+if !exists(":DiffOrig")
+    command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+                \ | wincmd p | diffthis
+endif
 
 " Windows 下 Vim的配置: vimrc.win {{{
 if has#windows() && filereadable(s:vim_home . '/vimrc.win')
