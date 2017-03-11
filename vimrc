@@ -178,6 +178,8 @@ if maparg('<C-L>', 'n') ==#'' | nnoremap <silent><C-L> :nohlsearch<cr><c-l> | en
 " tabs {{{
 set ts=4 sts=4 sw=4 et
 augroup tabWidth
+    au!
+
     autocmd BufNewFile,BufRead *.html,*.less,*.css,*.js,
                 \*.blade.php,*.rb,*.jade setl ts=2 sts=2 sw=2
     autocmd BufNewFile,BufRead *.vue setl ts=2 sts=2 sw=2 filetype=html
@@ -193,6 +195,8 @@ augroup END
 
 " Ruby 配置 {{{
 augroup MyRubyCustom
+    au!
+
     autocmd FileType ruby compiler ruby
     " execute current editing ruby file directly
     autocmd FileType ruby nnoremap <buffer> <F9> :exec '!ruby' shellescape(@%, 1)<cr>
@@ -201,6 +205,8 @@ augroup END
 
 " Python 配置 {{{
 augroup MyPythonCustom
+    au!
+
     " pythom-mode 有 <leader>r 来使用 vim 支持的 Python 来运行 Python 文件
     " 这里使用 <F9> 直接调用 python 来执行脚本，此时的 python 可以是
     " virtualenv 中的 Python
@@ -212,15 +218,18 @@ augroup END
 
 " 自动删除无用的空白字符 {{{
 augroup whiteSpace
+    au!
+
     " remove whitespace
     autocmd BufWritePre * :%s/\s\+$//e
 augroup END
 
 augroup vimStartup
     au!
+
     autocmd BufReadPost *
                 \ if line("'\"") >= 1 && line("'\"") <= line("$") |
-                \     exe "normal! g`\""
+                \     exe "normal! g`\"" |
                 \ endif
 augroup END
 " }}}
@@ -228,6 +237,7 @@ augroup END
 " vim 帮助文档设置 {{{
 augroup VimHelp
     au!
+
     autocmd FileType help setl conceallevel=0
 augroup END
 hi link HelpBar Normal
@@ -237,6 +247,7 @@ hi link HelpStar Normal
 " 自动在相对行号间切换
 augroup RelativeLineNumbers
     au!
+
     autocmd InsertEnter * :set norelativenumber
     autocmd InsertLeave * :set relativenumber
 augroup END
