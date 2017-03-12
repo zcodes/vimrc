@@ -174,6 +174,11 @@ if maparg('<C-L>', 'n') ==#'' | nnoremap <silent><C-L> :nohlsearch<cr><c-l> | en
 " }}}
 
 " tabs {{{
+" ts : Number of spaces that a <Tab> in the file counts for.
+" sts : Number of spaces that a <Tab> counts for while performing editing
+" operations, like insert a <Tab> or using <BS>.
+" sw: Number of spaces to use for each step of (auto)indent.
+" et: In Insert mode: Use the appropriate number of spaces to insert a <Tab>.
 set ts=4 sts=4 sw=4 et
 augroup tabWidth
     au!
@@ -182,9 +187,9 @@ augroup tabWidth
                 \*.blade.php,*.rb,*.jade setl ts=2 sts=2 sw=2
     autocmd BufNewFile,BufRead *.vue setl ts=2 sts=2 sw=2 filetype=html
     autocmd BufNewFile,BufRead *.coffee setl ts=2 sts=2 sw=2 fdm=indent nofen
-    autocmd BufNewFile,BufRead *.[ch],*.cpp setl ts=8 sts=8 sw=8 noet
+    autocmd BufNewFile,BufRead *.[ch],*.cpp,*.hpp setl ts=4 sts=4 sw=4 noet
     autocmd BufNewFile,BufRead *.go setl ts=4 sts=4 sw=4 noet
-    autocmd BufNewFile,BufRead *.py setl ts=8 et sw=4 sts=4
+    autocmd BufNewFile,BufRead *.py setl ts=4 sw=4 sts=4 et
 
     " Semantic UI
     autocmd BufNewFile,BufRead *.overrides,*.variables setl filetype=less

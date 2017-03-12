@@ -28,7 +28,7 @@ language mes zh_CN.UTF-8
 " Linux 下的 vim 只能加载一个版本的 Python，现在使用只编译支持 Python3 的方案
 " 指定Windows下Python的动态链接库路径
 set pythondll=C:/Python27/python27.dll
-set pythonthreedll=C:/Python35/python35.dll
+set pythonthreedll=C:/Python36/python36.dll
 " }}}
 
 
