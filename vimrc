@@ -79,8 +79,6 @@ set backspace=indent,eol,start
 " 自动加载修改的文件
 set autoread
 " set path+=**
-" 显示行号
-set nu
 " 高亮当前行
 set cursorline
 " 显示空白字符
@@ -244,6 +242,9 @@ hi link HelpBar Normal
 hi link HelpStar Normal
 " }}}
 
+" 行号 {{{
+set nu
+set relativenumber
 " 自动在相对行号间切换
 augroup RelativeLineNumbers
     au!
@@ -251,6 +252,7 @@ augroup RelativeLineNumbers
     autocmd InsertEnter * :set norelativenumber
     autocmd InsertLeave * :set relativenumber
 augroup END
+" }}}
 
 if !exists(":DiffOrig")
     command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
