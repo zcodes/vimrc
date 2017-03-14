@@ -146,10 +146,11 @@ let g:airline_powerline_fonts=0
 
 " {{{color themes
 " ------------------------------
+Plugin 'zcodes/vim-colors-basic'
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'mkarmona/colorsbox'
 Plugin 'mkarmona/materialbox'
-Plugin 'zcodes/vim-colors-basic'
+Plugin 'altercation/vim-colors-solarized'
 " Plugin 'wimstefan/Lightning'
 " Plugin 'romainl/Apprentice'
 " Plugin 'vim-scripts/moria'
@@ -158,7 +159,6 @@ Plugin 'zcodes/vim-colors-basic'
 " Plugin 'iissnan/tangoX'
 " Plugin 'vim-scripts/earendel'
 " Plugin 'tomasr/molokai'
-" Plugin 'altercation/vim-colors-solarized'
 " Plugin 'zcodes/vim-color-cleanroom'
 " Plugin 'marciomazza/vim-brogrammer-theme'
 " Plugin 'jscappini/material.vim'
@@ -178,7 +178,6 @@ Plugin 'zcodes/vim-colors-basic'
 " Plugin 'endel/vim-github-colorscheme'
 " Plugin 'nelstrom/vim-mac-classic-theme'
 " Plugin 'DAddYE/soda.vim'
-"
 " }}}
 
 " {{{file types
