@@ -22,12 +22,13 @@ exec 'set rtp+=' . s:vim_home . '/bundle/Vundle.vim'
 call vundle#begin(s:vim_home . '/bundle')
 
 " 插件单独分在 vimrc.plugins 文件中
-if filereadable(s:vim_home . '/vimrc.plugins')
-    exec 'source ' . s:vim_home . '/vimrc.plugins'
-endif
+call utils#Source(s:vim_home . '/vimrc.plugins')
 
 call vundle#end()
 " }}}
+
+" before it
+call utils#Source(s:vim_home . '/vimrc.local.before')
 
 "
 " 配置从这里开始
@@ -259,21 +260,27 @@ augroup RelativeLineNumbers
 augroup END
 " }}}
 
+" Last Modified {{{
+augroup UpdateLastModifiedTimestamps
+    au!
+
+    autocmd BufWritePre *.txt,*.md call utils#LastModified()
+augroup END
+" }}}
+
 if !exists(":DiffOrig")
     command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
                 \ | wincmd p | diffthis
 endif
 
 " Windows 下 Vim的配置: vimrc.win {{{
-if has#windows() && filereadable(s:vim_home . '/vimrc.win')
-    exec 'source ' . s:vim_home . '/vimrc.win'
+if has#windows()
+    call utils#Source(s:vim_home . '/vimrc.win')
 endif
 " }}}
 
 " 加载自定义文件 vimrc.local {{{
-if filereadable(s:vim_home . '/vimrc.local')
-    exec 'source ' . s:vim_home . '/vimrc.local'
-endif
+call utils#Source(s:vim_home . '/vimrc.local')
 " }}}
 
 " vim: ts=4 sts=4 sw=4 et fdm=marker:
