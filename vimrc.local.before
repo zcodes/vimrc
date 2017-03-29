@@ -1,3 +1,0 @@
-let $PATH.=";C:/Tools/msys64/mingw64/bin"
-let g:ackprg='ag --vimgrep'
-let g:custom_python3_dll_path="C:/Tools/Anaconda3/python36.dll"
