@@ -1,6 +1,9 @@
 "
 " special settings for vim in windows.
 "
+" Author: zcodes <zcodes@163.com>
+"
+" =====================================================
 
 " set list and listchars here again
 " Note: a hackable for listchars not work in windows.
@@ -9,10 +12,11 @@ set listchars=tab:›\ ,trail:•,precedes:«,extends:»,nbsp:.
 set guioptions=aegi
 
 " 字体渲染，详情查看 ':h rop'
-set renderoptions=type:directx,geom:1,renmode:0,taamode:1
+if has('directx')
+    set renderoptions=type:directx,geom:1,renmode:0,taamode:1
+endif
 
-" {{{ fix menu encoding in windows.
-" TODO 在Windows上只能用中文的时候工具栏提示不乱码
+" fix menu encoding in windows. {{{
 source $VIMRUNTIME/delmenu.vim
 let $LANG='zh_CN.UTF-8'
 set langmenu=zh_CN.UTF-8
@@ -40,7 +44,5 @@ else
     set pythonthreedll=C:/Python35/python35.dll
 endif
 " }}}
-
-
 
 " vim: ts=4 sts=4 sw=4 et fdm=marker:

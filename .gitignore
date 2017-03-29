@@ -1,6 +1,7 @@
 *~
 bundle/*
 vimrc.local
+vimrc.local.before
 wiki_html/
 .netrwhist
 tags

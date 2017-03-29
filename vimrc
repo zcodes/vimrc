@@ -150,18 +150,32 @@ set scrolloff=5
 "
 " Don't use Ex mode, use Q for formating.
 map Q gq
+
+" <leader> key with mapping space
+" t => tabedit
+" v => vim
+" vm => vim menubar
+" vt => vim toolbar
 " 快速编辑配置文件
-nnoremap <leader>evi :e $MYVIMRC<cr>
-nnoremap <leader>evw :e $MYVIMRC.win<cr>
-nnoremap <leader>evp :e $MYVIMRC.plugins<cr>
-nnoremap <leader>evl :e $MYVIMRC.local<cr>
+nnoremap <leader>vi :e $MYVIMRC<cr>
+nnoremap <leader>vw :e $MYVIMRC.win<cr>
+nnoremap <leader>vp :e $MYVIMRC.plugins<cr>
+nnoremap <leader>vll :e $MYVIMRC.local<cr>
+nnoremap <leader>vlb :e $MYVIMRC.local.before<cr>
+
+" Editor configures with new tabs
+nnoremap <leader>tvi :tabe $MYVIMRC<cr>
+nnoremap <leader>tvw :tabe $MYVIMRC.win<cr>
+nnoremap <leader>tvp :tabe $MYVIMRC.plugins<cr>
+nnoremap <leader>tvll :tabe $MYVIMRC.local<cr>
+nnoremap <leader>tvlb :tabe $MYVIMRC.local.before<cr>
+
 " 重新加载配置文件
-nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>vss :source $MYVIMRC<cr>
 if has#gui()
-    nnoremap <leader>mv :if &go=~#'m'<bar>set go-=m<bar>else<bar>set go+=m<bar>endif<cr>
-    nnoremap <leader>Tv :if &go=~#'T'<bar>set go-=T<bar>else<bar>set go+=T<bar>endif<cr>
+    nnoremap <leader>vms :if &go=~#'m'<bar>set go-=m<bar>else<bar>set go+=m<bar>endif<cr>
+    nnoremap <leader>vts :if &go=~#'T'<bar>set go-=T<bar>else<bar>set go+=T<bar>endif<cr>
 endif
-inoremap jk <esc>
 
 " 使用 j，k 移动时候，将 wrapped 行视作一行移动
 nnoremap <expr> j v:count ? 'j' : 'gj'
@@ -170,6 +184,7 @@ nnoremap <expr> k v:count ? 'k' : 'gk'
 " 使用空格快速输入命令
 nnoremap <space> :
 vnoremap <space> :
+
 " ctrl-l 清除高亮搜索结果
 if maparg('<C-L>', 'n') ==#'' | nnoremap <silent><C-L> :nohlsearch<cr><c-l> | endif
 " }}}

@@ -1,7 +1,10 @@
 "
-" Plugins
+" vim plugins, managed by Vundle
 "
-" vundle
+" Author: zcodes <zcodes@163.com>
+"
+" =====================================================
+
 Plugin 'VundleVim/Vundle.vim'
 
 if has("win32")
@@ -20,7 +23,6 @@ let g:NERDTreeMinimalUI=1
 let NERDTreeDirArrows=0
 nmap <F3> :NERDTreeFocus<cr>
 nmap <F4> :NERDTreeClose<cr>
-nmap <F5> :TagbarToggle<cr>
 " }}}
 
 " snipmate and snippets {{{
@@ -68,12 +70,11 @@ endfunction
 auto FileType html,css,blade,twig imap <buffer><expr><tab> <sid>emmet_with_snipmate()
 " }}}
 
-" File Searching
-" Plugin 'rking/ag.vim'
-" let g:ag_prg="ag --vimgrep"
-" let g:ag_mapping_message = 0
+" file searching {{{
 Plugin 'mileszs/ack.vim'
+" use the_silver_searcher [ag]
 let g:ackprg='ag --vimgrep'
+" }}}
 
 " comment
 Plugin 'tpope/vim-commentary'
@@ -101,13 +102,19 @@ else
                 \ }
                 \ )
 endif
+augroup CtrlPLeaderKeyMapping
+    au!
+
+    nnoremap <c-b> :CtrlPBuffer<cr>
+    nnoremap <leader>bb :CtrlPBuffer<cr>
+augroup END
 " }}}
 
 " git plugin
 Plugin 'airblade/vim-gitgutter'
 Plugin 'tpope/vim-fugitive'
 
-" {{{supertab
+" supertab {{{
 Plugin 'ervandew/supertab'
 " SuperTab Settings
 " g:SuperTabDefaultCompletionType
@@ -121,11 +128,12 @@ autocmd FileType html,css,blade,twig
             \ endif
 " }}}
 
-" Taglist
-" Plugin 'zcodes/taglist.vim'
+" list tags {{{
 Plugin 'majutsushi/tagbar'
 let g:tagbar_show_linenumbers = 0
 let g:tagbar_foldlevel = 2
+nmap <F5> :TagbarToggle<cr>
+" }}}
 
 " airline {{{
 Plugin 'vim-airline/vim-airline'
@@ -136,58 +144,25 @@ else
     let g:airline_theme = 'raven'
 endif
 let g:airline_powerline_fonts=0
-
-" Powerline
-" Plugin 'Lokaltog/vim-powerline'
 " }}}
 
-" Update Last Change Time
-" Plugin 'vim-scripts/update-time'
-
-" {{{color themes
-" ------------------------------
+" color themes {{{
+" for more color themes, see: http://vimcolors.com
 Plugin 'zcodes/vim-colors-basic'
 Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'mkarmona/colorsbox'
-Plugin 'mkarmona/materialbox'
 Plugin 'altercation/vim-colors-solarized'
-" Plugin 'wimstefan/Lightning'
-" Plugin 'romainl/Apprentice'
-" Plugin 'vim-scripts/moria'
-" Plugin 'vim-scripts/bclear'
-" Plugin 'vim-scripts/beauty256'
-" Plugin 'iissnan/tangoX'
-" Plugin 'vim-scripts/earendel'
-" Plugin 'tomasr/molokai'
-" Plugin 'zcodes/vim-color-cleanroom'
-" Plugin 'marciomazza/vim-brogrammer-theme'
-" Plugin 'jscappini/material.vim'
-" Plugin 'mhinz/vim-janah'
-" Plugin 'the31k/vim-colors-tayra'
-" Plugin 'GGalizzi/cake-vim'
-" Plugin 'DeepAnchor/enigma.vim'
-" Plugin 'vim-scripts/obsidian2.vim'
-" Plugin 'trevorrjohn/vim-obsidian'
-" Plugin 'adampasz/stonewashed-themes'
-" Plugin 'petelewis/vim-evolution'
-" Plugin 'notpratheek/vim-luna'
-" Plugin 'NLKNguyen/papercolor-theme'
-" Plugin 'fent/vim-frozen'
-" Plugin 'jlund3/colorschemer'
-" Plugin 'scheakur/vim-scheakur'
-" Plugin 'endel/vim-github-colorscheme'
-" Plugin 'nelstrom/vim-mac-classic-theme'
-" Plugin 'DAddYE/soda.vim'
 " }}}
 
-" {{{file types
-" ------------------------------
+" file type support {{{
+" javascript
 Plugin 'pangloss/vim-javascript'
+" json
 Plugin 'elzr/vim-json'
 
+" markdown
 " text align
-Plugin 'godlygeek/tabular'
 " vim-markdown need's tabular
+Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 " let g:vim_markdown_folding_style_pythonic = 1
 " let g:vim_markdown_override_foldtext = 1
@@ -196,21 +171,26 @@ let g:vim_markdown_folding_level = 6
 " let g:vim_markdown_conceal = 0
 let g:vim_markdown_frontmatter = 1
 
+" php twig
 Plugin 'evidens/vim-twig'
+" mustache
 Plugin 'mustache/vim-mustache-handlebars'
+" ruby
 Plugin 'vim-ruby/vim-ruby'
 
-" {{{php.vim
+" php
 Plugin 'StanAngeloff/php.vim'
 " let g:php_syntax_extensions_enabled = []
 " let g:php_syntax_extensions_disabled = []
-" php.vim}}}
 
+" puppet
 Plugin 'rodjek/vim-puppet'
+" css
 Plugin 'JulesWang/css.vim'
+" less
 Plugin 'genoma/vim-less'
 
-" python-mode {{{
+" python {{{
 "
 " Use python3 default here, and python2 for fallback.
 if has('pythonx')
@@ -240,16 +220,20 @@ let g:pymode_rope_autoimport = 0
 let g:pymode_lint_ignore = "E501"
 let g:pymode_run = 1
 let g:pymode_breakpoint = 0
-" }}}
 Plugin 'davidhalter/jedi-vim'
 let g:jedi#force_py_version = 3
+" }}}
 
+" jade
 Plugin 'digitaltoad/vim-jade'
+" coffeescript
 Plugin 'zcodes/vim-coffee-script'
+" html5
 Plugin 'othree/html5.vim'
+" jade
 Plugin 'zcodes/vim-blade'
 
-" {{{vim-go
+" go {{{
 Plugin 'fatih/vim-go'
 " use :GoInstallBinaries install additional tools
 " and set it's installtion path
@@ -286,7 +270,7 @@ au FileType go nmap <leader>gc <Plug>(go-coverage)
 " au FileType go nmap <Leader>s <Plug>(go-implements)
 " au FileType go nmap <Leader>i <Plug>(go-info)
 " au FileType go nmap <Leader>e <Plug>(go-rename)
-" vim-go}}}
+" }}}
 
 " Plugin 'AndrewRadev/vim-eco'
 Plugin 'zcodes/vim-eco'
@@ -351,5 +335,7 @@ let g:taboo_tab_format="%N%p%m"
 " let g:taboo_tabline = 0
 Plugin 'kien/tabman.vim'
 Plugin 'tpope/vim-surround'
+" Plugin 'elentok/plaintasks.vim'
+Plugin 'easymotion/vim-easymotion'
 
 " vim: ts=4 sts=4 sw=4 et fdm=marker
