@@ -155,11 +155,22 @@ set novisualbell
 set t_vb=
 set tm=500
 
+" undo even close files.
+try
+    exec 'set undodir=' . zcodes#utils#vim_home_file('/undodir')
+    set undofile
+catch
+endtry
+
 
 " 按键绑定 {{{
 "
 " Don't use Ex mode, use Q for formating.
 map Q gq
+
+" set <leader> key
+" let mapleader = ','
+" let g:mapleader = ','
 
 " <leader> key with mapping space
 " t => tabedit
@@ -205,7 +216,10 @@ if maparg('<C-L>', 'n') ==#'' | nnoremap <silent><C-L> :nohlsearch<cr><c-l> | en
 " operations, like insert a <Tab> or using <BS>.
 " sw: Number of spaces to use for each step of (auto)indent.
 " et: In Insert mode: Use the appropriate number of spaces to insert a <Tab>.
-set ts=4 sts=4 sw=4 et
+set tabstop=4 " ts
+set softtabstop=4 " sts
+set shiftwidth=4 " shiftwidth
+set expandtab " et
 augroup tabWidth
     au!
 

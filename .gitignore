@@ -5,3 +5,4 @@ vimrc.local.before
 wiki_html/
 .netrwhist
 tags
+undodir
