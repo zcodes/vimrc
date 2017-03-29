@@ -30,7 +30,8 @@ call zcodes#utils#source(zcodes#utils#vim_home_file('/vimrc.local.before'))
 " 让 Vim 记住更多
 set history=500
 
-filetype indent plugin on
+filetype indent on
+filetype plugin on
 syntax on
 
 " 脚本编码
@@ -90,6 +91,8 @@ endif
 " 缩进
 set smartindent
 set autoindent
+set wrap
+
 " join
 set nojoinspaces
 " 窗口分割
@@ -100,6 +103,7 @@ if has('cmdline_info')
     set ruler
     set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
     set showcmd
+    set cmdheight=1
 endif
 
 " 显示模式
@@ -123,20 +127,33 @@ if exists('+fixendofline')
 endif
 
 " 搜索设置
+set ignorecase
+set smartcase
 set hlsearch
 if has('reltime')
     set incsearch
 endif
+set lazyredraw
+set magic
+set showmatch
+set matchtime=2
 
 " 代码折叠
 set foldenable
 set foldlevel=999
+set foldcolumn=1
 
 " Show @@@ in the last line if it is truncated
 " set display=truncate
 
 " Show a few lines of context around the cursor.
 set scrolloff=5
+
+" no bell
+set noerrorbells
+set novisualbell
+set t_vb=
+set tm=500
 
 
 " 按键绑定 {{{
