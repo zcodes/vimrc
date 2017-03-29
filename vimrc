@@ -13,22 +13,15 @@ filetype off
 
 " 使用 Vundle 管理插件 {{{
 " Vundle: https://github.com/VundleVim/Vundle.vim
-if has#windows()
-    let s:vim_home = expand('~/vimfiles')
-else
-    let s:vim_home = expand('~/.vim')
-endif
-exec 'set rtp+=' . s:vim_home . '/bundle/Vundle.vim'
-call vundle#begin(s:vim_home . '/bundle')
-
+exec 'set rtp+=' . zcodes#utils#vim_home_file('/bundle/Vundle.vim')
+call vundle#begin(zcodes#utils#vim_home_file('/bundle'))
 " 插件单独分在 vimrc.plugins 文件中
-call utils#Source(s:vim_home . '/vimrc.plugins')
-
+call zcodes#utils#source(zcodes#utils#vim_home_file('/vimrc.plugins'))
 call vundle#end()
 " }}}
 
 " before it
-call utils#Source(s:vim_home . '/vimrc.local.before')
+call zcodes#utils#source(zcodes#utils#vim_home_file('/vimrc.local.before'))
 
 "
 " 配置从这里开始
@@ -57,7 +50,7 @@ set fileformats=unix,dos,mac
 " set fileformat=<要设置的文件还行格式，比如: unix>
 
 " {{{ GUI
-if has#gui()
+if zcodes#has#gui()
     set anti
     set guioptions=aegit
 endif
@@ -172,7 +165,7 @@ nnoremap <leader>tvlb :tabe $MYVIMRC.local.before<cr>
 
 " 重新加载配置文件
 nnoremap <leader>vss :source $MYVIMRC<cr>
-if has#gui()
+if zcodes#has#gui()
     nnoremap <leader>vms :if &go=~#'m'<bar>set go-=m<bar>else<bar>set go+=m<bar>endif<cr>
     nnoremap <leader>vts :if &go=~#'T'<bar>set go-=T<bar>else<bar>set go+=T<bar>endif<cr>
 endif
@@ -279,7 +272,7 @@ augroup END
 augroup UpdateLastModifiedTimestamps
     au!
 
-    autocmd BufWritePre *.txt,*.md call utils#LastModified()
+    autocmd BufWritePre *.txt,*.md call zcodes#utils#last_modified()
 augroup END
 " }}}
 
@@ -289,13 +282,13 @@ if !exists(":DiffOrig")
 endif
 
 " Windows 下 Vim的配置: vimrc.win {{{
-if has#windows()
-    call utils#Source(s:vim_home . '/vimrc.win')
+if zcodes#has#windows()
+    call zcodes#utils#source(zcodes#utils#vim_home_file('/vimrc.win'))
 endif
 " }}}
 
 " 加载自定义文件 vimrc.local {{{
-call utils#Source(s:vim_home . '/vimrc.local')
+call zcodes#utils#source(zcodes#utils#vim_home_file('/vimrc.local'))
 " }}}
 
 " vim: ts=4 sts=4 sw=4 et fdm=marker:

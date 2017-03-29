@@ -7,11 +7,6 @@
 
 Plugin 'VundleVim/Vundle.vim'
 
-if has("win32")
-    Plugin 'zcodes/vim-misc'
-    Plugin 'zcodes/vim-shell'
-endif
-
 " bufexplorer
 Plugin 'c9s/bufexplorer'
 
@@ -89,7 +84,7 @@ let s:ctrlp_common_user_command = {
             \ 1: ['.git', 'cd %s && git ls-files -co --exclude-standard'],
             \ },
             \ }
-if has#windows()
+if zcodes#has#windows()
     let g:ctrlp_user_command = extend(
                 \ s:ctrlp_common_user_command, {
                 \ 'fallback': 'dir %s /-n /b /s /a-d | findstr /v /l ".jpg .png .exe .pyc"'
