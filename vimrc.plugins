@@ -215,8 +215,11 @@ let g:pymode_rope_autoimport = 0
 let g:pymode_lint_ignore = "E501"
 let g:pymode_run = 1
 let g:pymode_breakpoint = 0
+let g:pymode_run_bind = '<leader>rr'
+
 Plugin 'davidhalter/jedi-vim'
 let g:jedi#force_py_version = 3
+let g:jedi#rename_command = '<leader>rn'
 " }}}
 
 " jade

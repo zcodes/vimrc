@@ -79,7 +79,7 @@ set cursorline
 " 显示空白字符
 " enable list mode, show tabs, eof, trail ...
 set list
-exec 'set listchars=tab:›\ ,trail:•,precedes:«,extends:»,nbsp:.'
+set listchars=tab:›\ ,trail:•,precedes:«,extends:»,nbsp:.
 " ,eol:¬
 
 " 鼠标设置
@@ -157,7 +157,7 @@ set tm=500
 
 " undo even close files.
 try
-    exec 'set undodir=' . zcodes#utils#vim_home_file('/undodir')
+    let &undodir=zcodes#utils#vim_home_file('/undodir')
     set undofile
 catch
 endtry
