@@ -59,6 +59,7 @@ endif
 
 set ttimeout  " time out for key codes
 set ttimeoutlen=100 " wait up to 100ms after Esc for speical key
+set viewoptions=folds,options,cursor,unix,slash
 
 " 代码颜色主题
 " 自制 vim 主题，平时以 basic-dark 为主

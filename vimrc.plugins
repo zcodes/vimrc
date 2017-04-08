@@ -336,4 +336,9 @@ Plugin 'tpope/vim-surround'
 " Plugin 'elentok/plaintasks.vim'
 Plugin 'easymotion/vim-easymotion'
 
+" indent guides
+" Plugin 'Yggdroot/indentLine'
+" let g:indentLine_char = '┊'
+" Plugin 'nathanaelkane/vim-indent-guides'
+
 " vim: ts=4 sts=4 sw=4 et fdm=marker
