@@ -57,8 +57,16 @@ if zcodes#has#gui()
 endif
 " }}}
 
+" 'timeout' and 'ttimeout' {{{
+" for details, see :h 'timeout'
+" TODO: Differences between `:mappingings and key codes`
+"
+" Disable timeout for <leader> key sequences.
+set notimeout
+" set timeoutlen=3000
 set ttimeout  " time out for key codes
-set ttimeoutlen=100 " wait up to 100ms after Esc for speical key
+" set ttimeoutlen=100 " wait up to 100ms after Esc for speical key
+" }}}
 set viewoptions=folds,options,cursor,unix,slash
 
 " 代码颜色主题

@@ -71,8 +71,13 @@ Plugin 'mileszs/ack.vim'
 let g:ackprg='ag --vimgrep'
 " }}}
 
-" comment
+" comment {{{
 Plugin 'tpope/vim-commentary'
+
+" Alternative plugins for comment
+" Plugin 'tomtom/tcomment_vim'
+" Plugin 'scrooloose/nerdcommenter'
+" }}}
 
 " ctrlp {{{
 Plugin 'ctrlpvim/ctrlp.vim'
