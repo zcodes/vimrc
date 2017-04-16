@@ -3,6 +3,7 @@
 "
 " Author: zcodes <zcodes@163.com>
 "
+" a collection of language packs for vim, see: https://github.com/sheerun/vim-polyglot
 " =====================================================
 
 Plugin 'VundleVim/Vundle.vim'
@@ -188,17 +189,32 @@ let g:vim_markdown_folding_level = 6
 " let g:vim_markdown_conceal = 0
 let g:vim_markdown_frontmatter = 1
 
-" php twig
-Plugin 'evidens/vim-twig'
 " mustache
 Plugin 'mustache/vim-mustache-handlebars'
 " ruby
 Plugin 'vim-ruby/vim-ruby'
 
-" php
+" php {{{
 Plugin 'StanAngeloff/php.vim'
 " let g:php_syntax_extensions_enabled = []
 " let g:php_syntax_extensions_disabled = []
+
+" php twig
+Plugin 'evidens/vim-twig'
+
+" php complete
+Plugin 'shawncplus/phpcomplete.vim'
+
+" php unit
+Plugin 'wdalmut/vim-phpunit'
+
+" php namespace
+Plugin 'arnaud-lb/vim-php-namespace'
+
+" laravel blade
+Plugin 'zcodes/vim-blade'
+" Plugin 'jwalton512/vim-blade'
+" }}}
 
 " puppet
 Plugin 'rodjek/vim-puppet'
@@ -246,12 +262,12 @@ let g:jedi#rename_command = '<leader>rn'
 
 " jade
 Plugin 'digitaltoad/vim-jade'
+
 " coffeescript
 Plugin 'zcodes/vim-coffee-script'
+
 " html5
 Plugin 'othree/html5.vim'
-" jade
-Plugin 'zcodes/vim-blade'
 
 " go {{{
 Plugin 'fatih/vim-go'
