@@ -26,6 +26,23 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+
+let g:snipMate = {}
+let g:snipMate.scope_aliases = {}
+let g:snipMate.scope_aliases['ruby'] = 'ruby,ruby-rails,ruby-1.9'
+let g:snipMate.scope_aliases['vimwiki'] = 'vimwiki'
+" }}}
+
+" snippets with ultisnips {{{
+" Plugin 'sirver/ultisnips'
+" Plugin 'honza/vim-snippets'
+
+" let g:UltiSnipsExpandTrigger = "<tab>"
+" let g:UltiSnipsJumpForwardTrigger = "<c-b>"
+" let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
+
+" let g:UltiSnipsEditSplit = "vertical"
+" let g:UltiSnipsUsePythonVersion = 3
 " }}}
 
 " {{{emmet
@@ -346,6 +363,10 @@ Plugin 'vimwiki/vimwiki'
 " let wiki_user.path = '~/vimwiki'
 " let wiki_user.path_html = '~/vimwiki_html'
 " let g:vimwiki_list = [wiki_vim, wiki_user]
+" disable table mappings, it is confilict with vim-snipmate
+let g:vimwiki_table_mappings = 0
+" autocmd FileType vimwiki inoremap <expr> <buffer> <C-Tab> vimwiki#tbl#kbd_tab()
+" autocmd FileType vimwiki inoremap <expr> <buffer> <S-Tab> vimwiki#tbl#kbd_shift_tab()
 " }}}
 
 " Vim Powershell Plugin
