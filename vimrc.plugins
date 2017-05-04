@@ -10,6 +10,8 @@ Plugin 'VundleVim/Vundle.vim'
 
 " bufexplorer
 Plugin 'c9s/bufexplorer'
+" minibufexpl
+" Plugin 'weynhamz/vim-plugin-minibufexpl'
 
 " nerdtree {{{
 Plugin 'scrooloose/nerdtree'
@@ -150,7 +152,10 @@ autocmd FileType html,css,blade,twig
 Plugin 'majutsushi/tagbar'
 let g:tagbar_show_linenumbers = 0
 let g:tagbar_foldlevel = 2
-nmap <F5> :TagbarToggle<cr>
+nnoremap <F5> :TagbarOpenAutoClose<cr>
+nnoremap <leader>tt :TagbarOpenAutoClose<cr>
+nnoremap <leader>to :TagbarOpen<cr>
+nnoremap <leader>tc :TagbarClose<cr>
 " }}}
 
 " airline {{{
@@ -174,6 +179,8 @@ Plugin 'altercation/vim-colors-solarized'
 " file type support {{{
 " javascript
 Plugin 'pangloss/vim-javascript'
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
 " json
 Plugin 'elzr/vim-json'
 
@@ -313,9 +320,15 @@ Plugin 'zcodes/vim-eco'
 Plugin 'leafgarland/typescript-vim'
 " }}}
 
-" preview colors
+" preview colors {{{
 Plugin 'gorodinskiy/vim-coloresque'
 Plugin 'lilydjwg/colorizer'
+" no enable by default
+" let g:colorizer_startup = 0
+" no mapping
+let g:colorizer_nomap = 1
+nnoremap <unique> <leader>cr <plug>Colorrizer
+" }}}
 
 " {{{auto-pairs
 Plugin 'jiangmiao/auto-pairs'
@@ -369,11 +382,17 @@ let g:vimwiki_table_mappings = 0
 " Vim Powershell Plugin
 Plugin 'PProvost/vim-ps1'
 Plugin 'mhinz/vim-startify'
+
+" taboo.vim -- Few utilities for pretty tabs {{{
 " Plugin 'gcmt/taboo.vim'
 Plugin 'zcodes/taboo.vim'
 let g:taboo_tab_format="%N%p%m"
 " let g:taboo_tabline = 0
+" }}}
+
+" Tab management
 Plugin 'kien/tabman.vim'
+
 Plugin 'tpope/vim-surround'
 " Plugin 'elentok/plaintasks.vim'
 Plugin 'easymotion/vim-easymotion'
