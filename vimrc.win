@@ -11,22 +11,15 @@ set list
 set listchars=tab:›\ ,trail:•,precedes:«,extends:»,nbsp:.
 set guioptions=aegi
 
+if !exists('g:zcodes_windows_normal_font')
+    let g:zcodes_windows_normal_font = 0
+endif
+
 " 字体渲染，详情查看 ':h rop'
 if has('directx')
-    " geom:1 => DWRITE_PIXEL_GEOMETRY_RGB
-    " renmode: 5 => DWRITE_RENDERING_MODE_CLEARTYPE_NATURL_SYMMETRIC
-    " taamode:2 => D2D1_TEXT_ANTIALIAS_MODE_GRAYSCALE
-    " 如果直接使用 Consolas 等非粗体，启用下面的渲染选项会舒服一点
-    " set renderoptions=type:directx,geom:1,renmode:5,taamode:2
-
-    " renmode:0 => DWRITE_RENDERING_MODEL_DEFAULT
-    " taamode:0 => D2D1_TEXT_ANTIALIAS_MODE_DEFAULT
-    " 这个渲染设置是针对 `set guifont=Inziu_Iosevka_SC:h14:b` 设置的
-    " renmode 的取值可以是 0，2，3
-    " taamode 的取值可以是 0, 1, 2, 3
-    " 以上取值组合视觉效果相差不大
-    set renderoptions=type:directx,geom:1,renmode:2,taamode:2
+    set renderoptions=type:directx,geom:1,renmode:5,taamode:2
 endif
+set linespace=2
 
 " fix menu encoding in windows. {{{
 source $VIMRUNTIME/delmenu.vim

@@ -178,6 +178,8 @@ let g:airline_powerline_fonts=0
 Plugin 'zcodes/vim-colors-basic'
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'dracula/vim'
+Plugin 'tomasr/molokai'
 " }}}
 
 " file type support {{{
