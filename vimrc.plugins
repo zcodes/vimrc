@@ -333,7 +333,7 @@ Plugin 'lilydjwg/colorizer'
 " let g:colorizer_startup = 0
 " no mapping
 let g:colorizer_nomap = 1
-nnoremap <unique> <leader>cr <plug>Colorrizer
+nmap <unique> <leader>ct <plug>Colorizer
 " }}}
 
 " {{{auto-pairs
@@ -354,7 +354,7 @@ Plugin 'zcodes/pangu.vim'
 if has('autocmd')
     augroup enablePanGu
         au!
-        autocmd BufWritePre *.markdown,*.md,*.txt,*.wiki call PanGuSpacing()
+        autocmd BufWritePre *.markdown,*.md,*.txt,*.wiki,*.rst call PanGuSpacing()
     augroup END
 endif
 " }}}
@@ -407,5 +407,11 @@ Plugin 'easymotion/vim-easymotion'
 " Plugin 'Yggdroot/indentLine'
 " let g:indentLine_char = '┊'
 " Plugin 'nathanaelkane/vim-indent-guides'
+
+" editor config
+Plugin 'editorconfig/editorconfig-vim'
+
+" lorem fake generator
+Plugin 'tkhren/vim-fake'
 
 " vim: ts=4 sts=4 sw=4 et fdm=marker

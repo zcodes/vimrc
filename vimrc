@@ -269,13 +269,16 @@ augroup END
 " }}}
 
 " 自动删除无用的空白字符 {{{
-augroup whiteSpace
-    au!
+function! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+nnoremap <F6> :call <SID>StripTrailingWhitespaces()<cr>
+" }}}
 
-    " remove whitespace
-    autocmd BufWritePre * :%s/\s\+$//e
-augroup END
-
+" {{{
 augroup vimStartup
     au!
 
