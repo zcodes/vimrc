@@ -83,7 +83,7 @@ function! s:emmet_with_snipmate()
 
     return "\<tab>"
 endfunction
-auto FileType html,css,blade,twig imap <buffer><expr><tab> <sid>emmet_with_snipmate()
+auto FileType html,css,blade,twig,jsp imap <buffer><expr><tab> <sid>emmet_with_snipmate()
 " }}}
 
 " file searching {{{
@@ -146,7 +146,7 @@ Plugin 'ervandew/supertab'
 " b:SuperTabContextDefaultCompletionType
 let g:SuperTabDefaultCompletionType = 'context'
 
-autocmd FileType html,css,blade,twig
+autocmd FileType html,css,blade,twig,jsp
             \ if &omnifunc != '' |
             \   call SuperTabChain(&omnifunc, "<c-p>") |
             \ endif
@@ -180,15 +180,22 @@ Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'dracula/vim'
 Plugin 'tomasr/molokai'
+let g:molokai_original = 0
+let g:rehash256 = 1
 " }}}
+
+" html5
+" Plugin 'othree/html5.vim'
 
 " file type support {{{
 " javascript
 Plugin 'pangloss/vim-javascript'
 let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow = 1
 " json
 Plugin 'elzr/vim-json'
+
 
 " markdown
 " text align
@@ -279,8 +286,6 @@ Plugin 'digitaltoad/vim-jade'
 " coffeescript
 Plugin 'zcodes/vim-coffee-script'
 
-" html5
-Plugin 'othree/html5.vim'
 
 " go {{{
 Plugin 'fatih/vim-go'
@@ -392,8 +397,7 @@ Plugin 'mhinz/vim-startify'
 " taboo.vim -- Few utilities for pretty tabs {{{
 " Plugin 'gcmt/taboo.vim'
 Plugin 'zcodes/taboo.vim'
-let g:taboo_tab_format="%N%p%m"
-" let g:taboo_tabline = 0
+let g:taboo_tab_format=" %N %p%m "
 " }}}
 
 " Tab management
