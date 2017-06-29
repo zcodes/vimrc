@@ -185,7 +185,7 @@ let g:rehash256 = 1
 " }}}
 
 " html5
-" Plugin 'othree/html5.vim'
+Plugin 'othree/html5.vim'
 
 " file type support {{{
 " javascript
