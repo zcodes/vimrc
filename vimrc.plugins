@@ -102,11 +102,17 @@ Plugin 'tpope/vim-commentary'
 
 " ctrlp {{{
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'FelikZ/ctrlp-py-matcher'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_use_caching = 1
+let g:ctrlp_use_caching = 0
 let g:ctrlp_working_path_mode = 'raw'
-let g:ctrlp_root_markers = ['.git']
+let g:ctrlp_root_markers = ['.git', '.svn']
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+" let g:ctrlp_user_command = 'ag -l -g "" --nocolor %s'
+" let g:ctrlp_user_command = 'ag %s --files-with-matches -g "" --ignore "\.git$\|\.hg$\|\.svn$"'
+" let g:ctrlp_max_files = 200000
+" let g:ctrlp_max_files = 10
 " let g:ctrlp_open_single_match = ['buffer tags', 'buffer']
 let s:ctrlp_common_user_command = {
             \ 'types': {
@@ -114,15 +120,16 @@ let s:ctrlp_common_user_command = {
             \ },
             \ }
 if zcodes#has#windows()
-    let g:ctrlp_user_command = extend(
-                \ s:ctrlp_common_user_command, {
-                \ 'fallback': 'dir %s /-n /b /s /a-d | findstr /v /l ".jpg .png .exe .pyc"'
-                \ }
-                \ )
+    " TODO some awesome thing here !!!
+    " let g:ctrlp_user_command = extend(
+    "             \ s:ctrlp_common_user_command, {
+    "             \ 'fallback': 'dir %s /-n /b /s /a-d | findstr /v /l ".jpg .png .exe .pyc"'
+    "             \ }
+    "             \ )
 else
     let g:ctrlp_user_command = extend(
                 \ s:ctrlp_common_user_command,  {
-                \ 'fallback': 'find %s -type f |grep -v -P "\.jpg$|\.png$|\.exe$|\.pyc$"'
+                \ 'fallback': 'find %s \( -regexp ".*/.\(svn\|git\)" -prune -o -regex ".*.\(exe$\|so$\|dll$\)" -prune\) -o -type f -print'
                 \ }
                 \ )
 endif

@@ -223,7 +223,7 @@ call s:AddITags(s:indent_tags, [
     \ 'i', 'iframe', 'ins', 'kbd', 'label', 'legend', 'li',
     \ 'map', 'menu', 'noframes', 'noscript', 'object', 'ol',
     \ 'optgroup', 'q', 's', 'samp', 'select', 'small', 'span', 'strong', 'sub',
-    \ 'sup', 'table', 'textarea', 'title', 'tt', 'u', 'ul', 'var', 'th', 'td',
+    \ 'sup', 'table', 'textarea', 'title', 'tt', 'u', 'ul', 'var', 'th', 'td', 'dt', 'dd', 'p',
     \ 'tr', 'tbody', 'tfoot', 'thead'])
 
 " New HTML5 elements:
