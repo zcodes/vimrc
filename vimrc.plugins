@@ -103,6 +103,12 @@ Plugin 'tpope/vim-commentary'
 " ctrlp {{{
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'FelikZ/ctrlp-py-matcher'
+Plugin 'tacahiroy/ctrlp-funky'
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+" narrow the list down with a word under cursor
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+let g:ctrlp_funky_matchtype = 'path'
+let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_use_caching = 1
@@ -202,6 +208,7 @@ let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow = 1
 " json
 Plugin 'elzr/vim-json'
+let g:vim_json_syntax_conceal = 0
 
 
 " markdown
@@ -209,6 +216,8 @@ Plugin 'elzr/vim-json'
 " vim-markdown need's tabular
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+" another markdown plugin
+" Plugin 'gabrielelana/vim-markdown'
 " let g:vim_markdown_folding_style_pythonic = 1
 " let g:vim_markdown_override_foldtext = 1
 let g:vim_markdown_folding_level = 6
@@ -218,6 +227,7 @@ let g:vim_markdown_frontmatter = 1
 
 " mustache
 Plugin 'mustache/vim-mustache-handlebars'
+
 " ruby
 Plugin 'vim-ruby/vim-ruby'
 
@@ -291,6 +301,7 @@ let g:jedi#rename_command = '<leader>rn'
 Plugin 'digitaltoad/vim-jade'
 
 " coffeescript
+" Plugin 'kchmck/vim-coffee-script'
 Plugin 'zcodes/vim-coffee-script'
 
 
@@ -335,8 +346,10 @@ au FileType go nmap <leader>gc <Plug>(go-coverage)
 
 " Plugin 'AndrewRadev/vim-eco'
 Plugin 'zcodes/vim-eco'
-Plugin 'leafgarland/typescript-vim'
 " }}}
+
+" plugin for typescript
+Plugin 'leafgarland/typescript-vim'
 
 " preview colors {{{
 Plugin 'gorodinskiy/vim-coloresque'
@@ -400,6 +413,8 @@ let g:vimwiki_table_mappings = 0
 " Vim Powershell Plugin
 Plugin 'PProvost/vim-ps1'
 Plugin 'mhinz/vim-startify'
+" add file type icons
+" Plugin 'ryanoasis/vim-devicons'
 
 " taboo.vim -- Few utilities for pretty tabs {{{
 " Plugin 'gcmt/taboo.vim'
