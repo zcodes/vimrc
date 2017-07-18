@@ -29,6 +29,7 @@ call zcodes#utils#source(zcodes#utils#vim_home_file('/vimrc.local.before'))
 
 " 让 Vim 记住更多
 set history=500
+set sessionoptions+=slash,unix,globals
 
 filetype indent on
 filetype plugin on

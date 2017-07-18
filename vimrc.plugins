@@ -9,7 +9,8 @@
 Plugin 'VundleVim/Vundle.vim'
 
 " bufexplorer
-Plugin 'c9s/bufexplorer'
+" Plugin 'c9s/bufexplorer'
+Plugin 'jlanzarotta/bufexplorer'
 " minibufexpl
 " Plugin 'weynhamz/vim-plugin-minibufexpl'
 
@@ -415,6 +416,15 @@ Plugin 'PProvost/vim-ps1'
 Plugin 'mhinz/vim-startify'
 " add file type icons
 " Plugin 'ryanoasis/vim-devicons'
+
+" vim session {{{
+Plugin 'tpope/vim-obsession'
+Plugin 'dhruvasagar/vim-prosession'
+let g:prosession_on_startup = 0
+if zcodes#has#windows()
+    let g:prosession_dir = '~/vimfiles/session/'
+endif
+" }}}
 
 " taboo.vim -- Few utilities for pretty tabs {{{
 " Plugin 'gcmt/taboo.vim'
