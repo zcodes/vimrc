@@ -233,7 +233,8 @@ Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'vim-ruby/vim-ruby'
 
 " php {{{
-Plugin 'StanAngeloff/php.vim'
+" Plugin 'StanAngeloff/php.vim'
+Plugin 'zcodes/php.vim'
 " let g:php_syntax_extensions_enabled = []
 " let g:php_syntax_extensions_disabled = []
 
