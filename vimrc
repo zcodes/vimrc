@@ -234,7 +234,7 @@ augroup tabWidth
     au!
 
     autocmd BufNewFile,BufRead *.html,*.less,*.css,*.js,
-                \*.blade.php,*.rb,*.jade setl ts=2 sts=2 sw=2
+                \*.blade.php,*.rb,*.jade setl ts=2 sts=2 sw=2 et
     autocmd BufNewFile,BufRead *.vue setl ts=2 sts=2 sw=2 filetype=html
     autocmd BufNewFile,BufRead *.coffee setl ts=2 sts=2 sw=2 fdm=indent nofen
     autocmd BufNewFile,BufRead *.[ch],*.cpp,*.hpp setl ts=4 sts=4 sw=4 noet

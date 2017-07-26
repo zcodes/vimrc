@@ -659,7 +659,8 @@ func! s:CSSIndent()
     else
       let cur_hasfield = curtext =~ '^\s*[a-zA-Z0-9-]\+:'
       let prev_unfinished = s:CssUnfinished(prev_text)
-      if !cur_hasfield && (prev_hasfield || prev_unfinished)
+      let prev_unsemicolon = prev_text =~ ';\s*$'
+      if !cur_hasfield && (prev_hasfield || prev_unfinished) && !prev_unsemicolon
         " Continuation line has extra indent if the previous line was not a
         " continuation line.
         let extra = shiftwidth()

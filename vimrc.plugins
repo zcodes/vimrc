@@ -258,7 +258,8 @@ Plugin 'zcodes/vim-blade'
 " puppet
 Plugin 'rodjek/vim-puppet'
 " css
-Plugin 'JulesWang/css.vim'
+" Plugin 'JulesWang/css.vim'
+Plugin 'hail2u/vim-css3-syntax'
 " less
 Plugin 'genoma/vim-less'
 
