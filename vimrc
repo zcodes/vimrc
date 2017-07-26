@@ -31,8 +31,10 @@ call zcodes#utils#source(zcodes#utils#vim_home_file('/vimrc.local.before'))
 set history=500
 set sessionoptions+=slash,unix,globals
 
-filetype indent on
+" plugin load before indent, see:
+" https://stackoverflow.com/questions/2061321/incorrect-comments-set-for-php-in-vim
 filetype plugin on
+filetype indent on
 syntax on
 
 " 脚本编码
