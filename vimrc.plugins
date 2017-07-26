@@ -98,7 +98,8 @@ Plugin 'tpope/vim-commentary'
 
 " Alternative plugins for comment
 " Plugin 'tomtom/tcomment_vim'
-" Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdcommenter'
+let g:NERDSpaceDelims = 1
 " }}}
 
 " ctrlp {{{
