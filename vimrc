@@ -33,8 +33,7 @@ set sessionoptions+=slash,unix,globals
 
 " plugin load before indent, see:
 " https://stackoverflow.com/questions/2061321/incorrect-comments-set-for-php-in-vim
-filetype plugin on
-filetype indent on
+filetype plugin indent on
 syntax on
 
 " 脚本编码
