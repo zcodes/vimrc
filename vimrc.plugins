@@ -239,6 +239,8 @@ Plugin 'zcodes/php.vim'
 " let g:php_syntax_extensions_enabled = []
 " let g:php_syntax_extensions_disabled = []
 
+Plugin '2072/PHP-Indenting-for-VIm'
+
 " php twig
 Plugin 'evidens/vim-twig'
 
