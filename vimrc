@@ -247,6 +247,10 @@ augroup tabWidth
 augroup END
 " }}}
 
+augroup customCommentString
+    autocmd FileType php setlocal commentstring=//\ %s
+augroup END
+
 " Ruby 配置 {{{
 augroup MyRubyCustom
     au!
