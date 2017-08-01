@@ -111,6 +111,7 @@ nnoremap <Leader>fu :CtrlPFunky<Cr>
 nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
+let g:ctrlp_funky_use_cache = 1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_use_caching = 1
@@ -246,6 +247,7 @@ Plugin 'evidens/vim-twig'
 
 " php complete
 Plugin 'shawncplus/phpcomplete.vim'
+let g:phpcomplete_enhance_jump_to_definition = 0
 
 " php unit
 Plugin 'wdalmut/vim-phpunit'
