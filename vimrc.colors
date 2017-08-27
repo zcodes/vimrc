@@ -1,0 +1,8 @@
+" File: vimrc.colors
+" Author: zcodes@163.com
+" Description: collected some vim colors here
+"
+Plugin 'mhartington/oceanic-next'
+Plugin 'joshdick/onedark.vim'
+Plugin 'rakr/vim-one'
+Plugin 'KeitaNakamura/neodark.vim'

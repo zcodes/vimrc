@@ -4,7 +4,7 @@
 " Author: zcodes <zcodes@163.com>
 "
 " Note: Every thing you need to known about Vim at:
-" https://github.com/mhinz/vim-galore
+"       https://github.com/mhinz/vim-galore
 "
 " =====================================================
 
@@ -17,6 +17,10 @@ exec 'set rtp+=' . zcodes#utils#vim_home_file('/bundle/Vundle.vim')
 call vundle#begin(zcodes#utils#vim_home_file('/bundle'))
 " 插件单独分在 vimrc.plugins 文件中
 call zcodes#utils#source(zcodes#utils#vim_home_file('/vimrc.plugins'))
+
+if (exists('g:vimrc_extra_colors'))
+    call zcodes#utils#source(zcodes#utils#vim_home_file('/vimrc.colors'))
+endif
 call vundle#end()
 " }}}
 
