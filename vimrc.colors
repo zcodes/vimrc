@@ -2,7 +2,18 @@
 " Author: zcodes@163.com
 " Description: collected some vim colors here
 "
-Plugin 'mhartington/oceanic-next'
-Plugin 'joshdick/onedark.vim'
-Plugin 'rakr/vim-one'
-Plugin 'KeitaNakamura/neodark.vim'
+
+" vim colors collection
+" Plugin 'https://github.com/flazz/vim-colorschemes'
+"
+" forked it !
+Plugin 'zcodes/vim-colorschemes'
+
+" some other awesome colors
+" Plugin 'mhartington/oceanic-next'
+" Plugin 'joshdick/onedark.vim'
+" Plugin 'rakr/vim-one'
+" Plugin 'KeitaNakamura/neodark.vim'
+" Plugin 'kristijanhusak/vim-hybrid-material'
+" Plugin 'arcticicestudio/nord-vim'
+" Plugin 'ajh17/Spacegray.vim'

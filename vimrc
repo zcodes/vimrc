@@ -17,10 +17,7 @@ exec 'set rtp+=' . zcodes#utils#vim_home_file('/bundle/Vundle.vim')
 call vundle#begin(zcodes#utils#vim_home_file('/bundle'))
 " 插件单独分在 vimrc.plugins 文件中
 call zcodes#utils#source(zcodes#utils#vim_home_file('/vimrc.plugins'))
-
-if (exists('g:vimrc_extra_colors'))
-    call zcodes#utils#source(zcodes#utils#vim_home_file('/vimrc.colors'))
-endif
+call zcodes#utils#source(zcodes#utils#vim_home_file('/vimrc.colors'))
 call vundle#end()
 " }}}
 
@@ -153,10 +150,12 @@ set magic
 set showmatch
 set matchtime=2
 
-" 代码折叠
+" 代码折叠 {{{
 set foldenable
 set foldlevel=999
-set foldcolumn=1
+set foldcolumn=3
+set foldmethod=syntax
+" }}}
 
 " Show @@@ in the last line if it is truncated
 " set display=truncate
