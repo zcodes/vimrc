@@ -16,13 +16,13 @@ filetype off
 exec 'set rtp+=' . zcodes#utils#home('/bundle/Vundle.vim')
 call vundle#begin(zcodes#utils#home('/bundle'))
 " 插件单独分在 vimrc.plugins 文件中
-call zcodes#utils#source('vimrc.plugins')
-call zcodes#utils#source('vimrc.colors')
+call zcodes#utils#source(zcodes#utils#home('vimrc.plugins'))
+call zcodes#utils#source(zcodes#utils#home('vimrc.colors'))
 call vundle#end()
 " }}}
 
 " before it
-call zcodes#utils#source('vimrc.local.before')
+call zcodes#utils#source(zcodes#utils#home('vimrc.local.before'))
 
 "
 " 配置从这里开始
@@ -55,7 +55,7 @@ set fileformats=unix,dos,mac
 
 " {{{ GUI
 if zcodes#has#gui()
-    call zcodes#utils#source('vimrc.gui')
+    call zcodes#utils#source(zcodes#utils#home('vimrc.gui'))
 endif
 " }}}
 
@@ -330,12 +330,12 @@ endif
 
 " Windows 下 Vim的配置: vimrc.win {{{
 if zcodes#has#windows()
-    call zcodes#utils#source('vimrc.win')
+    call zcodes#utils#source(zcodes#utils#home('vimrc.win'))
 endif
 " }}}
 
 " 加载自定义文件 vimrc.local {{{
-call zcodes#utils#source('vimrc.local')
+call zcodes#utils#source(zcodes#utils#home('vimrc.local'))
 " }}}
 
 " vim: ts=4 sts=4 sw=4 et fdm=marker:

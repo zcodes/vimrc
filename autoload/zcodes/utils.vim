@@ -18,9 +18,13 @@ endfunction
 function! zcodes#utils#home(file)
     if (empty(a:file))
         return s:vim_home
-    else
-        return s:vim_home . a:file
     endif
+
+    if a:file[0] != '/'
+        return s:vim_home . '/' . a:file
+    endif
+
+    return s:vim_home . a:file
 endfunction
 
 " See: http://vim.wikia.com/wiki/Insert_current_date_or_time
