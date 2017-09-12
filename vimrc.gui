@@ -1,0 +1,8 @@
+set anti
+set guioptions=aegit
+set guicursor+=a:blinkon0
+
+" toggle menu
+nnoremap <leader>vmt :if &go=~#'m'<bar>set go-=m<bar>else<bar>set go+=m<bar>endif<cr>
+" toggle toolbar
+nnoremap <leader>vtt :if &go=~#'T'<bar>set go-=T<bar>else<bar>set go+=T<bar>endif<cr>

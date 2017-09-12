@@ -13,16 +13,16 @@ filetype off
 
 " 使用 Vundle 管理插件 {{{
 " Vundle: https://github.com/VundleVim/Vundle.vim
-exec 'set rtp+=' . zcodes#utils#vim_home_file('/bundle/Vundle.vim')
-call vundle#begin(zcodes#utils#vim_home_file('/bundle'))
+exec 'set rtp+=' . zcodes#utils#home('/bundle/Vundle.vim')
+call vundle#begin(zcodes#utils#home('/bundle'))
 " 插件单独分在 vimrc.plugins 文件中
-call zcodes#utils#source(zcodes#utils#vim_home_file('/vimrc.plugins'))
-call zcodes#utils#source(zcodes#utils#vim_home_file('/vimrc.colors'))
+call zcodes#utils#source('vimrc.plugins')
+call zcodes#utils#source('vimrc.colors')
 call vundle#end()
 " }}}
 
 " before it
-call zcodes#utils#source(zcodes#utils#vim_home_file('/vimrc.local.before'))
+call zcodes#utils#source('vimrc.local.before')
 
 "
 " 配置从这里开始
@@ -55,8 +55,7 @@ set fileformats=unix,dos,mac
 
 " {{{ GUI
 if zcodes#has#gui()
-    set anti
-    set guioptions=aegit
+    call zcodes#utils#source('vimrc.gui')
 endif
 " }}}
 
@@ -171,7 +170,7 @@ set tm=500
 
 " undo even close files.
 try
-    let &undodir=zcodes#utils#vim_home_file('/undodir')
+    let &undodir=zcodes#utils#home('/undodir')
     set undofile
 catch
 endtry
@@ -207,10 +206,6 @@ nnoremap <leader>tvlb :tabe $MYVIMRC.local.before<cr>
 
 " 重新加载配置文件
 nnoremap <leader>vss :source $MYVIMRC<cr>
-if zcodes#has#gui()
-    nnoremap <leader>vms :if &go=~#'m'<bar>set go-=m<bar>else<bar>set go+=m<bar>endif<cr>
-    nnoremap <leader>vts :if &go=~#'T'<bar>set go-=T<bar>else<bar>set go+=T<bar>endif<cr>
-endif
 
 " 使用 j，k 移动时候，将 wrapped 行视作一行移动
 nnoremap <expr> j v:count ? 'j' : 'gj'
@@ -335,12 +330,12 @@ endif
 
 " Windows 下 Vim的配置: vimrc.win {{{
 if zcodes#has#windows()
-    call zcodes#utils#source(zcodes#utils#vim_home_file('/vimrc.win'))
+    call zcodes#utils#source('vimrc.win')
 endif
 " }}}
 
 " 加载自定义文件 vimrc.local {{{
-call zcodes#utils#source(zcodes#utils#vim_home_file('/vimrc.local'))
+call zcodes#utils#source('vimrc.local')
 " }}}
 
 " vim: ts=4 sts=4 sw=4 et fdm=marker:

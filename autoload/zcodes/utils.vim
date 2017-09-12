@@ -15,12 +15,12 @@ function! zcodes#utils#source(path)
     endif
 endfunction
 
-function! zcodes#utils#vim_home()
-    return s:vim_home
-endfunction
-
-function! zcodes#utils#vim_home_file(file)
-    return s:vim_home . a:file
+function! zcodes#utils#home(file)
+    if (empty(a:file))
+        return s:vim_home
+    else
+        return s:vim_home . a:file
+    endif
 endfunction
 
 " See: http://vim.wikia.com/wiki/Insert_current_date_or_time

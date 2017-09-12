@@ -398,25 +398,10 @@ endif
 
 " vimwiki {{{
 Plugin 'vimwiki/vimwiki'
-" let wiki_vim = {}
-" if has('win32')
-"     let wiki_vim.base_path = '~/vimfiles/'
-" else
-"     let wiki_vim.base_path = '~/.vim/'
-" endif
-" let wiki_vim.path = wiki_vim.base_path . 'wiki/'
-" let wiki_vim.path_html = wiki_vim.base_path . 'wiki_html/'
-" let wiki_vim.template_path = wiki_vim.base_path . 'wiki_templates/'
-" let wiki_vim.template_default = 'default'
-" let wiki_vim.template_ext = '.html'
-" let wiki_vim.auto_export = 1
-
-" let wiki_user = {}
-" let wiki_user.path = '~/vimwiki'
-" let wiki_user.path_html = '~/vimwiki_html'
-" let g:vimwiki_list = [wiki_vim, wiki_user]
-" disable table mappings, it is confilict with vim-snipmate
+let g:vimwiki_folding = 'expr'
 let g:vimwiki_table_mappings = 0
+let g:vimwiki_conceallevel = 0
+" disable table mappings, it is confilict with vim-snipmate
 " autocmd FileType vimwiki inoremap <expr> <buffer> <C-Tab> vimwiki#tbl#kbd_tab()
 " autocmd FileType vimwiki inoremap <expr> <buffer> <S-Tab> vimwiki#tbl#kbd_shift_tab()
 " }}}
