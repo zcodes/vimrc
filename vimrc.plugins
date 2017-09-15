@@ -450,5 +450,6 @@ Plugin 'tkhren/vim-fake'
 Plugin 'zcodes/vim-dosbatch-indent'
 
 Plugin 'zcodes/drawit'
+Plugin 'terryma/vim-multiple-cursors'
 
 " vim: ts=4 sts=4 sw=4 et fdm=marker
