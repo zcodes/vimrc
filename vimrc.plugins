@@ -430,9 +430,11 @@ let g:taboo_tab_format=" %N %p%m "
 " Tab management
 Plugin 'kien/tabman.vim'
 
-Plugin 'tpope/vim-surround'
+" Plugin 'tpope/vim-surround'
+Plugin 'zcodes/vim-surround'
 " Plugin 'elentok/plaintasks.vim'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'tpope/vim-repeat'
 
 " indent guides
 " Plugin 'Yggdroot/indentLine'
