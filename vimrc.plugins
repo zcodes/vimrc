@@ -103,7 +103,8 @@ let g:NERDSpaceDelims = 1
 " }}}
 
 " ctrlp {{{
-Plugin 'ctrlpvim/ctrlp.vim'
+" Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'zcodes/ctrlp.vim'
 Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'tacahiroy/ctrlp-funky'
 nnoremap <Leader>fu :CtrlPFunky<Cr>
@@ -112,12 +113,22 @@ nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_funky_use_cache = 1
+" 退出vim时不清空缓存
+let g:ctrlp_clear_cache_on_exit = 0
+" 扫描隐藏目录和文件
+let g:ctrlp_show_hidden = 1
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_use_caching = 1
 let g:ctrlp_working_path_mode = 'raw'
 let g:ctrlp_root_markers = ['.git', '.svn']
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+let g:ctrlp_system_filename_encoding = "gbk"
+" if zcodes#has#windows()
+"     set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\*
+" else
+"     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+" endif
 " let g:ctrlp_user_command = 'ag -l -g "" --nocolor %s'
 " let g:ctrlp_user_command = 'ag %s --files-with-matches -g "" --ignore "\.git$\|\.hg$\|\.svn$"'
 " let g:ctrlp_max_files = 200000
@@ -129,16 +140,19 @@ let s:ctrlp_common_user_command = {
             \ },
             \ }
 if zcodes#has#windows()
-    " TODO some awesome thing here !!!
-    " let g:ctrlp_user_command = extend(
-    "             \ s:ctrlp_common_user_command, {
-    "             \ 'fallback': 'dir %s /-n /b /s /a-d | findstr /v /l ".jpg .png .exe .pyc"'
-    "             \ }
-    "             \ )
+    " let g:ctrlp_custom_ignore = {
+    "             \ 'dir': '\v[\/]\.(git|hg|svn)$',
+    "             \ 'file': '\v\.(exe|so|dll)$',
+    "             \}
+    let g:ctrlp_user_command = extend(
+                \ s:ctrlp_common_user_command, {
+                \ 'fallback': 'dir %s /-n /b /s /a-d | findstr /v /l ".jpg .png .exe .pyc .git\\ .svn\\ .gif"'
+                \ }
+                \ )
 else
     let g:ctrlp_user_command = extend(
                 \ s:ctrlp_common_user_command,  {
-                \ 'fallback': 'find %s \( -regex ".*/.\(svn\|git\)" -prune -o -regex ".*.\(exe$\|so$\|dll$\)" -prune \) -o -type f -print'
+                \ 'fallback': 'find %s \( -regex ".*/.\(svn\|git\)" -prune -o -regex ".*.\(exe$\|so$\|dll$\|png$\|jpg$\)" -prune \) -o -type f -print'
                 \ }
                 \ )
 endif
