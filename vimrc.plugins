@@ -56,7 +56,7 @@ Plugin 'mattn/emmet-vim'
 " https://github.com/mattn/emmet-vim/issues/168
 let g:user_emmet_install_global = 0
 let g:user_emmet_complete_tag = 1
-autocmd FileType html,css,blade,twig,jsp EmmetInstall
+autocmd FileType html,css,blade,twig,jsp,htmldjango EmmetInstall
 
 " https://github.com/mattn/emmet-vim/issues/168
 " TODO snipmate position not work !
@@ -318,6 +318,10 @@ let g:pymode_run_bind = '<leader>rr'
 Plugin 'davidhalter/jedi-vim'
 let g:jedi#force_py_version = 3
 let g:jedi#rename_command = '<leader>rn'
+" }}}
+
+"{{{ django
+Plugin 'tweekmonster/django-plus.vim'
 " }}}
 
 " jade
