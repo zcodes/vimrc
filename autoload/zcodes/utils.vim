@@ -15,16 +15,16 @@ function! zcodes#utils#source(path)
     endif
 endfunction
 
-function! zcodes#utils#home(file)
-    if (empty(a:file))
+function! zcodes#utils#home(...)
+    if (a:0 == 0)
         return s:vim_home
     endif
 
-    if a:file[0] != '/'
-        return s:vim_home . '/' . a:file
+    if a:1[0] != '/'
+        return s:vim_home . '/' . a:1
     endif
 
-    return s:vim_home . a:file
+    return s:vim_home . a:1
 endfunction
 
 " See: http://vim.wikia.com/wiki/Insert_current_date_or_time
@@ -34,10 +34,10 @@ function! zcodes#utils#last_modified()
         let save_cursor = getpos(".")
         let m = max([1, line("$") - 20])
         let n = min([20, line("$")])
-        keepjumps exe '1,' . n . 's#^\(.\{,10}Last modified: \).*#\1' .
+        keepjumps exe '1,' . n . 's#^\(.\{,10}Last \([cC]hange\|[mM]odified\):\s*\).*#\1' .
                     \ strftime('%c') . '#e'
 
-        keepjumps exe m . ',' . line("$") . 's#^\(.\{,10}Last modified: \).*#\1' .
+        keepjumps exe m . ',' . line("$") . 's#^\(.\{,10}Last \([cC]hange\|[mM]odified\):\s*\).*#\1' .
                     \ strftime('%c') . '#e'
 
         call histdel('search', -1)
@@ -45,4 +45,4 @@ function! zcodes#utils#last_modified()
     endif
 endfunction
 
-
+" vim: ts=4 sts=4 sw=4 et

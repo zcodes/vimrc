@@ -318,8 +318,8 @@ augroup END
 " Last Modified {{{
 augroup UpdateLastModifiedTimestamps
     au!
-
     autocmd BufWritePre *.txt,*.md call zcodes#utils#last_modified()
+    autocmd BufWritePre ~/{.vim,vimfiles}/syntax/**.vim call zcodes#utils#last_modified()
 augroup END
 " }}}
 
@@ -327,6 +327,7 @@ if !exists(":DiffOrig")
     command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
                 \ | wincmd p | diffthis
 endif
+
 
 " Windows 下 Vim的配置: vimrc.win {{{
 if zcodes#has#windows()
