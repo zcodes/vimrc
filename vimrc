@@ -150,10 +150,12 @@ set showmatch
 set matchtime=2
 
 " 代码折叠 {{{
-set foldenable
-set foldlevel=999
-set foldcolumn=3
-set foldmethod=syntax
+if has('folding')
+    set foldenable
+    set foldlevel=999
+    set foldcolumn=3
+    set foldmethod=syntax
+endif
 " }}}
 
 " Show @@@ in the last line if it is truncated
