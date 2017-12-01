@@ -56,7 +56,7 @@ Plugin 'mattn/emmet-vim'
 " https://github.com/mattn/emmet-vim/issues/168
 let g:user_emmet_install_global = 0
 let g:user_emmet_complete_tag = 1
-autocmd FileType html,css,blade,twig,jsp,htmldjango EmmetInstall
+autocmd FileType html,css,blade,twig,jsp,htmldjango,xml EmmetInstall
 
 " https://github.com/mattn/emmet-vim/issues/168
 " TODO snipmate position not work !
