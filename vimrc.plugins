@@ -513,4 +513,17 @@ Plugin 'cespare/vim-toml'
 " nginx
 Plugin 'chr4/nginx.vim'
 
+" Haskell {{{
+if exists('g:zcodes_enable_haskell')
+    Plugin 'neovimhaskell/haskell-vim'
+    " should install stylish-haskell
+    " https://github.com/jaspervdj/stylish-haskell
+    " Plugin 'nbouscal/vim-stylish-haskell'
+
+    " install hindent first
+    " https://github.com/commercialhaskell/hindent
+    " Plugin 'alx741/vim-hindent'
+endif
+" }}}
+"
 " vim: ts=4 sts=4 sw=4 et fdm=marker

@@ -11,6 +11,9 @@
 set nocompatible
 filetype off
 
+" before it
+call zcodes#utils#source(zcodes#utils#home('vimrc.local.before'))
+
 " 使用 Vundle 管理插件 {{{
 " Vundle: https://github.com/VundleVim/Vundle.vim
 exec 'set rtp+=' . zcodes#utils#home('/bundle/Vundle.vim')
@@ -21,8 +24,6 @@ call zcodes#utils#source(zcodes#utils#home('vimrc.colors'))
 call vundle#end()
 " }}}
 
-" before it
-call zcodes#utils#source(zcodes#utils#home('vimrc.local.before'))
 
 "
 " 配置从这里开始
