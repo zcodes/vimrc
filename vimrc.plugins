@@ -256,6 +256,7 @@ Plugin 'zcodes/php.vim'
 
 " Plugin '2072/PHP-Indenting-for-VIm'
 Plugin 'zcodes/PHP-Indenting-for-Vim'
+let g:PHP_vintage_case_default_indent = 1
 
 " php twig
 Plugin 'evidens/vim-twig'
@@ -523,6 +524,12 @@ if exists('g:zcodes_enable_haskell')
     " install hindent first
     " https://github.com/commercialhaskell/hindent
     " Plugin 'alx741/vim-hindent'
+endif
+" }}}
+"
+" Racket {{{
+if exists('g:zcodes_enable_racket')
+    Plugin 'wlangstroth/vim-racket'
 endif
 " }}}
 "
