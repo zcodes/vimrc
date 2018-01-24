@@ -297,53 +297,99 @@ endif
 Plugin 'python-mode/python-mode'
 " enable pymode
 let g:pymode = 1
-let g:pymode_trim_whitespaces = 0
+let g:pymode_trim_whitespaces = 1
 let g:pymode_options = 1
 let g:pymode_options_max_line_length = 79
 let g:pymode_options_colorcolumn = 0
-let g:pymode_quickfix_maxheight = 10
+let g:pymode_quickfix_minheight = 3
+let g:pymode_quickfix_maxheight = 6
+
 let g:pymode_indent = 1
 let g:pymode_folding = 1
 let g:pymode_motion = 1
-" let g:pymode_doc_bind = 'K'
-" 默认使用 python3
-let g:pymode_python = 'python3'
-let g:pymode_trim_whitespaces = 1
-
-let g:pymode_rope = 1
-let g:pymode_rope_completion = 1
-let g:pymode_rope_complete_on_dot = 1
-let g:pymode_rope_autoimport = 0
-let g:pymode_rope_autoimport_modules = []
-let g:pymode_rope_autoimport_import_after_complete = 0
-let g:pymode_rope_lookup_project = 1
-let g:pymode_rope_regenerate_on_write = 0
-let g:pymode_doc = 0
-let g:pymode_rope_show_doc_bind = '<leader>pd'
-let g:pymode_rope_goto_definition_bind = '<C-]>'
-" close doc window
-" see: https://github.com/python-mode/python-mode/issues/384
-autocmd CursorMovedI *.py if pumvisible() == 0|pclose|endif
-autocmd InsertLeave *.py if pumvisible() == 0|pclose|endif
-
+let g:pymode_doc = 1
+let g:pymode_doc_bind = 'K'
 if system('uname') =~ 'Linux'
     let g:pymode_virtualenv = 1
 else
     let g:pymode_virtualenv = 0
 endif
 
-" ignore too long lines.
 let g:pymode_run = 1
 let g:pymode_run_bind = '<leader>rr'
+
+" breakpoint
 let g:pymode_breakpoint = 0
+" let g:pymode_breakpoint_bind = '<leader>b'
+" let g:pymode_breakpoint_cmd = ''
+
+" code check
+" ============================================================
+" ignore too long lines.
 let g:pymode_lint = 1
-let g:pymode_lint_ignore = "E501"
 let g:pymode_lint_on_write = 1
+let g:pymode_lint_unmodified = 0
 let g:pymode_lint_on_fly = 0
 let g:pymdoe_lint_message = 1
+" valide value: 'pylint', 'pep8', 'mccabe', 'pep257', 'pyflake'
 let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
-" TODO more pymode_lint settings
+let g:pymode_lint_ignore = ["E501"]
+" let g:pymode_lint_select = []
+" let g:pymode_lint_sort = []
+let g:pymode_lint_cwindow = 1
+let g:pymode_lint_signs = 1
+
+" pylint signs defination
+let g:pymode_lint_todo_symbol = 'WW'
+let g:pymode_lint_comment_symbol = 'CC'
+let g:pymode_lint_visual_symbol = 'RR'
+let g:pymode_lint_error_symbol = 'EE'
+let g:pymode_lint_info_symbol = 'II'
+let g:pymode_lint_pyflakes_symbol = 'FF'
+
+" code checker options
+" let g:pymode_lint_options_pep8 = {}
+" let g:pymode_lint_options_pyflakes = {}
+" let g:pymode_lint_options_mccabe = {}
+" let g:pymode_lint_options_pep257 = {}
+" let g:pymode_lint_options_pylint = {}
+
+" Rope
+" ============================================================
+let g:pymode_rope = 1
+let g:pymode_rope_lookup_project = 1
+" let g:pymode_rope_project_root = ""
+" let g:pymode_rope_ropefolder = ".ropeproject"
+let g:pymode_rope_show_doc_bind = '<leader>pd'
+let g:pymode_rope_regenerate_on_write = 1
+let g:pymode_rope_completion = 1
+let g:pymode_rope_complete_on_dot = 1
+let g:pymode_rope_completion_bind = '<C-j>'
+" let g:pymode_rope_autoimport = 0
+" let g:pymode_rope_autoimport_modules = []
+" let g:pymode_rope_autoimport_import_after_complete = 0
+let g:pymode_rope_goto_definition_bind = '<C-]>'
+let g:pymode_rope_goto_definition_cmd = 'new'
+" let g:pymode_rope_rename_bind = '<C-c>rr'
+" let g:pymode_rope_rename_module_bind = '<C-c>r1r'
+" let g:pymode_rope_organize_imports_bind = '<C-c>ro'
+" let g:pymode_rope_autoimport_bind = '<C-c>ra'
+" let g:pymode_rope_module_to_package_bind = '<C-c>r1p'
+" let g:pymode_rope_extract_method_bind = '<C-c>rm'
+" let g:pymode_rope_extract_variable_bind = '<C-c>rl'
+" let g:pymode_rope_use_function_bind = '<C-c>ru'
+" let g:pymode_rope_move_bind = '<C-c>rv'
+" let g:pymode_rope_change_signature_bind = '<C-c>rs'
 "
+" close doc window
+" see: https://github.com/python-mode/python-mode/issues/384
+autocmd CursorMovedI *.py if pumvisible() == 0|pclose|endif
+autocmd InsertLeave *.py if pumvisible() == 0|pclose|endif
+
+" 默认使用 python3
+let g:pymode_python = 'python3'
+
+" Syntax
 let g:pymode_syntax = 1
 let g:pymode_syntax_slow_sync = 0
 let g:pymode_syntax_all = 1
@@ -353,6 +399,7 @@ let g:pymode_syntax_highlight_self = g:pymode_syntax_all
 " let g:jedi#force_py_version = 3
 " let g:jedi#rename_command = '<leader>rn'
 " let g:jedi#popup_on_dot = 0
+"
 " }}}
 
 "{{{ django
