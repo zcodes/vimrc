@@ -241,7 +241,7 @@ augroup tabWidth
     autocmd BufNewFile,BufRead *.coffee setl ts=2 sts=2 sw=2 fdm=indent nofen
     autocmd BufNewFile,BufRead *.[ch],*.cpp,*.hpp setl ts=4 sts=4 sw=4 noet
     autocmd BufNewFile,BufRead *.go setl ts=4 sts=4 sw=4 noet
-    autocmd BufNewFile,BufRead *.py setl ts=4 sw=4 sts=4 et
+    autocmd BufNewFile,BufRead *.py setl ts=4 sw=4 sts=4 et completeopt=menu
 
     " Semantic UI
     autocmd BufNewFile,BufRead *.overrides,*.variables setl filetype=less

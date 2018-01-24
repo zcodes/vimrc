@@ -310,15 +310,17 @@ let g:pymode_motion = 1
 let g:pymode_python = 'python3'
 let g:pymode_trim_whitespaces = 1
 
-" let g:pymode_rope = 1
+let g:pymode_rope = 1
 let g:pymode_rope_completion = 1
 let g:pymode_rope_complete_on_dot = 1
 let g:pymode_rope_autoimport = 0
 let g:pymode_rope_autoimport_modules = []
 let g:pymode_rope_autoimport_import_after_complete = 0
-let g:pymode_rope_lookup_project = 0
+let g:pymode_rope_lookup_project = 1
 let g:pymode_rope_regenerate_on_write = 0
 let g:pymode_doc = 0
+let g:pymode_rope_show_doc_bind = '<leader>pd'
+let g:pymode_rope_goto_definition_bind = '<C-]>'
 " close doc window
 " see: https://github.com/python-mode/python-mode/issues/384
 autocmd CursorMovedI *.py if pumvisible() == 0|pclose|endif
@@ -414,13 +416,13 @@ Plugin 'zcodes/vim-eco'
 Plugin 'leafgarland/typescript-vim'
 
 " preview colors {{{
-Plugin 'gorodinskiy/vim-coloresque'
-Plugin 'lilydjwg/colorizer'
+" Plugin 'gorodinskiy/vim-coloresque'
+" Plugin 'lilydjwg/colorizer'
 " no enable by default
 " let g:colorizer_startup = 0
 " no mapping
-let g:colorizer_nomap = 1
-nnoremap <leader>ct <plug>Colorizer
+" let g:colorizer_nomap = 1
+" nnoremap <leader>ct <plug>Colorizer
 " }}}
 
 " {{{auto-pairs
