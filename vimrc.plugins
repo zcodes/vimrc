@@ -257,6 +257,7 @@ Plugin 'zcodes/php.vim'
 " Plugin '2072/PHP-Indenting-for-VIm'
 Plugin 'zcodes/PHP-Indenting-for-Vim'
 let g:PHP_vintage_case_default_indent = 1
+let g:PHP_noArrowMatching = 1
 
 " php twig
 Plugin 'evidens/vim-twig'
