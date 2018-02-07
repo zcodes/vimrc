@@ -581,6 +581,8 @@ endif
 if exists('g:zcodes_enable_racket')
     Plugin 'wlangstroth/vim-racket'
 endif
+
+Plugin 'kovisoft/slimv'
 " }}}
 "
 " vim: ts=4 sts=4 sw=4 et fdm=marker
