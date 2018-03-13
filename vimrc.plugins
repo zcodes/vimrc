@@ -201,6 +201,10 @@ else
     let g:airline_theme = 'raven'
 endif
 let g:airline_powerline_fonts=0
+let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
+let g:airline#extensions#whitespace#mixed_indent_format = 'mi[%s]'
+let g:airline#extensions#whitespace#long_format = 'long[%s]'
+let g:airline#extensions#whitespace#mixed_indent_file_format = 'mif[%s]'
 " }}}
 
 " color themes {{{
