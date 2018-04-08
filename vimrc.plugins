@@ -482,7 +482,7 @@ Plugin 'jiangmiao/auto-pairs'
 " <BS> will conflict with SCIM with 'Embered Preedit String into client
 " window' option enabled
 " let g:AutoPairsMapBS = 0
-let g:AutoPairsFlyMode = 1
+let g:AutoPairsFlyMode = 0
 " }}}
 
 " vim-choosewin {{{
