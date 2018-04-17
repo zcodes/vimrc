@@ -4,6 +4,12 @@ snippet cm
 		${0}
 	}
 
+snippet ma "method with argument"
+	${1:protected} function ${2:foo}(${3:bar})
+	{
+		${0:{VISUAL}}
+	}
+
 snippet dm
 	public function __destruct()
 	{
@@ -22,7 +28,7 @@ snippet ac
 		${0}
 	}
 
-snippet ma
+snippet am
 	abstract ${1:public} function ${2:foo}(${3});
 
 snippet ce

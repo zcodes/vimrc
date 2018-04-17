@@ -588,6 +588,15 @@ if exists('g:zcodes_enable_racket')
 endif
 
 Plugin 'kovisoft/slimv'
+
+" linter
+" 1. https://github.com/w0rp/ale
+" 2. https://github.com/vim-syntastic/syntastic
+Plugin 'w0rp/ale'
+let g:ale_sign_column_always = 1
+let g:ale_linters = {
+            \ 'php': ['php'],
+            \ }
 " }}}
 "
 " vim: ts=4 sts=4 sw=4 et fdm=marker
