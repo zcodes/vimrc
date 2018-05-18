@@ -166,6 +166,8 @@ augroup END
 
 " git plugin
 Plugin 'airblade/vim-gitgutter'
+Plugin 'mhinz/vim-signify'
+let g:signify_vcs_list = ['svn']
 Plugin 'tpope/vim-fugitive'
 
 " supertab {{{
@@ -214,6 +216,7 @@ Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'dracula/vim'
 Plugin 'tomasr/molokai'
+Plugin 'trevordmiller/nova-vim'
 let g:molokai_original = 0
 let g:rehash256 = 1
 " }}}
@@ -260,7 +263,7 @@ Plugin 'zcodes/php.vim'
 
 " Plugin '2072/PHP-Indenting-for-VIm'
 Plugin 'zcodes/PHP-Indenting-for-Vim'
-let g:PHP_vintage_case_default_indent = 1
+" let g:PHP_vintage_case_default_indent = 1
 let g:PHP_noArrowMatching = 1
 
 " php twig

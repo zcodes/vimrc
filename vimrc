@@ -333,6 +333,10 @@ if !exists(":DiffOrig")
                 \ | wincmd p | diffthis
 endif
 
+if !exists(':JsonFormat')
+    command JsonFormat :%!python3 -m json.tool
+endif
+
 
 " Windows 下 Vim的配置: vimrc.win {{{
 if zcodes#has#windows()
