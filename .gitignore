@@ -8,3 +8,5 @@ tags
 undodir
 /session/
 .ropeproject
+/python/.ropeproject
+/python/__pycache__

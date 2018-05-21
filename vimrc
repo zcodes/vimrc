@@ -11,16 +11,19 @@
 set nocompatible
 filetype off
 
+" set $VIMHOME to ~/vimfiles or ~/.vim
+let $VIMHOME=expand('<sfile>:p:h')
+
 " before it
-call zcodes#utils#source(zcodes#utils#home('vimrc.local.before'))
+source $VIMHOME/vimrc.local.before
 
 " 使用 Vundle 管理插件 {{{
 " Vundle: https://github.com/VundleVim/Vundle.vim
-exec 'set rtp+=' . zcodes#utils#home('/bundle/Vundle.vim')
-call vundle#begin(zcodes#utils#home('/bundle'))
+exec 'set rtp+=' . expand($VIMHOME . '/bundle/Vundle.vim')
+call vundle#begin(expand($VIMHOME . '/bundle'))
 " 插件单独分在 vimrc.plugins 文件中
-call zcodes#utils#source(zcodes#utils#home('vimrc.plugins'))
-call zcodes#utils#source(zcodes#utils#home('vimrc.colors'))
+source $VIMHOME/vimrc.plugins
+source $VIMHOME/vimrc.colors
 call vundle#end()
 " }}}
 
@@ -56,7 +59,7 @@ set fileformats=unix,dos,mac
 
 " {{{ GUI
 if zcodes#has#gui()
-    call zcodes#utils#source(zcodes#utils#home('vimrc.gui'))
+    source $VIMHOME/vimrc.gui
 endif
 " }}}
 
@@ -173,7 +176,7 @@ set tm=500
 
 " undo even close files.
 try
-    let &undodir=zcodes#utils#home('/undodir')
+    let &undodir=expand($VIMHOME . '/undodir')
     set undofile
 catch
 endtry
@@ -333,19 +336,19 @@ if !exists(":DiffOrig")
                 \ | wincmd p | diffthis
 endif
 
-if !exists(':JsonFormat')
-    command JsonFormat :%!python3 -m json.tool
-endif
-
-
 " Windows 下 Vim的配置: vimrc.win {{{
 if zcodes#has#windows()
-    call zcodes#utils#source(zcodes#utils#home('vimrc.win'))
+    source $VIMHOME/vimrc.win
 endif
 " }}}
 
 " 加载自定义文件 vimrc.local {{{
-call zcodes#utils#source(zcodes#utils#home('vimrc.local'))
+source $VIMHOME/vimrc.local
 " }}}
+
+if zcodes#has#python3()
+    " vim command utils use python3
+    source $VIMHOME/vimrc.python3
+endif
 
 " vim: ts=4 sts=4 sw=4 et fdm=marker:

@@ -44,5 +44,4 @@ function! zcodes#utils#last_modified()
         call setpos('.', save_cursor)
     endif
 endfunction
-
 " vim: ts=4 sts=4 sw=4 et

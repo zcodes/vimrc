@@ -22,3 +22,7 @@ endfunction
 function! zcodes#has#linux()
     return !has#windows() && substitute(system('uname'), '\n', '', '') == 'Linux'
 endfunction
+
+function! zcodes#has#python3()
+    return has('python3')
+endfunction
