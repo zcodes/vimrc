@@ -1,3 +1,8 @@
+" File: utils.vim
+" Author: zcodes <zcodes@qq.com>
+" Description: utils
+" Last Modified: 2018/5/23 17:40:17
+"
 if exists('g:zcodes_utils_loaded')
     finish
 endif
@@ -20,7 +25,7 @@ function! zcodes#utils#home(...)
         return s:vim_home
     endif
 
-    if a:1[0] != '/'
+    if a:1[0] !=# '/'
         return s:vim_home . '/' . a:1
     endif
 
@@ -31,17 +36,17 @@ endfunction
 " update 'Last modified: ' timestamps in the first or last twenty lines.
 function! zcodes#utils#last_modified()
     if &modified
-        let save_cursor = getpos(".")
-        let m = max([1, line("$") - 20])
-        let n = min([20, line("$")])
-        keepjumps exe '1,' . n . 's#^\(.\{,10}Last \([cC]hange\|[mM]odified\):\s*\).*#\1' .
+        let l:save_cursor = getpos('.')
+        let l:m = max([1, line('$') - 10])
+        let l:n = min([10, line('$')])
+        keepjumps exe '1,' . l:n . 's#^\(.*Last \([cC]hange\|[mM]odified\):\s*\).*#\1' .
                     \ strftime('%c') . '#e'
 
-        keepjumps exe m . ',' . line("$") . 's#^\(.\{,10}Last \([cC]hange\|[mM]odified\):\s*\).*#\1' .
+        keepjumps exe l:m . ',' . line('$') . 's#^\(.*Last \([cC]hange\|[mM]odified\):\s*\).*#\1' .
                     \ strftime('%c') . '#e'
 
         call histdel('search', -1)
-        call setpos('.', save_cursor)
+        call setpos('.', l:save_cursor)
     endif
 endfunction
 " vim: ts=4 sts=4 sw=4 et

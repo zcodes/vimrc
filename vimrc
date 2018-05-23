@@ -302,7 +302,7 @@ hi link HelpStar Normal
 augroup UpdateLastModifiedTimestamps
     au!
     autocmd BufWritePre *.txt,*.md call zcodes#utils#last_modified()
-    autocmd BufWritePre ~/{.vim,vimfiles}/syntax/**.vim call zcodes#utils#last_modified()
+    autocmd BufWritePre ~/{.vim,vimfiles}/{autoload,colors,ftplugin,indent,snippets,syntax}/**.vim call zcodes#utils#last_modified()
 augroup END
 " }}}
 " line number {{{

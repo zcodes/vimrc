@@ -1,3 +1,9 @@
+" File: has.vim
+" Author: zcodes <zcodes@qq.com>
+" Description: function for checking
+" Last Modified: 2018/5/23 17:41:16
+"
+
 " feature test
 if exists('g:zcodes_has_loaded')
     finish
@@ -7,8 +13,8 @@ let g:zcodes_has_loaded = 1
 " check colorscheme exist or not.
 " http://stackoverflow.com/questions/5698284
 function! zcodes#has#colorscheme(name)
-    pat = 'colors/' . a:name . '.vim'
-    return !empty(globpath(&rtp, pat))
+    let l:pat = 'colors/' . a:name . '.vim'
+    return !empty(globpath(&runtimepath, l:pat))
 endfunction
 
 function! zcodes#has#gui()
@@ -20,7 +26,7 @@ function! zcodes#has#windows()
 endfunction
 
 function! zcodes#has#linux()
-    return !has#windows() && substitute(system('uname'), '\n', '', '') == 'Linux'
+    return !has#windows() && substitute(system('uname'), '\n', '', '') ==# 'Linux'
 endfunction
 
 function! zcodes#has#python3()

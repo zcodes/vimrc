@@ -1,9 +1,10 @@
 " Vim syntax file
 " Language:     text
 " Maintainer:   zcodes <zcodes@qq.com>
-" Last Change:  2017/9/27 11:52:54
+" Last Change:  2018/5/23 16:48:23
 " Remark:       plain text syntax
-if exists("b:current_syntax")
+
+if exists('b:current_syntax')
   finish
 end
 
