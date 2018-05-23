@@ -1,9 +1,9 @@
 "
-" special settings for vim in windows.
+" File: vimrc.win
+" Author: zcodes <zcodes@qq.com>
+" Description: spacial settings for vim in windows
+" Last Modified: 五月 23, 2018
 "
-" Author: zcodes <zcodes@163.com>
-"
-" =====================================================
 
 " set list and listchars here again
 " Note: a hackable for listchars not work in windows.

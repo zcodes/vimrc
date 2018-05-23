@@ -1,10 +1,11 @@
 "
-" vim plugins, managed by Vundle
+" File: vimrc.plugins
+" Author: zcodes <zcodes@qq.com>
+" Description: vim plugins, managed by vundle.
+" Last Modified: 五月 23, 2018
+" Note: a collection of language packs for vim, see:
+" https://github.com/sheerun/vim-polyglot
 "
-" Author: zcodes <zcodes@163.com>
-"
-" a collection of language packs for vim, see: https://github.com/sheerun/vim-polyglot
-" =====================================================
 
 Plugin 'VundleVim/Vundle.vim'
 
@@ -107,9 +108,6 @@ let g:NERDSpaceDelims = 1
 Plugin 'zcodes/ctrlp.vim'
 Plugin 'FelikZ/ctrlp-py-matcher'
 Plugin 'tacahiroy/ctrlp-funky'
-nnoremap <Leader>fu :CtrlPFunky<Cr>
-" narrow the list down with a word under cursor
-nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_funky_use_cache = 1
@@ -159,8 +157,11 @@ endif
 augroup CtrlPLeaderKeyMapping
     au!
 
-    nnoremap <c-b> :CtrlPBuffer<cr>
+    nnoremap <f7> :CtrlPBuffer<cr>
     nnoremap <leader>bb :CtrlPBuffer<cr>
+    nnoremap <c-f12> :CtrlPFunky<Cr>
+    " narrow the list down with a word under cursor
+    nnoremap <c-s-f12> :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 augroup END
 " }}}
 

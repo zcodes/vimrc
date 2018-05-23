@@ -1,13 +1,13 @@
 "
-" vim 配置文件
-"
-" Author: zcodes <zcodes@163.com>
-"
+" File: vimrc
+" Author: zcodes <zcodes@qq.com>
+" Description: my vimrc
+" Last Modified: 五月 23, 2018
 " Note: Every thing you need to known about Vim at:
-"       https://github.com/mhinz/vim-galore
+" https://github.com/mhinz/vim-galore
 "
-" =====================================================
 
+" bootstrap {{{
 set nocompatible
 filetype off
 
@@ -15,8 +15,11 @@ filetype off
 let $VIMHOME=expand('<sfile>:p:h')
 
 " before it
-source $VIMHOME/vimrc.local.before
-
+if filereadable($VIMHOME . '/vimrc.local.before')
+    source $VIMHOME/vimrc.local.before
+endif
+" }}}
+"
 " 使用 Vundle 管理插件 {{{
 " Vundle: https://github.com/VundleVim/Vundle.vim
 exec 'set rtp+=' . expand($VIMHOME . '/bundle/Vundle.vim')
@@ -26,21 +29,16 @@ source $VIMHOME/vimrc.plugins
 source $VIMHOME/vimrc.colors
 call vundle#end()
 " }}}
-
-
 "
 " 配置从这里开始
 " ==============================
-
-" 让 Vim 记住更多
-set history=500
-set sessionoptions+=slash,unix,globals
-
+"
 " plugin load before indent, see:
 " https://stackoverflow.com/questions/2061321/incorrect-comments-set-for-php-in-vim
 filetype plugin indent on
 syntax on
-
+"
+" encoding and format {{{
 " 脚本编码
 scriptencoding utf-8
 " 默认编码
@@ -56,13 +54,7 @@ set fileformats=unix,dos,mac
 " Note: 可用使用下列命令设置当前文件的编码和换行格式
 " set fileencoding=<要转换的编码，比如: utf8>
 " set fileformat=<要设置的文件还行格式，比如: unix>
-
-" {{{ GUI
-if zcodes#has#gui()
-    source $VIMHOME/vimrc.gui
-endif
 " }}}
-
 " 'timeout' and 'ttimeout' {{{
 " for details, see :h 'timeout'
 " TODO: Differences between `:mappingings and key codes`
@@ -73,13 +65,12 @@ set notimeout
 set ttimeout  " time out for key codes
 " set ttimeoutlen=100 " wait up to 100ms after Esc for speical key
 " }}}
-set viewoptions=folds,options,cursor,unix,slash
-
-" 代码颜色主题
-" 自制 vim 主题，平时以 basic-dark 为主
-silent! colorscheme basic-dark
-
-" editing
+" editing {{{
+"
+" let vim remember more
+set history=500
+set sessionoptions+=slash,unix,globals
+"
 " 不使用交换文件：不在文件所在目录下产生 .swp 文件
 set noswapfile
 " 不适用备份文件
@@ -96,12 +87,7 @@ set cursorline
 set list
 set listchars=tab:›\ ,trail:•,precedes:«,extends:»,nbsp:.
 " ,eol:¬
-
-" 鼠标设置
-if has('mouse')
-    set mouse=a
-    set mousemodel=popup
-endif
+set viewoptions=folds,options,cursor,unix,slash
 
 " 缩进
 set smartindent
@@ -135,7 +121,6 @@ if has('statusline')
     set statusline+=%=%-14.(%l,%c%V%)\ %p%%
 endif
 set hidden " allow switch buffer without saving.
-
 
 if exists('+fixendofline')
     set fixendofline
@@ -181,8 +166,16 @@ try
 catch
 endtry
 
+" mouse
+if has('mouse')
+    set mouse=a
+    set mousemodel=popup
+endif
 
-" 按键绑定 {{{
+" color theme
+" silent! colorscheme basic-dark
+" }}}
+" keymaps {{{
 "
 " Don't use Ex mode, use Q for formating.
 map Q gq
@@ -223,8 +216,16 @@ vnoremap <space> :
 
 " ctrl-l 清除高亮搜索结果
 if maparg('<C-L>', 'n') ==#'' | nnoremap <silent><C-L> :nohlsearch<cr><c-l> | endif
-" }}}
 
+" 自动删除无用的空白字符
+function! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+nnoremap <F6> :call <SID>StripTrailingWhitespaces()<cr>
+" }}}
 " tabs {{{
 " ts : Number of spaces that a <Tab> in the file counts for.
 " sts : Number of spaces that a <Tab> counts for while performing editing
@@ -252,12 +253,13 @@ augroup tabWidth
     autocmd BufNewFile,BufRead *.overrides,*.variables setl filetype=less
 augroup END
 " }}}
-
+" autogroups {{{
+" php
 augroup customCommentString
     autocmd FileType php setlocal commentstring=//\ %s
 augroup END
 
-" Ruby 配置 {{{
+" ruby
 augroup MyRubyCustom
     au!
 
@@ -265,9 +267,8 @@ augroup MyRubyCustom
     " execute current editing ruby file directly
     autocmd FileType ruby nnoremap <buffer> <F9> :exec '!ruby' shellescape(@%, 1)<cr>
 augroup END
-" }}}
 
-" Python 配置 {{{
+" python
 augroup MyPythonCustom
     au!
 
@@ -278,41 +279,34 @@ augroup MyPythonCustom
     " TODO 将输出内容直接导入 vim 中
     autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
 augroup END
-" }}}
 
-" 自动删除无用的空白字符 {{{
-function! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
-endfun
-nnoremap <F6> :call <SID>StripTrailingWhitespaces()<cr>
-" }}}
-
-" {{{
-augroup vimStartup
+" vim
+augroup MyVimCustom
     au!
-
     autocmd BufReadPost *
                 \ if line("'\"") >= 1 && line("'\"") <= line("$") |
                 \     exe "normal! g`\"" |
                 \ endif
 augroup END
-" }}}
 
-" vim 帮助文档设置 {{{
-augroup VimHelp
+" vim 帮助文档设置
+augroup MyVimHelp
     au!
 
     autocmd FileType help setl conceallevel=0
 augroup END
 hi link HelpBar Normal
 hi link HelpStar Normal
-" }}}
 
-" 行号 {{{
-set nu
+" Last Modified
+augroup UpdateLastModifiedTimestamps
+    au!
+    autocmd BufWritePre *.txt,*.md call zcodes#utils#last_modified()
+    autocmd BufWritePre ~/{.vim,vimfiles}/syntax/**.vim call zcodes#utils#last_modified()
+augroup END
+" }}}
+" line number {{{
+set number
 set relativenumber
 " 自动在相对行号间切换
 augroup RelativeLineNumbers
@@ -321,34 +315,52 @@ augroup RelativeLineNumbers
     autocmd InsertEnter * :set norelativenumber
     autocmd InsertLeave * :set relativenumber
 augroup END
-" }}}
 
-" Last Modified {{{
-augroup UpdateLastModifiedTimestamps
-    au!
-    autocmd BufWritePre *.txt,*.md call zcodes#utils#last_modified()
-    autocmd BufWritePre ~/{.vim,vimfiles}/syntax/**.vim call zcodes#utils#last_modified()
-augroup END
+command! ToggleLineNumber :call ToggleLineNumber()
+function! ToggleLineNumber()
+    if &number == 1
+        set norelativenumber
+        set nonumber
+    else
+        set relativenumber
+        set number
+    endif
+endfunction
 " }}}
-
+" commands {{{
+"
 if !exists(":DiffOrig")
     command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
                 \ | wincmd p | diffthis
 endif
-
-" Windows 下 Vim的配置: vimrc.win {{{
+"
+" reload Local configure (vimrc.local)
+if !exists(":ReloadLocalConfigure")
+    command ReloadLocalConfigure :exec "source " . $VIMHOME . '/vimrc.local'
+endif
+" }}}
+" load external files {{{
+"
+" gui
+if zcodes#has#gui()
+    source $VIMHOME/vimrc.gui
+endif
+"
+" windows
 if zcodes#has#windows()
     source $VIMHOME/vimrc.win
 endif
+"
+" local configurations {{{
+if filereadable($VIMHOME . '/vimrc.local')
+    source $VIMHOME/vimrc.local
+endif
 " }}}
-
-" 加载自定义文件 vimrc.local {{{
-source $VIMHOME/vimrc.local
-" }}}
-
+"
+" python3
 if zcodes#has#python3()
-    " vim command utils use python3
     source $VIMHOME/vimrc.python3
 endif
-
+" }}}
+"
 " vim: ts=4 sts=4 sw=4 et fdm=marker:
