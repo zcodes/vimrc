@@ -39,10 +39,10 @@ filetype plugin indent on
 syntax on
 "
 " encoding and format {{{
-" 脚本编码
-scriptencoding utf-8
 " 默认编码
 set encoding=utf-8
+" 脚本编码
+scriptencoding utf-8
 " 启用支持的文件编码
 set fileencodings=utf-8,gbk,gb2312,gb18030,ucs-bom,utf16-le,latin-1
 " 可用的换行格式
@@ -157,7 +157,7 @@ set scrolloff=5
 set noerrorbells
 set novisualbell
 set t_vb=
-set tm=500
+set timeoutlen=500
 
 " undo even close files.
 try
@@ -219,10 +219,10 @@ if maparg('<C-L>', 'n') ==#'' | nnoremap <silent><C-L> :nohlsearch<cr><c-l> | en
 
 " 自动删除无用的空白字符
 function! <SID>StripTrailingWhitespaces()
-    let l = line(".")
-    let c = col(".")
-    %s/\s\+$//e
-    call cursor(l, c)
+    let l:l = line('.')
+    let l:c = col('.')
+    exec '%s/\s\+$//e'
+    call cursor(l:l, l:c)
 endfun
 nnoremap <F6> :call <SID>StripTrailingWhitespaces()<cr>
 " }}}
@@ -329,13 +329,13 @@ endfunction
 " }}}
 " commands {{{
 "
-if !exists(":DiffOrig")
+if !exists(':DiffOrig')
     command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
                 \ | wincmd p | diffthis
 endif
 "
 " reload Local configure (vimrc.local)
-if !exists(":ReloadLocalConfigure")
+if !exists(':ReloadLocalConfigure')
     command ReloadLocalConfigure :exec "source " . $VIMHOME . '/vimrc.local'
 endif
 " }}}

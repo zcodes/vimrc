@@ -1,4 +1,3 @@
-"
 " File: vimrc.plugins
 " Author: zcodes <zcodes@qq.com>
 " Description: vim plugins, managed by vundle.
@@ -6,6 +5,8 @@
 " Note: a collection of language packs for vim, see:
 " https://github.com/sheerun/vim-polyglot
 "
+
+scriptencoding utf-8
 
 Plugin 'VundleVim/Vundle.vim'
 
@@ -17,10 +18,10 @@ Plugin 'jlanzarotta/bufexplorer'
 
 " nerdtree {{{
 Plugin 'scrooloose/nerdtree'
-let g:NERDTreeDirArrowExpandable="+"
-let g:NERDTreeDirArrowCollapsible="~"
+let g:NERDTreeDirArrowExpandable='+'
+let g:NERDTreeDirArrowCollapsible='~'
 let g:NERDTreeMinimalUI=1
-let NERDTreeDirArrows=0
+let g:NERDTreeDirArrows=0
 nmap <F3> :NERDTreeFocus<cr>
 nmap <F4> :NERDTreeClose<cr>
 " }}}
@@ -57,7 +58,10 @@ Plugin 'mattn/emmet-vim'
 " https://github.com/mattn/emmet-vim/issues/168
 let g:user_emmet_install_global = 0
 let g:user_emmet_complete_tag = 1
-autocmd FileType html,css,blade,twig,jsp,htmldjango,xml EmmetInstall
+augroup MyEnableEmmet
+    au!
+    autocmd FileType html,css,blade,twig,jsp,htmldjango,xml EmmetInstall
+augroup END
 
 " https://github.com/mattn/emmet-vim/issues/168
 " TODO snipmate position not work !
@@ -66,11 +70,11 @@ function! s:emmet_with_snipmate()
         return "\<plug>snipMateNextOrTrigger"
     endif
 
-    let line = getline('.')
-    if col('.') < len(line)
-        let line = matchstr(line, '[">][^<"]*\%'.col('.').'c[^>"]*[<"]')
+    let l:line = getline('.')
+    if col('.') < len(l:line)
+        let l:line = matchstr(l:line, '[">][^<"]*\%'.col('.').'c[^>"]*[<"]')
 
-        if len(line) >= 2
+        if len(l:line) >= 2
             return "\<Plug>(emmet-move-next)"
         endif
     endif
@@ -121,7 +125,7 @@ let g:ctrlp_use_caching = 1
 let g:ctrlp_working_path_mode = 'raw'
 let g:ctrlp_root_markers = ['.git', '.svn']
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-let g:ctrlp_system_filename_encoding = "gbk"
+let g:ctrlp_system_filename_encoding = 'gbk'
 " if zcodes#has#windows()
 "     set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\*
 " else
@@ -179,10 +183,13 @@ Plugin 'ervandew/supertab'
 " b:SuperTabContextDefaultCompletionType
 let g:SuperTabDefaultCompletionType = 'context'
 
-autocmd FileType html,css,blade,twig,jsp
-            \ if &omnifunc != '' |
-            \   call SuperTabChain(&omnifunc, "<c-p>") |
-            \ endif
+augroup MyEnableSupertab
+    au!
+    autocmd FileType html,css,blade,twig,jsp
+                \ if &omnifunc != '' |
+                \   call SuperTabChain(&omnifunc, "<c-p>") |
+                \ endif
+augroup END
 " }}}
 
 " list tags {{{
@@ -318,7 +325,7 @@ let g:pymode_folding = 1
 let g:pymode_motion = 1
 let g:pymode_doc = 1
 let g:pymode_doc_bind = 'K'
-if system('uname') =~ 'Linux'
+if system('uname') =~# 'Linux'
     let g:pymode_virtualenv = 1
 else
     let g:pymode_virtualenv = 0
@@ -342,7 +349,7 @@ let g:pymode_lint_on_fly = 0
 let g:pymdoe_lint_message = 1
 " valide value: 'pylint', 'pep8', 'mccabe', 'pep257', 'pyflake'
 let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
-let g:pymode_lint_ignore = ["E501"]
+let g:pymode_lint_ignore = ['E501']
 " let g:pymode_lint_select = []
 " let g:pymode_lint_sort = []
 let g:pymode_lint_cwindow = 1
@@ -392,8 +399,11 @@ let g:pymode_rope_goto_definition_cmd = 'new'
 "
 " close doc window
 " see: https://github.com/python-mode/python-mode/issues/384
-autocmd CursorMovedI *.py if pumvisible() == 0|pclose|endif
-autocmd InsertLeave *.py if pumvisible() == 0|pclose|endif
+augroup MyDisablePythonDocWindow
+    au!
+    autocmd CursorMovedI *.py if pumvisible() == 0|pclose|endif
+    autocmd InsertLeave *.py if pumvisible() == 0|pclose|endif
+augroup END
 
 " 默认使用 python3
 let g:pymode_python = 'python3'
@@ -424,7 +434,7 @@ Plugin 'zcodes/vim-coffee-script'
 
 
 " go {{{
-if (v:version >= 800 || (v:version >= 704 && has("patch1689")))
+if (v:version >= 800 || (v:version >= 704 && has('patch1689')))
     Plugin 'fatih/vim-go'
     " use :GoInstallBinaries install additional tools
     " and set it's installtion path
@@ -446,10 +456,13 @@ if (v:version >= 800 || (v:version >= 704 && has("patch1689")))
     let g:go_get_update = 0
 
     " keybinds for vim-go
-    au FileType go nmap <leader>gr <Plug>(go-run)
-    au FileType go nmap <leader>gb <Plug>(go-build)
-    au FileType go nmap <leader>gt <Plug>(go-test)
-    au FileType go nmap <leader>gc <Plug>(go-coverage)
+    augroup MyGoKeyMap
+        au!
+        au FileType go nmap <leader>gr <Plug>(go-run)
+        au FileType go nmap <leader>gb <Plug>(go-build)
+        au FileType go nmap <leader>gt <Plug>(go-test)
+        au FileType go nmap <leader>gc <Plug>(go-coverage)
+    augroup END
 
     " other keys, just comment here.
     " au FileType go nmap <Leader>ds <Plug>(go-def-split)
@@ -536,7 +549,7 @@ endif
 " taboo.vim -- Few utilities for pretty tabs {{{
 " Plugin 'gcmt/taboo.vim'
 Plugin 'zcodes/taboo.vim'
-let g:taboo_tab_format=" %N %p%m "
+let g:taboo_tab_format=' %N %p%m '
 " }}}
 
 " Tab management
@@ -600,7 +613,10 @@ Plugin 'w0rp/ale'
 let g:ale_sign_column_always = 1
 let g:ale_linters = {
             \ 'php': ['php'],
+            \ 'vim': ['vint'],
             \ }
 " }}}
+"
+" Plugin 'valloric/youcompleteme'
 "
 " vim: ts=4 sts=4 sw=4 et fdm=marker

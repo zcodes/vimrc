@@ -1,11 +1,11 @@
-"
 " File: vimrc.gui
 " Author: zcodes <zcodes@qq.com>
 " Description: gvim configuration
 " Last Modified: 五月 23, 2018
 "
 
-set anti
+scriptencoding utf-8
+set antialias
 set guioptions=aegit
 set guicursor+=a:blinkon0
 

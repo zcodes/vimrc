@@ -1,9 +1,10 @@
-"
 " File: vimrc.python3
 " Author: zcodes <zcodes@qq.com>
 " Description: vim command utils use python3 as a external filter
 " Last Modified: 五月 23, 2018
 "
+
+scriptencoding utf-8
 
 " format json
 if !exists(':JsonFormat')
