@@ -298,6 +298,13 @@ augroup END
 hi link HelpBar Normal
 hi link HelpStar Normal
 
+" shell scripts
+augroup MyShellCustom
+    au!
+
+    autocmd FileType sh nnoremap <buffer> <F9> :!./%<cr>
+augroup END
+
 " Last Modified
 augroup UpdateLastModifiedTimestamps
     au!
