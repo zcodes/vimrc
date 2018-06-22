@@ -171,8 +171,14 @@ augroup END
 
 " git plugin
 Plugin 'airblade/vim-gitgutter'
+let g:gitgutter_max_signs = 1000
+let g:gitgutter_log = 1
+let g:gitgutter_async = 1
+
 Plugin 'mhinz/vim-signify'
 let g:signify_vcs_list = ['svn']
+let g:signify_realtime = 1
+" let g:signify_disable_by_default = 1
 Plugin 'tpope/vim-fugitive'
 
 " supertab {{{
@@ -231,6 +237,8 @@ let g:rehash256 = 1
 
 " html5
 Plugin 'othree/html5.vim'
+let g:html_indent_style1 = 'inc'
+let g:html_indent_script1 = 'inc'
 
 " file type support {{{
 " javascript
@@ -611,12 +619,22 @@ Plugin 'kovisoft/slimv'
 " 2. https://github.com/vim-syntastic/syntastic
 Plugin 'w0rp/ale'
 let g:ale_sign_column_always = 1
+"
+" standard: npm i -g standard
 let g:ale_linters = {
             \ 'php': ['php'],
             \ 'vim': ['vint'],
+            \ 'javascript': ['standard', 'eslint --no-ignore'],
             \ }
+" let g:ale_fixers = {
+"             \ 'javascript': ['prettier_standard'],
+"             \ }
+" let g:ale_fix_on_save = 1
 " }}}
 "
 " Plugin 'valloric/youcompleteme'
 "
+"
+" AutoHotKey
+Plugin 'hnamikaw/vim-autohotkey'
 " vim: ts=4 sts=4 sw=4 et fdm=marker

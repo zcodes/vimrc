@@ -2,7 +2,7 @@
 " Header: "{{{
 " Maintainer:	Bram Moolenaar
 " Original Author: Andy Wokula <anwoku@yahoo.de>
-" Last Change:	2018 Mar 28
+" Last Change:	2018/6/4 14:21:13
 " Version:	1.0
 " Description:	HTML indent script with cached state for faster indenting on a
 "		range of lines.
@@ -663,8 +663,12 @@ func! s:CSSIndent()
     else
       let cur_hasfield = curtext =~ '^\s*[a-zA-Z0-9-]\+:'
       let prev_unfinished = s:CssUnfinished(prev_text)
-      let prev_unsemicolon = prev_text =~ ';\s*$'
-      if !cur_hasfield && (prev_hasfield || prev_unfinished) && !prev_unsemicolon
+      let prev_semicoloned = prev_text =~ ';\s*$'
+      if prev_semicoloned
+        " if previous line is finished by semicolon, no extra indent for
+        " current line.
+        let extra = 0
+      elseif !cur_hasfield && (prev_hasfield || prev_unfinished)
         " Continuation line has extra indent if the previous line was not a
         " continuation line.
         let extra = shiftwidth()
@@ -934,8 +938,8 @@ func! s:InsideTag(foundHtmlString)
       " after just <tag indent one level more
       let idx = match(text, '<' . s:tagname . '$')
       if idx >= 0
-	call cursor(lnum, idx)
-	return virtcol('.') + shiftwidth()
+        call cursor(lnum, idx)
+        return virtcol('.') + shiftwidth()
       endif
     endif
     if idx > 0
