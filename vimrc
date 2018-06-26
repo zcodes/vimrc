@@ -61,9 +61,10 @@ set fileformats=unix,dos,mac
 "
 " Disable timeout for <leader> key sequences.
 set notimeout
-" set timeoutlen=3000
 set ttimeout  " time out for key codes
+" set timeoutlen=3000
 " set ttimeoutlen=100 " wait up to 100ms after Esc for speical key
+set updatetime=100
 " }}}
 " editing {{{
 "
@@ -88,6 +89,9 @@ set list
 set listchars=tab:›\ ,trail:•,precedes:«,extends:»,nbsp:.
 " ,eol:¬
 set viewoptions=folds,options,cursor,unix,slash
+if zcodes#has#windows()
+    set noshelltemp
+endif
 
 " 缩进
 set smartindent
@@ -250,6 +254,7 @@ augroup tabWidth
     autocmd BufNewFile,BufRead *.py setl ts=4 sw=4 sts=4 et completeopt=menu,preview
     autocmd BufNewFile,BufRead *.asd set filetype=lisp
     autocmd FileType lisp setl ts=4 sw=4 sts=4 et
+    autocmd BufNewFile,BufRead $VIMHOME/bundle/vim-gitgutter/*.vim setl ts=2 sts=2 sw=2 et
 
     " Semantic UI
     autocmd BufNewFile,BufRead *.overrides,*.variables setl filetype=less
