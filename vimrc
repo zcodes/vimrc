@@ -2,7 +2,7 @@
 " File: vimrc
 " Author: zcodes <zcodes@qq.com>
 " Description: my vimrc
-" Last Modified: 2018/6/27 16:50:27
+" Last Modified: 2018/6/27 17:31:40
 " Note: Every thing you need to known about Vim at:
 " https://github.com/mhinz/vim-galore
 "
@@ -254,7 +254,7 @@ augroup tabWidth
     autocmd BufNewFile,BufRead *.py setl ts=4 sw=4 sts=4 et completeopt=menu,preview
     autocmd BufNewFile,BufRead *.asd set filetype=lisp
     autocmd FileType lisp setl ts=4 sw=4 sts=4 et
-    autocmd BufNewFile,BufRead $VIMHOME/bundle/vim-gitgutter/*.vim setl ts=2 sts=2 sw=2 et
+    autocmd BufNewFile,BufRead $VIMHOME/bundle/vim-gitgutter/**.vim setl ts=2 sts=2 sw=2 et
 
     " Semantic UI
     autocmd BufNewFile,BufRead *.overrides,*.variables setl filetype=less
