@@ -2,7 +2,7 @@
 " File: vimrc
 " Author: zcodes <zcodes@qq.com>
 " Description: my vimrc
-" Last Modified: 五月 23, 2018
+" Last Modified: 2018/6/27 16:50:27
 " Note: Every thing you need to known about Vim at:
 " https://github.com/mhinz/vim-galore
 "
@@ -316,7 +316,10 @@ augroup END
 augroup UpdateLastModifiedTimestamps
     au!
     autocmd BufWritePre *.txt,*.md call zcodes#utils#last_modified()
-    autocmd BufWritePre ~/{.vim,vimfiles}/{autoload,colors,ftplugin,indent,snippets,syntax}/**.vim call zcodes#utils#last_modified()
+
+    autocmd BufWritePre ~/{.vim,vimfiles}/{autoload,colors,ftplugin,indent,snippets,syntax}/**.vim
+                \ call zcodes#utils#last_modified()
+    autocmd BufWritePre ~/{.vim,vimfiles}/vimrc(.*) call zcodes#utils#last_modified()
 augroup END
 " }}}
 " line number {{{

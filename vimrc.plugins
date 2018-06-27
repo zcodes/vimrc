@@ -1,7 +1,7 @@
 " File: vimrc.plugins
 " Author: zcodes <zcodes@qq.com>
 " Description: vim plugins, managed by vundle.
-" Last Modified: 五月 23, 2018
+" Last Modified: 2018/6/27 16:50:39
 " Note: a collection of language packs for vim, see:
 " https://github.com/sheerun/vim-polyglot
 "
@@ -170,7 +170,8 @@ augroup END
 " }}}
 
 " git plugin
-Plugin 'airblade/vim-gitgutter'
+" Plugin 'airblade/vim-gitgutter'
+Plugin 'zcodes/vim-gitgutter'
 let g:gitgutter_max_signs = 1000
 let g:gitgutter_log = 1
 let g:gitgutter_async = 1
