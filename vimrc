@@ -1,4 +1,3 @@
-"
 " File: vimrc
 " Author: zcodes <zcodes@qq.com>
 " Description: my vimrc
@@ -245,9 +244,9 @@ augroup tabWidth
 
     autocmd BufNewFile,BufRead *.html,*.less,*.css,*.js,
                 \*.blade.php,*.rb,*.jade,*.json,\.eslintrc setl ts=2 sts=2 sw=2 et
-    autocmd BufNewFile,BufRead *.vue setl ts=2 sts=2 sw=2 filetype=html |
-                \ let b:html_indent_script1='zero' |
-                \ let b:html_indent_style1='zero'
+    autocmd BufNewFile,BufReadPre *.vue let b:html_indent_script1='zero' |
+                \ let b:html_indent_style1='zero' |
+                \ setl ts=2 sts=2 sw=2 filetype=html
     autocmd BufNewFile,BufRead *.coffee setl ts=2 sts=2 sw=2 fdm=indent nofen
     autocmd BufNewFile,BufRead *.[ch],*.cpp,*.hpp setl ts=4 sts=4 sw=4 noet
     autocmd BufNewFile,BufRead *.go setl ts=4 sts=4 sw=4 noet
