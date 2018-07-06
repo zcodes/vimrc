@@ -60,7 +60,7 @@ let g:user_emmet_install_global = 0
 let g:user_emmet_complete_tag = 1
 augroup MyEnableEmmet
     au!
-    autocmd FileType html,css,blade,twig,jsp,htmldjango,xml EmmetInstall
+    autocmd FileType html,css,blade,twig,jsp,htmldjango,xml,svg EmmetInstall
 augroup END
 
 " https://github.com/mattn/emmet-vim/issues/168
@@ -125,7 +125,9 @@ let g:ctrlp_use_caching = 1
 let g:ctrlp_working_path_mode = 'raw'
 let g:ctrlp_root_markers = ['.git', '.svn']
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-let g:ctrlp_system_filename_encoding = 'gbk'
+if zcodes#has#windows()
+    let g:ctrlp_system_filename_encoding = 'gbk'
+endif
 " if zcodes#has#windows()
 "     set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\*
 " else
@@ -138,7 +140,7 @@ let g:ctrlp_system_filename_encoding = 'gbk'
 " let g:ctrlp_open_single_match = ['buffer tags', 'buffer']
 let s:ctrlp_common_user_command = {
             \ 'types': {
-            \ 1: ['.git', 'cd %s && git ls-files -co --exclude-standard'],
+            \ 1: ['.git', 'cd %s && git -c core.quotepath=false ls-files -co --exclude-standard'],
             \ },
             \ }
 if zcodes#has#windows()
