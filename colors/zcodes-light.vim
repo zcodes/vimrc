@@ -2,7 +2,7 @@
 "
 " Maintainer: zcodes <zcodes@qq.com>
 " Version: 1.0
-" Last Modified: 2018/5/23 18:17:18
+" Last Modified: 2018/7/19 15:27:15
 "
 " the theme file original copyed from Tomorrow theme.
 " see: https://github.com/chriskempson/vim-tomorrow-theme.git for it.
@@ -302,10 +302,13 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call <SID>X('vimCommand', s:blue, '', 'none')
 
     " C Highlighting
-    call <SID>X('cType', s:blue, '', '')
+    call <SID>X('cType', s:aqua, '', '')
     call <SID>X('cStorageClass', s:blue, '', '')
     call <SID>X('cConditional', s:red, '', '')
     call <SID>X('cRepeat', s:red, '', '')
+
+    " C++
+    call <SID>X('cppType', s:aqua, '', '')
 
     " PHP Highlighting
     call <SID>X('phpVarSelector', s:aqua, '', '')

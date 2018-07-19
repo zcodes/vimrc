@@ -24,7 +24,7 @@ if has('directx')
     " gamma: 1.0 - 2.2
     " level: 0 - 100
     " contrast: 0 - 6
-    set renderoptions=type:directx,gamma:1.0,contrast:0.5,level:100.0,geom:1,renmode:5,taamode:1
+    set renderoptions=type:directx,gamma:1.4,contrast:0,level:100,geom:1,renmode:5,taamode:1
 endif
 set linespace=2
 
