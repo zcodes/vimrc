@@ -309,6 +309,11 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
     " C++
     call <SID>X('cppType', s:aqua, '', '')
+    call <SID>X('cppSTLfunctional', s:aqua, '', '')
+    call <SID>X('cppSTLType', s:aqua, '', '')
+    call <SID>X('cppSTLiterator', s:aqua, '', '')
+    call <SID>X('cppSTLiterator_tag', s:aqua, '', '')
+    call <SID>X('cppSTLenum', s:aqua, '', '')
 
     " PHP Highlighting
     call <SID>X('phpVarSelector', s:aqua, '', '')
