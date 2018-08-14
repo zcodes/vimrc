@@ -100,6 +100,9 @@ let g:ackprg='ag --vimgrep'
 
 " comment {{{
 Plugin 'tpope/vim-commentary'
+augroup MyCommentary
+    autocmd FileType cpp setlocal commentstring=//\ %s
+augroup end
 
 " Alternative plugins for comment
 " Plugin 'tomtom/tcomment_vim'
@@ -307,6 +310,9 @@ Plugin 'zcodes/vim-blade'
 
 " c++
 Plugin 'octol/vim-cpp-enhanced-highlight'
+" Plugin 'Shougo/vimproc.vim'
+" Plugin 'rhysd/vim-clang-format'
+Plugin 'Chiel92/vim-autoformat'
 " }}}
 
 " puppet
@@ -630,10 +636,12 @@ Plugin 'w0rp/ale'
 let g:ale_sign_column_always = 1
 "
 " standard: npm i -g standard
+let g:ale_linters_explicit = 1
 let g:ale_linters = {
             \ 'php': ['php'],
             \ 'vim': ['vint'],
             \ 'javascript': ['standard', 'eslint --no-ignore'],
+            \ 'cpp': ['gcc'],
             \ }
 " let g:ale_fixers = {
 "             \ 'javascript': ['prettier_standard'],

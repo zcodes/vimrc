@@ -1,6 +1,21 @@
 snippet us
 	using namespace ${1:std};
 
+snippet ust
+	using std::${1:cout};
+
+snippet cls
+	class ${1:Hello}
+	{
+		${0}
+	};
+
+snippet std
+	std::${0}
+
+snippet ic
+	#include <${1:iostream}>
+
 snippet inmain
 	#include <iostream>
 
@@ -12,3 +27,19 @@ snippet inmain
 
 		return 0;
 	}
+
+snippet tp
+	template<class T>
+	${0}
+
+snippet ce
+	cout << endl;
+
+snippet cee
+	cout << ${0} << endl;
+
+snippet stt
+	struct ${1}
+	{
+		${0}
+	};
