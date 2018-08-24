@@ -168,6 +168,7 @@ augroup CtrlPLeaderKeyMapping
 
     nnoremap <f7> :CtrlPBuffer<cr>
     nnoremap <leader>bb :CtrlPBuffer<cr>
+    nnoremap <c-f11> :CtrlPBuffer<cr>
     nnoremap <c-f12> :CtrlPFunky<Cr>
     " narrow the list down with a word under cursor
     nnoremap <c-s-f12> :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
@@ -643,6 +644,8 @@ let g:ale_linters = {
             \ 'javascript': ['standard', 'eslint --no-ignore'],
             \ 'cpp': ['gcc'],
             \ }
+" see: https://github.com/w0rp/ale/issues/891
+autocmd BufEnter ControlP let b:ale_enabled = 0
 " let g:ale_fixers = {
 "             \ 'javascript': ['prettier_standard'],
 "             \ }

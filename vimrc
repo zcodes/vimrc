@@ -73,8 +73,9 @@ set sessionoptions+=slash,unix,globals
 "
 " 不使用交换文件：不在文件所在目录下产生 .swp 文件
 set noswapfile
-" 不适用备份文件
-set nobackup
+" 文件备份到 $VIMHOME/backup
+set backup
+exec 'set backupdir=' . expand($VIMHOME . '/backup')
 " Backspace 按键设置
 set backspace=indent,eol,start
 " 自动加载修改的文件
