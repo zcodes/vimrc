@@ -1,9 +1,8 @@
 " File: vimrc
 " Author: zcodes <zcodes@qq.com>
-" Description: my vimrc
-" Last Modified: 2018/6/27 17:31:40
+" Description: My Vimrc
 " Note: Every thing you need to known about Vim at:
-" https://github.com/mhinz/vim-galore
+"   https://github.com/mhinz/vim-galore
 "
 
 " bootstrap {{{
@@ -18,7 +17,6 @@ if filereadable($VIMHOME . '/vimrc.local.before')
     source $VIMHOME/vimrc.local.before
 endif
 " }}}
-"
 " 使用 Vundle 管理插件 {{{
 " Vundle: https://github.com/VundleVim/Vundle.vim
 exec 'set rtp+=' . expand($VIMHOME . '/bundle/Vundle.vim')
@@ -36,7 +34,7 @@ call vundle#end()
 " https://stackoverflow.com/questions/2061321/incorrect-comments-set-for-php-in-vim
 filetype plugin indent on
 syntax on
-"
+
 " encoding and format {{{
 " 默认编码
 set encoding=utf-8
@@ -176,8 +174,6 @@ if has('mouse')
     set mousemodel=popup
 endif
 
-" color theme
-" silent! colorscheme basic-dark
 " }}}
 " keymaps {{{
 "
@@ -194,21 +190,22 @@ map Q gq
 " vm => vim menubar
 " vt => vim toolbar
 " 快速编辑配置文件
-nnoremap <leader>vi :e $MYVIMRC<cr>
-nnoremap <leader>vw :e $MYVIMRC.win<cr>
-nnoremap <leader>vp :e $MYVIMRC.plugins<cr>
-nnoremap <leader>vll :e $MYVIMRC.local<cr>
-nnoremap <leader>vlb :e $MYVIMRC.local.before<cr>
-
+" Note: no need anymore
+" nnoremap <leader>vi :e $MYVIMRC<cr>
+" nnoremap <leader>vw :e $MYVIMRC.win<cr>
+" nnoremap <leader>vp :e $MYVIMRC.plugins<cr>
+" nnoremap <leader>vll :e $MYVIMRC.local<cr>
+" nnoremap <leader>vlb :e $MYVIMRC.local.before<cr>
+"
 " Editor configures with new tabs
-nnoremap <leader>tvi :tabe $MYVIMRC<cr>
-nnoremap <leader>tvw :tabe $MYVIMRC.win<cr>
-nnoremap <leader>tvp :tabe $MYVIMRC.plugins<cr>
-nnoremap <leader>tvll :tabe $MYVIMRC.local<cr>
-nnoremap <leader>tvlb :tabe $MYVIMRC.local.before<cr>
-
+" nnoremap <leader>tvi :tabe $MYVIMRC<cr>
+" nnoremap <leader>tvw :tabe $MYVIMRC.win<cr>
+" nnoremap <leader>tvp :tabe $MYVIMRC.plugins<cr>
+" nnoremap <leader>tvll :tabe $MYVIMRC.local<cr>
+" nnoremap <leader>tvlb :tabe $MYVIMRC.local.before<cr>
+"
 " 重新加载配置文件
-nnoremap <leader>vss :source $MYVIMRC<cr>
+" nnoremap <leader>vss :source $MYVIMRC<cr>
 
 " 使用 j，k 移动时候，将 wrapped 行视作一行移动
 nnoremap <expr> j v:count ? 'j' : 'gj'
@@ -379,5 +376,5 @@ if zcodes#has#python3()
     source $VIMHOME/vimrc.python3
 endif
 " }}}
-"
-" vim: ts=4 sts=4 sw=4 et fdm=marker:
+
+" vim: ts=4 sts=4 sw=4 et fdm=marker fdl=0:

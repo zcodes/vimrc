@@ -1,7 +1,6 @@
 " File: vimrc.gui
 " Author: zcodes <zcodes@qq.com>
 " Description: gvim configuration
-" Last Modified: 五月 23, 2018
 "
 
 scriptencoding utf-8
@@ -13,3 +12,5 @@ set guicursor+=a:blinkon0
 nnoremap <leader>vmt :if &go=~#'m'<bar>set go-=m<bar>else<bar>set go+=m<bar>endif<cr>
 " toggle toolbar
 nnoremap <leader>vtt :if &go=~#'T'<bar>set go-=T<bar>else<bar>set go+=T<bar>endif<cr>
+
+" vim: ts=4 sts=4 sw=4 et fdm=marker:

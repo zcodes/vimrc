@@ -1,21 +1,44 @@
 " File: vimrc.colors
 " Author: zcodes <zcodes@qq.com>
 " Description: collected some vim colors here
-" Last Modified: 五月 23, 2018
+" Note: for more color themes, see:
+"   http://vimcolors.com
 "
 
 scriptencoding utf-8
-" vim colors collection
-" Plugin 'https://github.com/flazz/vim-colorschemes'
-"
-" forked it !
-Plugin 'zcodes/vim-colorschemes'
+" Default colors
+Plugin 'zcodes/vim-colors-basic'
 
-" some other awesome colors
-" Plugin 'mhartington/oceanic-next'
+" other awesome themes {{{
+" Plugin 'ajh17/Spacegray.vim'
+" Plugin 'altercation/vim-colors-solarized'
+" Plugin 'arcticicestudio/nord-vim'
+" Plugin 'chriskempson/vim-tomorrow-theme'
+" Plugin 'dracula/vim'
+" Plugin 'jacoborus/tender.vim'
+" Plugin 'jonathanfilip/vim-lucius'
 " Plugin 'joshdick/onedark.vim'
-" Plugin 'rakr/vim-one'
 " Plugin 'KeitaNakamura/neodark.vim'
 " Plugin 'kristijanhusak/vim-hybrid-material'
-" Plugin 'arcticicestudio/nord-vim'
-" Plugin 'ajh17/Spacegray.vim'
+" Plugin 'marcopaganini/termschool-vim-theme'
+" Plugin 'mhartington/oceanic-next'
+" Plugin 'nanotech/jellybeans.vim'
+" Plugin 'rakr/vim-one'
+" Plugin 'rakr/vim-two-firewatch'
+" Plugin 'romainl/Apprentice'
+" Plugin 'tomasr/molokai'
+" Plugin 'trevordmiller/nova-vim'
+" Plugin 'vim-scripts/pyte'
+" Plugin 'wimstefan/Lightning'
+" }}}
+" theme configuration {{{
+" let g:molokai_original = 0
+" let g:rehash256 = 1
+" }}}
+" vim colors collection {{{
+" Plugin 'https://github.com/flazz/vim-colorschemes'
+" forked it !
+" Plugin 'zcodes/vim-colorschemes'
+" }}}
+
+" vim: ts=4 sts=4 sw=4 et fdm=marker fdl=0:

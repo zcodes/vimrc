@@ -1,9 +1,7 @@
 " File: vimrc.win
 " Author: zcodes <zcodes@qq.com>
 " Description: spacial settings for vim in windows
-" Last Modified: 五月 23, 2018
 "
-
 scriptencoding utf-8
 
 " set list and listchars here again
@@ -16,6 +14,7 @@ if !exists('g:zcodes_windows_normal_font')
     let g:zcodes_windows_normal_font = 0
 endif
 
+" directx {{{
 " 字体渲染，详情查看 ':h rop'
 if has('directx')
     " for gamma, contrast, level see:
@@ -24,10 +23,14 @@ if has('directx')
     " gamma: 1.0 - 2.2
     " level: 0 - 100
     " contrast: 0 - 6
-    set renderoptions=type:directx,gamma:1.4,contrast:0,level:100,geom:1,renmode:5,taamode:1
+    " set renderoptions=type:directx,gamma:1.4,contrast:0,level:100,geom:1,renmode:5,taamode:1
+    " keep it simple
+    set renderoptions=type:directx,geom:1,renmode:5,taamode:1
 endif
-set linespace=2
 
+" 行高设置
+set linespace=2
+" }}}
 " fix menu encoding in windows. {{{
 source $VIMRUNTIME/delmenu.vim
 let $LANG='zh_CN.UTF-8'
@@ -35,8 +38,6 @@ set langmenu=zh_CN.UTF-8
 source $VIMRUNTIME/menu.vim
 language mes zh_CN.UTF-8
 " }}}
-
-
 " python 动态链接库设置 {{{
 " 使用 'pythondll' 和 'pythonthreedll' 指定绝对路径，解决无法加载动态链接库的
 " 问题。
@@ -57,4 +58,4 @@ else
 endif
 " }}}
 
-" vim: ts=4 sts=4 sw=4 et fdm=marker:
+" vim: ts=4 sts=4 sw=4 et fdm=marker fdl=0:
