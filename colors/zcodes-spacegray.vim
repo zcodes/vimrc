@@ -1,12 +1,9 @@
-" A simple dark vim colorscheme.
+" A simple gray colorscheme.
 " Maintainer: zcodes <zcodes@qq.com>
 " Version: 1.0
 "
-" The theme file original copyed from Tomorrow theme.
-" See https://github.com/chriskempson/vim-tomorrow-theme.git for it.
+" The colors borrowed from SpaceGray.vim
 " And hex color conversion functions borrowed from the theme "Desert256".
-"
-" Most of the colors based on Google Material Design.
 
 " Default GUI colors
 let s:foreground = 'b3b8c4'
