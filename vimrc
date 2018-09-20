@@ -19,8 +19,13 @@ endif
 " }}}
 " 使用 Vundle 管理插件 {{{
 " Vundle: https://github.com/VundleVim/Vundle.vim
-exec 'set rtp+=' . expand($VIMHOME . '/bundle/Vundle.vim')
-call vundle#begin(expand($VIMHOME . '/bundle'))
+if exists('g:zcodes_custom_bundle_path')
+    exec 'set rtp+=' . expand(g:zcodes_custom_bundle_path . '/Vundle.vim')
+    exec vundle#begin(expand(g:zcodes_custom_bundle_path))
+else
+    exec 'set rtp+=' . expand($VIMHOME . '/bundle/Vundle.vim')
+    call vundle#begin(expand($VIMHOME . '/bundle'))
+endif
 " 插件单独分在 vimrc.plugins 文件中
 source $VIMHOME/vimrc.plugins
 source $VIMHOME/vimrc.colors
