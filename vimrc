@@ -56,6 +56,14 @@ set fileformats=unix,dos,mac
 " Note: 可用使用下列命令设置当前文件的编码和换行格式
 " set fileencoding=<要转换的编码，比如: utf8>
 " set fileformat=<要设置的文件还行格式，比如: unix>
+"
+" menu for chinese
+" fixed gui menu disappear in Debian
+if $LANG == "zh_CN.utf8" && zcodes#has#gui()
+    set langmenu=zh_CN.UTF-8
+    source $VIMRUNTIME/delmenu.vim
+    source $VIMRUNTIME/menu.vim
+endif
 " }}}
 " 'timeout' and 'ttimeout' {{{
 " for details, see :h 'timeout'
