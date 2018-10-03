@@ -30,6 +30,7 @@ Plugin 'zcodes/vim-colors-basic'
 " Plugin 'trevordmiller/nova-vim'
 " Plugin 'vim-scripts/pyte'
 " Plugin 'wimstefan/Lightning'
+" Plugin 'chriskempson/base16-vim'
 " }}}
 " theme configuration {{{
 " let g:molokai_original = 0
