@@ -312,6 +312,7 @@ augroup MyShellCustom
     au!
 
     autocmd FileType sh nnoremap <buffer> <F9> :!./%<cr>
+    autocmd FileType dosbatch set ff=dos fenc=gbk
 augroup END
 
 " Last Modified
