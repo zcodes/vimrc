@@ -294,7 +294,8 @@ augroup MyPythonCustom
     " virtualenv 中的 Python
     "
     " TODO 将输出内容直接导入 vim 中
-    autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+    autocmd FileType python nnoremap <buffer> <F8> :exec '!python2' shellescape(@%, 1)<cr>
+    autocmd FileType python nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
 augroup END
 
 " vim
