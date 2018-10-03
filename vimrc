@@ -56,6 +56,14 @@ set fileformats=unix,dos,mac
 " Note: 可用使用下列命令设置当前文件的编码和换行格式
 " set fileencoding=<要转换的编码，比如: utf8>
 " set fileformat=<要设置的文件还行格式，比如: unix>
+"
+" menu for chinese
+" fixed gui menu disappear in Debian
+if $LANG == "zh_CN.utf8" && zcodes#has#gui()
+    set langmenu=zh_CN.UTF-8
+    source $VIMRUNTIME/delmenu.vim
+    source $VIMRUNTIME/menu.vim
+endif
 " }}}
 " 'timeout' and 'ttimeout' {{{
 " for details, see :h 'timeout'
@@ -286,7 +294,8 @@ augroup MyPythonCustom
     " virtualenv 中的 Python
     "
     " TODO 将输出内容直接导入 vim 中
-    autocmd FileType python nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
+    autocmd FileType python nnoremap <buffer> <F8> :exec '!python2' shellescape(@%, 1)<cr>
+    autocmd FileType python nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
 augroup END
 
 " vim
