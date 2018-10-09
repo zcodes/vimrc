@@ -158,9 +158,10 @@ endif
 augroup CtrlPLeaderKeyMapping
     au!
 
-    nnoremap <f7> :CtrlPBuffer<cr>
-    nnoremap <leader>bb :CtrlPBuffer<cr>
+    nnoremap <leader>pp :CtrlP<cr>
+    nnoremap <leader>pb :CtrlPBuffer<cr>
     nnoremap <c-f11> :CtrlPBuffer<cr>
+    nnoremap <leader>pf :CtrlPFunky<cr>
     nnoremap <c-f12> :CtrlPFunky<Cr>
     " narrow the list down with a word under cursor
     nnoremap <c-s-f12> :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
