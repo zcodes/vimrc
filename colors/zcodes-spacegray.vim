@@ -20,6 +20,10 @@ let s:blue = '7d8fa3'
 let s:purple = 'a57a9e'
 let s:window = '4c5966'
 let s:grey = '808080'
+let s:diff_red = '552222'
+let s:diff_green = '225522'
+let s:diff_yellow = '555522'
+let s:diff_aqua = '222255'
 let s:lcs = '3e4853'
 
 if !has('gui_running')
@@ -396,19 +400,19 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call <SID>X('diffAdded', '', s:green, 'none')
     call <SID>X('diffRemoved', '', s:red, 'none')
     call <SID>X('diffChanged', '', s:yellow, 'none')
-    call <SID>X('DiffAdd', s:green, s:background, 'none')
-    call <SID>X('DiffDelete', s:red, s:red, 'none')
-    call <SID>X('DiffChange', s:yellow, s:background, 'none')
-    call <SID>X('DiffText', s:orange, s:background, 'none')
+    call <SID>X('DiffAdd', '', s:diff_green, 'none')
+    call <SID>X('DiffDelete', s:diff_red, s:diff_red, 'none')
+    call <SID>X('DiffChange', '', s:diff_yellow, 'none')
+    call <SID>X('DiffText', '', s:diff_aqua, 'none')
 
-    call <SID>X('GitGutterAdd', s:green, '', '')
-    call <SID>X('GitGutterDelete', s:red, '', '')
-    call <SID>X('GitGutterChange', s:yellow, '', '')
-    call <SID>X('GitGutterChangeDelete', s:orange, '', '')
-    call <SID>X('GitGutterAddLine', s:green, '', '')
-    call <SID>X('GitGutterDeleteLine', s:red, '', '')
-    call <SID>X('GitGutterChangeLine', s:aqua, '', '')
-    call <SID>X('GitGutterChangeDeleteLine', s:yellow, '', '')
+    call <SID>X('GitGutterAdd', s:green, s:diff_green, 'none')
+    call <SID>X('GitGutterDelete', s:red, s:diff_red, 'none')
+    call <SID>X('GitGutterChange', s:yellow, s:diff_yellow, 'none')
+    call <SID>X('GitGutterChangeDelete', s:orange, s:diff_aqua, 'none')
+    call <SID>X('GitGutterAddLine', s:green, s:diff_green, 'none')
+    call <SID>X('GitGutterDeleteLine', s:red, s:diff_red, 'none')
+    call <SID>X('GitGutterChangeLine', s:aqua, s:diff_aqua, 'none')
+    call <SID>X('GitGutterChangeDeleteLine', s:orange, s:diff_yellow, 'none')
 
     call <SID>X('VimwikiHeader1', s:red, '', '')
     call <SID>X('VimwikiHeader2', s:green, '', '')

@@ -172,6 +172,7 @@ Plugin 'zcodes/vim-gitgutter'
 let g:gitgutter_max_signs = 1000
 let g:gitgutter_log = 1
 let g:gitgutter_async = 1
+let g:gitgutter_sign_removed = '-'
 if executable('ag')
     let g:gitgutter_grep = 'ag --nocolor -S'
 endif
