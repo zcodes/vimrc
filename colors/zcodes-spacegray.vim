@@ -26,6 +26,18 @@ let s:diff_yellow = '555522'
 let s:diff_aqua = '222255'
 let s:lcs = '3e4853'
 
+if exists('g:gitgutter_disable_sign_background') && g:gitgutter_disable_sign_background
+    let s:gitgutter_red = s:background
+    let s:gitgutter_green = s:background
+    let s:gitgutter_yellow = s:background
+    let s:gitgutter_aqua = s:background
+else
+    let s:gitgutter_red = s:diff_red
+    let s:gitgutter_green = s:diff_green
+    let s:gitgutter_yellow = s:diff_yellow
+    let s:gitgutter_aqua = s:diff_aqua
+endif
+
 if !has('gui_running')
     let s:background = '202020'
     let s:line = '303030'
@@ -405,14 +417,14 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call <SID>X('DiffChange', '', s:diff_yellow, 'none')
     call <SID>X('DiffText', '', s:diff_aqua, 'none')
 
-    call <SID>X('GitGutterAdd', s:green, s:diff_green, 'none')
-    call <SID>X('GitGutterDelete', s:red, s:diff_red, 'none')
-    call <SID>X('GitGutterChange', s:yellow, s:diff_yellow, 'none')
-    call <SID>X('GitGutterChangeDelete', s:orange, s:diff_aqua, 'none')
-    call <SID>X('GitGutterAddLine', s:green, s:diff_green, 'none')
-    call <SID>X('GitGutterDeleteLine', s:red, s:diff_red, 'none')
-    call <SID>X('GitGutterChangeLine', s:aqua, s:diff_aqua, 'none')
-    call <SID>X('GitGutterChangeDeleteLine', s:orange, s:diff_yellow, 'none')
+    call <SID>X('GitGutterAdd', s:green, s:gitgutter_green, 'none')
+    call <SID>X('GitGutterDelete', s:red, s:gitgutter_red, 'none')
+    call <SID>X('GitGutterChange', s:yellow, s:gitgutter_yellow, 'none')
+    call <SID>X('GitGutterChangeDelete', s:orange, s:gitgutter_aqua, 'none')
+    call <SID>X('GitGutterAddLine', s:green, s:gitgutter_green, 'none')
+    call <SID>X('GitGutterDeleteLine', s:red, s:gitgutter_red, 'none')
+    call <SID>X('GitGutterChangeLine', s:aqua, s:gitgutter_aqua, 'none')
+    call <SID>X('GitGutterChangeDeleteLine', s:orange, s:gitgutter_yellow, 'none')
 
     call <SID>X('VimwikiHeader1', s:red, '', '')
     call <SID>X('VimwikiHeader2', s:green, '', '')

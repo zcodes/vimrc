@@ -30,6 +30,18 @@ let s:diff_yellow = 'ffffaa'
 let s:diff_aqua = 'bbeeff'
 let s:lcs = 'C7BFBB'
 
+if exists('g:gitgutter_disable_sign_background') && g:gitgutter_disable_sign_background
+    let s:gitgutter_red = s:background
+    let s:gitgutter_green = s:background
+    let s:gitgutter_yellow = s:background
+    let s:gitgutter_aqua = s:background
+else
+    let s:gitgutter_red = s:diff_red
+    let s:gitgutter_green = s:diff_green
+    let s:gitgutter_yellow = s:diff_yellow
+    let s:gitgutter_aqua = s:diff_aqua
+endif
+
 
 set background=light
 hi clear
@@ -390,14 +402,14 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call <SID>X('DiffChange', '', s:diff_yellow, 'none')
     call <SID>X('DiffText', '', s:diff_aqua, 'none')
 
-    call <SID>X('GitGutterAdd', s:green, s:diff_green, 'none')
-    call <SID>X('GitGutterDelete', s:red, s:diff_red, 'none')
-    call <SID>X('GitGutterChange', s:aqua, s:diff_aqua, 'none')
-    call <SID>X('GitGutterChangeDelete', s:yellow, s:diff_yellow, 'none')
-    call <SID>X('GitGutterAddLine', s:green, s:diff_green, 'none')
-    call <SID>X('GitGutterDeleteLine', s:red, s:diff_red, 'none')
-    call <SID>X('GitGutterChangeLine', s:aqua, s:diff_aqua, 'none')
-    call <SID>X('GitGutterChangeDeleteLine', s:yellow, s:diff_yellow, 'none')
+    call <SID>X('GitGutterAdd', s:green, s:gitgutter_green, 'none')
+    call <SID>X('GitGutterDelete', s:red, s:gitgutter_red, 'none')
+    call <SID>X('GitGutterChange', s:yellow, s:gitgutter_yellow, 'none')
+    call <SID>X('GitGutterChangeDelete', s:yellow, s:gitgutter_yellow, 'none')
+    call <SID>X('GitGutterAddLine', s:green, s:gitgutter_green, 'none')
+    call <SID>X('GitGutterDeleteLine', s:red, s:gitgutter_red, 'none')
+    call <SID>X('GitGutterChangeLine', s:yellow, s:gitgutter_yellow, 'none')
+    call <SID>X('GitGutterChangeDeleteLine', s:yellow, s:gitgutter_yellow, 'none')
 
     " YAML
     call <SID>X('yamlBlockMappingKey', s:blue, '', '')
