@@ -29,6 +29,11 @@ let s:diff_yellow = '666633'
 let s:diff_aqua = '333366'
 let s:lcs = '425761'
 
+if !has('gui_running')
+    let s:background = '202020'
+    let s:line = '303030'
+endif
+
 if exists('g:gitgutter_disable_sign_background') && g:gitgutter_disable_sign_background
     let s:gitgutter_red = s:background
     let s:gitgutter_green = s:background
@@ -39,11 +44,6 @@ else
     let s:gitgutter_green = s:diff_green
     let s:gitgutter_yellow = s:diff_yellow
     let s:gitgutter_aqua = s:diff_aqua
-endif
-
-if !has('gui_running')
-    let s:background = '202020'
-    let s:line = '303030'
 endif
 
 set background=dark
