@@ -624,13 +624,13 @@ let g:ale_linters = {
             \ 'javascript': ['standard', 'eslint --no-ignore'],
             \ 'cpp': ['gcc'],
             \ }
+
+let g:ale_fixers = {
+            \ 'javascript': ['eslint'],
+            \ }
+
 " see: https://github.com/w0rp/ale/issues/891
 autocmd BufEnter ControlP let b:ale_enabled = 0
-" let g:ale_fixers = {
-"             \ 'javascript': ['prettier_standard'],
-"             \ }
-" let g:ale_fix_on_save = 1
-"
 " Plugin 'valloric/youcompleteme'
 " }}}
 "
