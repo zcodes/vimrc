@@ -356,7 +356,7 @@ let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe']
 let g:pymode_lint_ignore = ['E501']
 " let g:pymode_lint_select = []
 " let g:pymode_lint_sort = []
-let g:pymode_lint_cwindow = 1
+let g:pymode_lint_cwindow = 0
 let g:pymode_lint_signs = 1
 
 " pylint signs defination
@@ -603,6 +603,9 @@ Plugin 'tpope/vim-repeat'
 
 " editor config
 Plugin 'editorconfig/editorconfig-vim'
+" 'trim_trailing_whitespace' set to true cause problem when 'updatetime' set
+" to a small value
+let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
 
 " lorem fake generator
 Plugin 'tkhren/vim-fake'
@@ -621,7 +624,7 @@ let g:ale_linters_explicit = 1
 let g:ale_linters = {
             \ 'php': ['php'],
             \ 'vim': ['vint'],
-            \ 'javascript': ['standard', 'eslint --no-ignore'],
+            \ 'javascript': ['eslint --no-ignore', 'standard'],
             \ 'cpp': ['gcc'],
             \ }
 
