@@ -212,11 +212,7 @@ nnoremap <leader>tc :TagbarClose<cr>
 " airline {{{
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-if has('gui_running')
-    let g:airline_theme = 'tomorrow'
-else
-    let g:airline_theme = 'raven'
-endif
+let g:airline_theme = 'tomorrow'
 let g:airline_powerline_fonts=0
 let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
 let g:airline#extensions#whitespace#mixed_indent_format = 'mi[%s]'
