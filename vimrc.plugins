@@ -314,7 +314,8 @@ if has('pythonx')
         set pyxversion=2
     endif
 endif
-Plugin 'python-mode/python-mode'
+" Plugin 'python-mode/python-mode'
+Plugin 'zcodes/python-mode'
 " enable pymode
 let g:pymode = 1
 let g:pymode_trim_whitespaces = 1
