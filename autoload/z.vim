@@ -1,40 +1,38 @@
-" File: utils.vim
-" Author: zcodes <zcodes@qq.com>
-" Description: utils
-" Last Modified: 2018/5/23 17:40:17
-"
-if exists('g:zcodes_utils_loaded')
+if exists('g:loaded_zcodes_z')
     finish
 endif
-let g:zcodes_utils_loaded = 1
+let g:loaded_zcodes_z = 1
 
-if zcodes#has#windows()
-    let s:vim_home = expand('~/vimfiles')
-else
-    let s:vim_home = expand('~/.vim')
-endif
-
-function! zcodes#utils#source(path)
-    if filereadable(a:path)
-        exec 'source ' . a:path
-    endif
+" z#is {{{
+function! z#is_gui()
+    return has('gui_running')
 endfunction
 
-function! zcodes#utils#home(...)
-    if (a:0 == 0)
-        return s:vim_home
-    endif
-
-    if a:1[0] !=# '/'
-        return s:vim_home . '/' . a:1
-    endif
-
-    return s:vim_home . a:1
+function! z#is_win()
+    return has('win32')
 endfunction
 
+function! z#is_linux()
+    return !z#is_win() && substitute(system('uname'), '\n', '', '') ==# 'Linux'
+endfunction
+" }}}
+" z#has {{{
+"
+" check colorscheme exist or not.
+" http://stackoverflow.com/questions/5698284
+function! z#has_colorscheme(name)
+    let l:pat = 'colors/' . a:name . '.vim'
+    return !empty(globpath(&runtimepath, l:pat))
+endfunction
+
+function! z#has_py3()
+    return has('python3')
+endfunction
+" }}}
+" z#util {{{
 " See: http://vim.wikia.com/wiki/Insert_current_date_or_time
 " update 'Last modified: ' timestamps in the first or last twenty lines.
-function! zcodes#utils#last_modified()
+function! z#last_modified()
     if &modified
         let l:save_cursor = getpos('.')
         let l:m = max([1, line('$') - 10])
@@ -49,4 +47,5 @@ function! zcodes#utils#last_modified()
         call setpos('.', l:save_cursor)
     endif
 endfunction
-" vim: ts=4 sts=4 sw=4 et
+" }}}
+" vim: fdm=marker

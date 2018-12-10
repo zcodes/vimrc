@@ -60,7 +60,7 @@ set fileformats=unix,dos,mac
 "
 " menu for chinese
 " fixed gui menu disappear in Debian
-if $LANG == "zh_CN.utf8" && zcodes#has#gui()
+if $LANG == "zh_CN.utf8" && z#is_gui()
     set langmenu=zh_CN.UTF-8
     source $VIMRUNTIME/delmenu.vim
     source $VIMRUNTIME/menu.vim
@@ -103,7 +103,7 @@ set list
 set listchars=tab:›\ ,trail:•,precedes:«,extends:»,nbsp:.
 " ,eol:¬
 set viewoptions=folds,options,cursor,unix,slash
-if zcodes#has#windows()
+if z#is_win()
     set noshelltemp
 endif
 
@@ -331,11 +331,11 @@ augroup END
 " Last Modified
 augroup UpdateLastModifiedTimestamps
     au!
-    autocmd BufWritePre *.txt,*.md call zcodes#utils#last_modified()
+    autocmd BufWritePre *.txt,*.md call z#last_modified()
 
     autocmd BufWritePre ~/{.vim,vimfiles}/{autoload,colors,ftplugin,indent,snippets,syntax}/**.vim
-                \ call zcodes#utils#last_modified()
-    autocmd BufWritePre ~/{.vim,vimfiles}/vimrc(.*) call zcodes#utils#last_modified()
+                \ call z#last_modified()
+    autocmd BufWritePre ~/{.vim,vimfiles}/vimrc(.*) call z#last_modified()
 augroup END
 " }}}
 " line number {{{
@@ -375,12 +375,12 @@ endif
 " load external files {{{
 "
 " gui
-if zcodes#has#gui()
+if z#is_gui()
     exec 'source' $VIMRC_ROOT . '/vimrc.gui'
 endif
 "
 " windows
-if zcodes#has#windows()
+if z#is_win()
     exec 'source' $VIMRC_ROOT . '/vimrc.win'
 endif
 "
@@ -391,7 +391,7 @@ endif
 " }}}
 "
 " python3
-if zcodes#has#python3()
+if z#has_py3()
     exec 'source' $VIMRC_ROOT . '/vimrc.local'
 endif
 " }}}
