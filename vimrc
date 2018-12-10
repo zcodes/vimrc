@@ -9,26 +9,27 @@
 set nocompatible
 filetype off
 
-" set $VIMHOME to ~/vimfiles or ~/.vim
-let $VIMHOME=expand('<sfile>:p:h')
+" set $VIMRC_ROOT to ~/vimfiles or ~/.vim
+let $VIMRC_ROOT = fnamemodify(expand('<sfile>'), ':p:h:gs?\\?/?')
 
 " before it
-if filereadable($VIMHOME . '/vimrc.local.before')
-    source $VIMHOME/vimrc.local.before
+if filereadable($VIMRC_ROOT . '/vimrc.local.before')
+    exec 'source' $VIMRC_ROOT . '/vimrc.local.before'
 endif
 " }}}
 " 使用 Vundle 管理插件 {{{
 " Vundle: https://github.com/VundleVim/Vundle.vim
 if exists('g:zcodes_custom_bundle_path')
-    exec 'set rtp+=' . expand(g:zcodes_custom_bundle_path . '/Vundle.vim')
-    exec vundle#begin(expand(g:zcodes_custom_bundle_path))
+    exec 'set rtp+=' . g:zcodes_custom_bundle_path . '/Vundle.vim'
+    call vundle#begin(g:zcodes_custom_bundle_path)
 else
-    exec 'set rtp+=' . expand($VIMHOME . '/bundle/Vundle.vim')
-    call vundle#begin(expand($VIMHOME . '/bundle'))
+    exec 'set rtp+=' . $VIMRC_ROOT . '/bundle/Vundle.vim'
+    call vundle#begin($VIMRC_ROOT. '/bundle')
 endif
+
 " 插件单独分在 vimrc.plugins 文件中
-source $VIMHOME/vimrc.plugins
-source $VIMHOME/vimrc.colors
+exec 'source' $VIMRC_ROOT . '/vimrc.plugins'
+exec 'source' $VIMRC_ROOT . '/vimrc.colors'
 call vundle#end()
 " }}}
 "
@@ -85,9 +86,10 @@ set sessionoptions+=slash,unix,globals
 "
 " 不使用交换文件：不在文件所在目录下产生 .swp 文件
 set noswapfile
-" 文件备份到 $VIMHOME/backup
+" 文件备份到 $VIMRC_ROOT/backup
 set backup
-exec 'set backupdir=' . expand($VIMHOME . '/backup')
+let &backupdir = $VIMRC_ROOT . '/backup'
+
 " Backspace 按键设置
 set backspace=indent,eol,start
 " 自动加载修改的文件
@@ -177,7 +179,7 @@ set timeoutlen=500
 
 " undo even close files.
 try
-    let &undodir=expand($VIMHOME . '/undodir')
+    let &undodir = $VIMRC_ROOT . '/undodir'
     set undofile
 catch
 endtry
@@ -265,7 +267,8 @@ augroup tabWidth
     autocmd BufNewFile,BufRead *.py setl ts=4 sw=4 sts=4 et completeopt=menu
     autocmd BufNewFile,BufRead *.asd set filetype=lisp
     autocmd FileType lisp setl ts=4 sw=4 sts=4 et
-    autocmd BufNewFile,BufRead $VIMHOME/bundle/vim-gitgutter/**.vim setl ts=2 sts=2 sw=2 et
+    autocmd BufNewFile,BufRead $VIMRC_ROOT/bundle/vim-gitgutter/**.vim setl ts=2 sts=2 sw=2 et
+    autocmd FileType vim setl ts=2 sts=2 sw=2 et
 
     " Semantic UI
     autocmd BufNewFile,BufRead *.overrides,*.variables setl filetype=less
@@ -282,7 +285,7 @@ augroup MyRubyCustom
     au!
 
     autocmd FileType ruby compiler ruby
-    " execute current editing ruby file directly
+    " exec current editing ruby file directly
     autocmd FileType ruby nnoremap <buffer> <F9> :exec '!ruby' shellescape(@%, 1)<cr>
 augroup END
 
@@ -366,30 +369,30 @@ endif
 "
 " reload Local configure (vimrc.local)
 if !exists(':ReloadLocalConfigure')
-    command ReloadLocalConfigure :exec "source " . $VIMHOME . '/vimrc.local'
+    command ReloadLocalConfigure :exec 'source' $VIMRC_ROOT . '/vimrc.local'
 endif
 " }}}
 " load external files {{{
 "
 " gui
 if zcodes#has#gui()
-    source $VIMHOME/vimrc.gui
+    exec 'source' $VIMRC_ROOT . '/vimrc.gui'
 endif
 "
 " windows
 if zcodes#has#windows()
-    source $VIMHOME/vimrc.win
+    exec 'source' $VIMRC_ROOT . '/vimrc.win'
 endif
 "
 " local configurations {{{
-if filereadable($VIMHOME . '/vimrc.local')
-    source $VIMHOME/vimrc.local
+if filereadable($VIMRC_ROOT . '/vimrc.local')
+    exec 'source' $VIMRC_ROOT . '/vimrc.local'
 endif
 " }}}
 "
 " python3
 if zcodes#has#python3()
-    source $VIMHOME/vimrc.python3
+    exec 'source' $VIMRC_ROOT . '/vimrc.local'
 endif
 " }}}
 
