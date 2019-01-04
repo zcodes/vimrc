@@ -257,7 +257,8 @@ augroup tabWidth
     au!
 
     autocmd BufNewFile,BufRead *.html,*.less,*.css,*.js,
-                \*.blade.php,*.rb,*.jade,*.json,\.eslintrc setl ts=2 sts=2 sw=2 et
+                \*.blade.php,*.rb,*.jade,*.json,\.eslintrc,*.xml,
+                \*.yaml setl ts=2 sts=2 sw=2 et
     autocmd BufNewFile,BufReadPre *.vue let b:html_indent_script1='zero' |
                 \ let b:html_indent_style1='zero' |
                 \ setl ts=2 sts=2 sw=2 filetype=html
