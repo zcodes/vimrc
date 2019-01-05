@@ -406,9 +406,9 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call <SID>X('bladeKeyword', s:blue, '', '')
 
     " Diff Highlighting
-    call <SID>X('diffAdded', '', s:green, 'none')
-    call <SID>X('diffRemoved', '', s:red, 'none')
-    call <SID>X('diffChanged', '', s:yellow, 'none')
+    call <SID>X('diffAdded', '', s:diff_green, 'none')
+    call <SID>X('diffRemoved', '', s:diff_red, 'none')
+    call <SID>X('diffChanged', '', s:diff_yellow, 'none')
     call <SID>X('DiffAdd', '', s:diff_green, 'none')
     call <SID>X('DiffDelete', s:diff_red, s:diff_red, 'none')
     call <SID>X('DiffChange', '', s:diff_yellow, 'none')
