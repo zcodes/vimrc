@@ -76,7 +76,7 @@ set ttimeout  " time out for key codes
 " set timeoutlen=3000
 " set ttimeoutlen=100 " wait up to 100ms after Esc for speical key
 "
-set updatetime=2000
+set updatetime=500
 " }}}
 " editing {{{
 "
