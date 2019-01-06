@@ -1,0 +1,28 @@
+" backup for emmet
+" https://github.com/mattn/emmet-vim/issues/168
+" TODO snipmate position not work !
+" function! s:emmet_with_snipmate()
+"     if snipMate#CanBeTriggered()
+"         return "\<plug>snipMateNextOrTrigger"
+"     endif
+
+"     let l:line = getline('.')
+"     if col('.') < len(l:line)
+"         let l:line = matchstr(l:line, '[">][^<"]*\%'.col('.').'c[^>"]*[<"]')
+
+"         if len(l:line) >= 2
+"             return "\<Plug>(emmet-move-next)"
+"         endif
+"     endif
+
+"     if pumvisible()
+"         return "\<c-n>"
+"     endif
+
+"     if emmet#isExpandable()
+"         return "\<plug>(emmet-expand-abbr)"
+"     endif
+
+"     return "\<tab>"
+" endfunction
+" auto FileType html,css,blade,twig,jsp imap <buffer><expr><tab> <sid>emmet_with_snipmate()
