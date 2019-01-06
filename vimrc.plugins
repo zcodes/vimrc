@@ -20,6 +20,8 @@ let g:NERDTreeMinimalUI=1
 let g:NERDTreeDirArrows=0
 nmap <F3> :NERDTreeFocus<cr>
 nmap <F4> :NERDTreeClose<cr>
+nnoremap <leader>bn :NERDTreeFocus<cr>
+nnoremap <leader>bc :NERDTreeClose<cr>
 " }}}
 " snipmate and snippets {{{
 Plugin 'MarcWeber/vim-addon-mw-utils'
