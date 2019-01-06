@@ -9,11 +9,9 @@ scriptencoding utf-8
 Plugin 'VundleVim/Vundle.vim'
 
 " bufexplorer {{{
-" Plugin 'c9s/bufexplorer'
 Plugin 'jlanzarotta/bufexplorer'
-" minibufexpl
-" Plugin 'weynhamz/vim-plugin-minibufexpl'
 " }}}
+
 " nerdtree {{{
 Plugin 'scrooloose/nerdtree'
 let g:NERDTreeDirArrowExpandable='+'
