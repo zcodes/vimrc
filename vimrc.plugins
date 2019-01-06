@@ -565,10 +565,10 @@ if has('autocmd')
 endif
 " }}}
 " vimwiki {{{
-Plugin 'vimwiki/vimwiki'
-let g:vimwiki_folding = 'expr'
-let g:vimwiki_table_mappings = 0
-let g:vimwiki_conceallevel = 0
+" Plugin 'vimwiki/vimwiki'
+" let g:vimwiki_folding = 'expr'
+" let g:vimwiki_table_mappings = 0
+" let g:vimwiki_conceallevel = 0
 " disable table mappings, it is confilict with vim-snipmate
 " autocmd FileType vimwiki inoremap <expr> <buffer> <C-Tab> vimwiki#tbl#kbd_tab()
 " autocmd FileType vimwiki inoremap <expr> <buffer> <S-Tab> vimwiki#tbl#kbd_shift_tab()
