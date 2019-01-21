@@ -24,16 +24,25 @@ nnoremap <leader>bn :NERDTreeFocus<cr>
 nnoremap <leader>bc :NERDTreeClose<cr>
 " }}}
 " snipmate and snippets {{{
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
+if has('pythonx')
+    Plugin 'sirver/ultisnips'
 
-let g:snipMate = {}
-let g:snipMate.scope_aliases = {}
-let g:snipMate.scope_aliases['ruby'] = 'ruby,ruby-rails,ruby-1.9'
-let g:snipMate.scope_aliases['vimwiki'] = 'vimwiki'
-let g:snipMate.scope_aliases['php'] = 'php'
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<tab>"
+    let g:UltiSnipsJumsBackwardTrigger="<c-z>"
+    let g:UltiSnipsEditSplit="vertical"
+else
+    Plugin 'MarcWeber/vim-addon-mw-utils'
+    Plugin 'tomtom/tlib_vim'
+    Plugin 'garbas/vim-snipmate'
+
+    let g:snipMate = {}
+    let g:snipMate.scope_aliases = {}
+    let g:snipMate.scope_aliases['ruby'] = 'ruby,ruby-rails,ruby-1.9'
+    let g:snipMate.scope_aliases['vimwiki'] = 'vimwiki'
+    let g:snipMate.scope_aliases['php'] = 'php'
+endif
 " }}}
 " snippets with ultisnips {{{
 " Plugin 'sirver/ultisnips'
