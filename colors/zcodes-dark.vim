@@ -40,10 +40,10 @@ if exists('g:gitgutter_disable_sign_background') && g:gitgutter_disable_sign_bac
     let s:gitgutter_yellow = s:background
     let s:gitgutter_aqua = s:background
 else
-    let s:gitgutter_red = s:diff_red
-    let s:gitgutter_green = s:diff_green
-    let s:gitgutter_yellow = s:diff_yellow
-    let s:gitgutter_aqua = s:diff_aqua
+    let s:gitgutter_red = 'ff5380'
+    let s:gitgutter_green = 'addb67'
+    let s:gitgutter_yellow = 'ffcb6b'
+    let s:gitgutter_aqua = '99b89d'
 endif
 
 set background=dark
@@ -419,14 +419,25 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     call <SID>X('DiffChange', '', s:diff_yellow, 'none')
     call <SID>X('DiffText', '', s:diff_aqua, 'none')
 
-    call <SID>X('GitGutterAdd', s:green, s:gitgutter_green, 'none')
-    call <SID>X('GitGutterDelete', s:red, s:gitgutter_red, 'none')
-    call <SID>X('GitGutterChange', s:yellow, s:gitgutter_yellow, 'none')
-    call <SID>X('GitGutterChangeDelete', s:orange, s:gitgutter_aqua, 'none')
-    call <SID>X('GitGutterAddLine', s:green, s:gitgutter_green, 'none')
-    call <SID>X('GitGutterDeleteLine', s:red, s:gitgutter_red, 'none')
-    call <SID>X('GitGutterChangeLine', s:aqua, s:gitgutter_aqua, 'none')
-    call <SID>X('GitGutterChangeDeleteLine', s:orange, s:gitgutter_yellow, 'none')
+    if exists('g:gitgutter_disable_sign_background') && !g:gitgutter_disable_sign_background
+      call <SID>X('GitGutterAdd', s:background, s:gitgutter_green, 'none')
+      call <SID>X('GitGutterDelete', s:background, s:gitgutter_red, 'none')
+      call <SID>X('GitGutterChange', s:background, s:gitgutter_yellow, 'none')
+      call <SID>X('GitGutterChangeDelete', s:background, s:gitgutter_aqua, 'none')
+      call <SID>X('GitGutterAddLine', s:background, s:gitgutter_green, 'none')
+      call <SID>X('GitGutterDeleteLine', s:background, s:gitgutter_red, 'none')
+      call <SID>X('GitGutterChangeLine', s:background, s:gitgutter_aqua, 'none')
+      call <SID>X('GitGutterChangeDeleteLine', s:background, s:gitgutter_yellow, 'none')
+    else
+      call <SID>X('GitGutterAdd', s:green, s:gitgutter_green, 'none')
+      call <SID>X('GitGutterDelete', s:red, s:gitgutter_red, 'none')
+      call <SID>X('GitGutterChange', s:yellow, s:gitgutter_yellow, 'none')
+      call <SID>X('GitGutterChangeDelete', s:orange, s:gitgutter_aqua, 'none')
+      call <SID>X('GitGutterAddLine', s:green, s:gitgutter_green, 'none')
+      call <SID>X('GitGutterDeleteLine', s:red, s:gitgutter_red, 'none')
+      call <SID>X('GitGutterChangeLine', s:aqua, s:gitgutter_aqua, 'none')
+      call <SID>X('GitGutterChangeDeleteLine', s:orange, s:gitgutter_yellow, 'none')
+    endif
 
     call <SID>X('VimwikiHeader1', s:red, '', '')
     call <SID>X('VimwikiHeader2', s:green, '', '')
@@ -448,4 +459,4 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     delf <SID>grey_colour
     delf <SID>grey_level
     delf <SID>grey_number
-endif
+  endif
