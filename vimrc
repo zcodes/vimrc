@@ -83,7 +83,7 @@ set updatetime=500
 " let vim remember more
 set history=500
 set sessionoptions+=slash,unix,globals
-set completeopt=menuone,noselect,noinsert
+set completeopt=menuone,noinsert
 "
 " 不使用交换文件：不在文件所在目录下产生 .swp 文件
 set noswapfile
@@ -290,9 +290,14 @@ augroup MyPythonCustom
     " 这里使用 <F9> 直接调用 python 来执行脚本，此时的 python 可以是
     " virtualenv 中的 Python
     "
-    " TODO 将输出内容直接导入 vim 中
-    autocmd FileType python nnoremap <buffer> <F8> :exec '!python2' shellescape(@%, 1)<cr>
-    autocmd FileType python nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
+    if z#is_win()
+        let $PYTHONIOENCODING='utf-8'
+        autocmd FileType python nnoremap <buffer> <F8> :exec '!py -2' shellescape(@%, 1)<cr>
+        autocmd FileType python nnoremap <buffer> <F9> :exec '!py -3' shellescape(@%, 1)<cr>
+    else
+        autocmd FileType python nnoremap <buffer> <F8> :exec '!python2' shellescape(@%, 1)<cr>
+        autocmd FileType python nnoremap <buffer> <F9> :exec '!python3' shellescape(@%, 1)<cr>
+    endif
 augroup END
 
 " vim
