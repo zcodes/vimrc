@@ -65,7 +65,7 @@ let g:user_emmet_install_global = 0
 let g:user_emmet_complete_tag = 1
 augroup MyEnableEmmet
     au!
-    autocmd FileType html,css,blade,twig,jsp,htmldjango,xml,svg EmmetInstall
+    autocmd FileType html,css,blade,twig,jsp,htmldjango,xml,svg,eruby EmmetInstall
 augroup END
 
 " }}}
@@ -323,7 +323,7 @@ let g:pymode_quickfix_minheight = 3
 let g:pymode_quickfix_maxheight = 6
 
 let g:pymode_indent = 1
-let g:pymode_folding = 1
+let g:pymode_folding = 0
 let g:pymode_motion = 1
 let g:pymode_doc = 1
 let g:pymode_doc_bind = 'K'
@@ -345,6 +345,7 @@ let g:pymode_breakpoint = 0
 " ============================================================
 " ignore too long lines.
 let g:pymode_lint = 1
+let g:pymode_lint_async = 1
 let g:pymode_lint_on_write = 1
 let g:pymode_lint_unmodified = 0
 let g:pymode_lint_on_fly = 0
