@@ -21,9 +21,11 @@ endif
 " Vundle: https://github.com/VundleVim/Vundle.vim
 if exists('g:zcodes_custom_bundle_path')
     exec 'set rtp+=' . g:zcodes_custom_bundle_path . '/Vundle.vim'
+    let $VIM_BUNDLE_ROOT = g:zcodes_custom_bundle_path
     call vundle#begin(g:zcodes_custom_bundle_path)
 else
     exec 'set rtp+=' . $VIMRC_ROOT . '/bundle/Vundle.vim'
+    let $VIM_BUNDLE_ROOT = $VIMRC_ROOT . '/bundle'
     call vundle#begin($VIMRC_ROOT. '/bundle')
 endif
 
