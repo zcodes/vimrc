@@ -27,8 +27,8 @@ nnoremap <leader>bc :NERDTreeClose<cr>
 " snipmate and snippets {{{
 Plugin 'honza/vim-snippets'
 let g:UltiSnipsSnipMateAbsDirectories = [
-            \ $VIM_BUNDLE_ROOT . '/vim-snippets/snippets', 
-            \ $VIMRC_ROOT . '/snippets'
+            \ $VIM_BUNDLE_ROOT . '/vim-snippets', 
+            \ $VIMRC_ROOT
             \ ]
 let g:UltiSnipsUltiSnipsAbsDirectories = [
             \ $VIM_BUNDLE_ROOT . '/vim-snippets/UltiSnips',
