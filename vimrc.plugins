@@ -29,10 +29,11 @@ Plugin 'honza/vim-snippets'
 if has('pythonx')
     Plugin 'sirver/ultisnips'
 
-    let g:UltiSnipsExpandTrigger="<tab>"
-    let g:UltiSnipsJumpForwardTrigger="<tab>"
-    let g:UltiSnipsJumsBackwardTrigger="<c-z>"
-    let g:UltiSnipsEditSplit="vertical"
+    let g:UltiSnipsExpandTrigger = "<tab>"
+    let g:UltiSnipsJumpForwardTrigger = "<tab>"
+    let g:UltiSnipsJumsBackwardTrigger = "<c-z>"
+    let g:UltiSnipsEditSplit = "vertical"
+    let g:UltiSnipsUsePythonVersion = 3
 else
     Plugin 'MarcWeber/vim-addon-mw-utils'
     Plugin 'tomtom/tlib_vim'
@@ -44,17 +45,6 @@ else
     let g:snipMate.scope_aliases['vimwiki'] = 'vimwiki'
     let g:snipMate.scope_aliases['php'] = 'php'
 endif
-" }}}
-" snippets with ultisnips {{{
-" Plugin 'sirver/ultisnips'
-" Plugin 'honza/vim-snippets'
-
-" let g:UltiSnipsExpandTrigger = "<tab>"
-" let g:UltiSnipsJumpForwardTrigger = "<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
-
-" let g:UltiSnipsEditSplit = "vertical"
-" let g:UltiSnipsUsePythonVersion = 3
 " }}}
 " {{{emmet
 " C-y , expand expression
