@@ -36,7 +36,8 @@ let g:UltiSnipsUltiSnipsAbsDirectories = [
             \ ]
 
 if has('pythonx')
-    Plugin 'sirver/ultisnips'
+    " Plugin 'sirver/ultisnips'
+    Plugin 'zcodes/ultisnips'
 
     let g:UltiSnipsExpandTrigger = "<tab>"
     let g:UltiSnipsJumpForwardTrigger = "<tab>"
