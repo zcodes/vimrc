@@ -637,6 +637,7 @@ let g:ale_fixers = {
             \ 'javascript': ['eslint'],
             \ 'ruby': ['rubocop'],
             \ }
+nnoremap <silent> <F8> :ALEFix<cr>
 
 " see: https://github.com/w0rp/ale/issues/891
 autocmd BufEnter ControlP let b:ale_enabled = 0
