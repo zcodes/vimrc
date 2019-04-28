@@ -44,10 +44,10 @@ function! z#last_modified()
         let l:m = max([1, line('$') - 10])
         let l:n = min([10, line('$')])
         keepjumps exe '1,' . l:n . 's#^\(.*Last \([cC]hange\|[mM]odified\):\s*\).*#\1' .
-                    \ strftime('%Y/%m/%d %H:%I') . '#e'
+                    \ strftime('%Y/%m/%d %H:%M') . '#e'
 
         keepjumps exe l:m . ',' . line('$') . 's#^\(.*Last \([cC]hange\|[mM]odified\):\s*\).*#\1' .
-                    \ strftime('%Y/%m/%d %H:%I') . '#e'
+                    \ strftime('%Y/%m/%d %H:%M') . '#e'
 
         call histdel('search', -1)
         call setpos('.', l:save_cursor)
