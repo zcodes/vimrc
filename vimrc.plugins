@@ -140,14 +140,13 @@ else
 endif
 augroup CtrlPLeaderKeyMapping
     au!
-
     nnoremap <leader>pp :CtrlP<cr>
     nnoremap <leader>pb :CtrlPBuffer<cr>
     nnoremap <c-f11> :CtrlPBuffer<cr>
     nnoremap <leader>pf :CtrlPFunky<cr>
-    nnoremap <c-f12> :CtrlPFunky<Cr>
+    nnoremap <c-f12> :CtrlPFunky<cr>
     " narrow the list down with a word under cursor
-    nnoremap <c-s-f12> :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+    nnoremap <c-s-f12> :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 augroup END
 " }}}
 " git plugin {{{

@@ -1,9 +1,10 @@
-" File: vimrc
+" Description: root file of vim configure files.
+"
 " Author: zcodes <zcodes@qq.com>
-" Description: My Vimrc
+" Last Modified: 2019/04/28 16:43
 " Note: Every thing you need to known about Vim at:
 "   https://github.com/mhinz/vim-galore
-"
+
 
 " bootstrap {{{
 set nocompatible
@@ -335,7 +336,7 @@ augroup UpdateLastModifiedTimestamps
 
     autocmd BufWritePre ~/{.vim,vimfiles}/{autoload,colors,ftplugin,indent,snippets,syntax}/**.vim
                 \ call z#last_modified()
-    autocmd BufWritePre ~/{.vim,vimfiles}/vimrc(.*) call z#last_modified()
+    autocmd BufWritePre ~/{.vim,vimfiles}/vimrc* call z#last_modified()
 augroup END
 " }}}
 " line number {{{
