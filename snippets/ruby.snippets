@@ -6,6 +6,26 @@ snippet def0
 		${0}
 	end
 
+snippet as0
+	assert ${0}
+
+snippet test
+	test '${1}' do
+		${0}
+	end
+
+snippet aste
+	assert_template '${1}'
+snippet asno
+	assert_not ${1}
+snippet asred
+	assert_redirected_to ${1}
+snippet asse
+	assert_select '${1}'
+snippet asdi
+	assert_difference '${1}'
+snippet asmm
+	assert_match ${1}, ${2}
 snippet fzn
 	#frozen_string_literal: true
 	
