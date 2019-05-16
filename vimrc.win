@@ -37,6 +37,10 @@ let $LANG='zh_CN.UTF-8'
 set langmenu=zh_CN.UTF-8
 source $VIMRUNTIME/menu.vim
 language mes zh_CN.UTF-8
+" 使用英文日期格式
+" echo strftime('%d %b, %a')
+" 28 Apr, Sun
+language time English_United States
 " }}}
 " python 动态链接库设置 {{{
 " 使用 'pythondll' 和 'pythonthreedll' 指定绝对路径，解决无法加载动态链接库的

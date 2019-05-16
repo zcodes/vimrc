@@ -26,13 +26,24 @@ nnoremap <leader>bc :NERDTreeClose<cr>
 " }}}
 " snipmate and snippets {{{
 Plugin 'honza/vim-snippets'
-if has('pythonx')
-    Plugin 'sirver/ultisnips'
+let g:UltiSnipsSnipMateAbsDirectories = [
+            \ $VIM_BUNDLE_ROOT . '/vim-snippets', 
+            \ $VIMRC_ROOT
+            \ ]
+let g:UltiSnipsUltiSnipsAbsDirectories = [
+            \ $VIM_BUNDLE_ROOT . '/vim-snippets/UltiSnips',
+            \ $VIMRC_ROOT . '/UltiSnips'
+            \ ]
 
-    let g:UltiSnipsExpandTrigger="<tab>"
-    let g:UltiSnipsJumpForwardTrigger="<tab>"
-    let g:UltiSnipsJumsBackwardTrigger="<c-z>"
-    let g:UltiSnipsEditSplit="vertical"
+if has('pythonx')
+    " Plugin 'sirver/ultisnips'
+    Plugin 'zcodes/ultisnips'
+
+    let g:UltiSnipsExpandTrigger = "<tab>"
+    let g:UltiSnipsJumpForwardTrigger = "<tab>"
+    let g:UltiSnipsJumsBackwardTrigger = "<c-z>"
+    let g:UltiSnipsEditSplit = "vertical"
+    let g:UltiSnipsUsePythonVersion = 3
 else
     Plugin 'MarcWeber/vim-addon-mw-utils'
     Plugin 'tomtom/tlib_vim'
@@ -44,17 +55,6 @@ else
     let g:snipMate.scope_aliases['vimwiki'] = 'vimwiki'
     let g:snipMate.scope_aliases['php'] = 'php'
 endif
-" }}}
-" snippets with ultisnips {{{
-" Plugin 'sirver/ultisnips'
-" Plugin 'honza/vim-snippets'
-
-" let g:UltiSnipsExpandTrigger = "<tab>"
-" let g:UltiSnipsJumpForwardTrigger = "<c-b>"
-" let g:UltiSnipsJumpBackwardTrigger = "<c-z>"
-
-" let g:UltiSnipsEditSplit = "vertical"
-" let g:UltiSnipsUsePythonVersion = 3
 " }}}
 " {{{emmet
 " C-y , expand expression
@@ -140,14 +140,13 @@ else
 endif
 augroup CtrlPLeaderKeyMapping
     au!
-
     nnoremap <leader>pp :CtrlP<cr>
     nnoremap <leader>pb :CtrlPBuffer<cr>
     nnoremap <c-f11> :CtrlPBuffer<cr>
     nnoremap <leader>pf :CtrlPFunky<cr>
-    nnoremap <c-f12> :CtrlPFunky<Cr>
+    nnoremap <c-f12> :CtrlPFunky<cr>
     " narrow the list down with a word under cursor
-    nnoremap <c-s-f12> :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+    nnoremap <c-s-f12> :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 augroup END
 " }}}
 " git plugin {{{
@@ -201,22 +200,25 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 let g:airline_theme = 'tomorrow'
 let g:airline_powerline_fonts = 0
+let g:airline_symbols_ascii = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_symbols.linenr = ''
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.paste = ''
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = 'Ɇ'
-let g:airline_symbols.whitespace = 'Ξ'
+" let g:airline_left_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_symbols.linenr = ''
+" let g:airline_symbols.maxlinenr = ''
+" let g:airline_symbols.paste = ''
+" let g:airline_symbols.spell = 'Ꞩ'
+" let g:airline_symbols.notexists = 'Ɇ'
+" let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_highlighting_cache = 1
+let g:airline_extensions = []
 
-let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
-let g:airline#extensions#whitespace#mixed_indent_format = 'mi[%s]'
-let g:airline#extensions#whitespace#long_format = 'long[%s]'
-let g:airline#extensions#whitespace#mixed_indent_file_format = 'mif[%s]'
+" let g:airline#extensions#whitespace#trailing_format = 'trailing[%s]'
+" let g:airline#extensions#whitespace#mixed_indent_format = 'mi[%s]'
+" let g:airline#extensions#whitespace#long_format = 'long[%s]'
+" let g:airline#extensions#whitespace#mixed_indent_file_format = 'mif[%s]'
 " }}}
 " file type support {{{
 
@@ -627,16 +629,22 @@ let g:ale_linters = {
             \ 'vim': ['vint'],
             \ 'javascript': ['eslint --no-ignore', 'standard'],
             \ 'cpp': ['gcc'],
+            \ 'ruby': ['rubocop'],
             \ }
 
 let g:ale_fixers = {
             \ 'javascript': ['eslint'],
+            \ 'ruby': ['rubocop'],
             \ }
+nnoremap <silent> <F8> :ALEFix<cr>
 
 " see: https://github.com/w0rp/ale/issues/891
 autocmd BufEnter ControlP let b:ale_enabled = 0
 " Plugin 'valloric/youcompleteme'
-" }}}
+
+" use matchup instead of default matchparen
+Plugin 'andymass/vim-matchup'
+"}}}
 "
 " 1}}}
 

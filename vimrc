@@ -1,9 +1,10 @@
-" File: vimrc
+" Description: root file of vim configure files.
+"
 " Author: zcodes <zcodes@qq.com>
-" Description: My Vimrc
+" Last Modified: 2019/04/28 16:43
 " Note: Every thing you need to known about Vim at:
 "   https://github.com/mhinz/vim-galore
-"
+
 
 " bootstrap {{{
 set nocompatible
@@ -21,9 +22,11 @@ endif
 " Vundle: https://github.com/VundleVim/Vundle.vim
 if exists('g:zcodes_custom_bundle_path')
     exec 'set rtp+=' . g:zcodes_custom_bundle_path . '/Vundle.vim'
+    let $VIM_BUNDLE_ROOT = g:zcodes_custom_bundle_path
     call vundle#begin(g:zcodes_custom_bundle_path)
 else
     exec 'set rtp+=' . $VIMRC_ROOT . '/bundle/Vundle.vim'
+    let $VIM_BUNDLE_ROOT = $VIMRC_ROOT . '/bundle'
     call vundle#begin($VIMRC_ROOT. '/bundle')
 endif
 
@@ -88,6 +91,7 @@ if v:version < 800
 else
     set completeopt=menuone,noinsert
 endif
+
 "
 " 不使用交换文件：不在文件所在目录下产生 .swp 文件
 set noswapfile
@@ -337,7 +341,7 @@ augroup UpdateLastModifiedTimestamps
 
     autocmd BufWritePre ~/{.vim,vimfiles}/{autoload,colors,ftplugin,indent,snippets,syntax}/**.vim
                 \ call z#last_modified()
-    autocmd BufWritePre ~/{.vim,vimfiles}/vimrc(.*) call z#last_modified()
+    autocmd BufWritePre ~/{.vim,vimfiles}/vimrc* call z#last_modified()
 augroup END
 " }}}
 " line number {{{
