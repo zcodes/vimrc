@@ -83,7 +83,11 @@ set updatetime=500
 " let vim remember more
 set history=500
 set sessionoptions+=slash,unix,globals
-set completeopt=menuone,noselect,noinsert
+if v:version < 800
+    set completeopt=menuone
+else
+    set completeopt=menuone,noinsert
+endif
 "
 " 不使用交换文件：不在文件所在目录下产生 .swp 文件
 set noswapfile
