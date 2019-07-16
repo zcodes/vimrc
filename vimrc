@@ -347,23 +347,23 @@ augroup END
 set number
 set relativenumber
 " 自动在相对行号间切换
-augroup RelativeLineNumbers
-    au!
+" augroup RelativeLineNumbers
+"     au!
 
-    autocmd InsertEnter * :set norelativenumber
-    autocmd InsertLeave * :set relativenumber
-augroup END
+"     autocmd InsertEnter * :set norelativenumber
+"     autocmd InsertLeave * :set relativenumber
+" augroup END
 
-command! ToggleLineNumber :call ToggleLineNumber()
-function! ToggleLineNumber()
-    if &number == 1
-        set norelativenumber
-        set nonumber
-    else
-        set relativenumber
-        set number
-    endif
-endfunction
+" command! ToggleLineNumber :call ToggleLineNumber()
+" function! ToggleLineNumber()
+"     if &number == 1
+"         set norelativenumber
+"         set nonumber
+"     else
+"         set relativenumber
+"         set number
+"     endif
+" endfunction
 " }}}
 " commands {{{
 "
