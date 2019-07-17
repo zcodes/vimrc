@@ -267,7 +267,7 @@ Plugin 'zcodes/php.vim'
 
 " Plugin '2072/PHP-Indenting-for-VIm'
 Plugin 'zcodes/PHP-Indenting-for-Vim'
-" let g:PHP_vintage_case_default_indent = 1
+let g:PHP_vintage_case_default_indent = 1
 let g:PHP_noArrowMatching = 1
 
 " php twig
@@ -278,10 +278,10 @@ Plugin 'shawncplus/phpcomplete.vim'
 let g:phpcomplete_enhance_jump_to_definition = 0
 
 " php unit
-Plugin 'wdalmut/vim-phpunit'
+" Plugin 'wdalmut/vim-phpunit'
 
 " php namespace
-Plugin 'arnaud-lb/vim-php-namespace'
+" Plugin 'arnaud-lb/vim-php-namespace'
 
 " laravel blade
 Plugin 'zcodes/vim-blade'

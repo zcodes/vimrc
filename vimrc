@@ -1,7 +1,6 @@
 " Description: root file of vim configure files.
 "
 " Author: zcodes <zcodes@qq.com>
-" Last Modified: 2019/04/28 16:43
 " Note: Every thing you need to known about Vim at:
 "   https://github.com/mhinz/vim-galore
 
@@ -278,7 +277,7 @@ augroup END
 " autogroups {{{
 " php
 augroup customCommentString
-    autocmd FileType php setlocal commentstring=//\ %s
+    autocmd FileType php setlocal commentstring=//\ %s completeopt=menuone
 augroup END
 
 " ruby
@@ -348,23 +347,23 @@ augroup END
 set number
 set relativenumber
 " 自动在相对行号间切换
-augroup RelativeLineNumbers
-    au!
+" augroup RelativeLineNumbers
+"     au!
 
-    autocmd InsertEnter * :set norelativenumber
-    autocmd InsertLeave * :set relativenumber
-augroup END
+"     autocmd InsertEnter * :set norelativenumber
+"     autocmd InsertLeave * :set relativenumber
+" augroup END
 
-command! ToggleLineNumber :call ToggleLineNumber()
-function! ToggleLineNumber()
-    if &number == 1
-        set norelativenumber
-        set nonumber
-    else
-        set relativenumber
-        set number
-    endif
-endfunction
+" command! ToggleLineNumber :call ToggleLineNumber()
+" function! ToggleLineNumber()
+"     if &number == 1
+"         set norelativenumber
+"         set nonumber
+"     else
+"         set relativenumber
+"         set number
+"     endif
+" endfunction
 " }}}
 " commands {{{
 "
