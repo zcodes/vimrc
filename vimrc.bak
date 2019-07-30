@@ -28,12 +28,47 @@
 " auto FileType html,css,blade,twig,jsp imap <buffer><expr><tab> <sid>emmet_with_snipmate()
 "
 " backup for &statusline
-" if has('statusline')
-"     set laststatus=2
+if has('statusline')
+    set laststatus=2
 
-"     set statusline=%<%f
-"     set statusline+=\ %w%h%m%r
-"     set statusline+=\ [%{&ff}/%Y]
-"     set statusline+=\ [%{getcwd()}]
-"     set statusline+=%=%-14.(%l,%c%V%)\ %p%%
-" endif
+    set statusline=%<%f
+    set statusline+=\ %w%h%m%r
+    set statusline+=\ [%{&ff}/%Y]
+    set statusline+=\ [%{getcwd()}]
+    set statusline+=%=%-14.(%l,%c%V%)\ %p%%
+endif
+
+" backup settings for ctrlp
+if z#is_win()
+  set wildignore+=*\\.git\\*,*\\.hg\\*,*\\.svn\*
+else
+  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
+endif
+
+let g:ctrlp_user_command = 'ag -l -g "" --nocolor %s'
+let g:ctrlp_user_command = 'ag %s --files-with-matches -g "" --ignore "\.git$\|\.hg$\|\.svn$"'
+let g:ctrlp_max_files = 200000
+let g:ctrlp_max_files = 10
+let g:ctrlp_open_single_match = ['buffer tags', 'buffer']
+let s:ctrlp_common_user_command = {
+      \ 'types': {
+      \       1: ['.git', 'cd %s && git -c core.quotepath=false ls-files -co --exclude-standard'],
+      \   },
+      \ }
+if z#is_win()
+  let g:ctrlp_custom_ignore = {
+              \ 'dir': '\v[\/]\.(git|hg|svn)$',
+              \ 'file': '\v\.(exe|so|dll)$',
+              \}
+  let g:ctrlp_user_command = extend(
+        \ s:ctrlp_common_user_command, {
+        \ 'fallback': 'dir %s /-n /b /s /a-d | findstr /v /l ".jpg .png .exe .pyc .git\\ .svn\\ .gif"'
+        \ }
+        \ )
+else
+  let g:ctrlp_user_command = extend(
+        \ s:ctrlp_common_user_command,  {
+        \ 'fallback': 'find %s \( -regex ".*/.\(svn\|git\)" -prune -o -regex ".*.\(exe$\|so$\|dll$\|png$\|jpg$\)" -prune \) -o -type f -print'
+        \ }
+        \ )
+endif
