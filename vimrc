@@ -264,7 +264,8 @@ augroup tabWidth
     autocmd BufNewFile,BufRead *.coffee setl ts=2 sts=2 sw=2 fdm=indent nofen
     " use .editorconfig and .clang-format
     " autocmd BufNewFile,BufRead *.[ch],*.cpp,*.hpp setl ts=4 sts=4 sw=4 noet
-    autocmd BufNewFile,BufRead *.[ch],*.cpp,*.hpp setl cinoptions+=N-s
+    " :0 don't indent case labels
+    autocmd BufNewFile,BufRead *.[ch],*.cpp,*.hpp setl cinoptions+=N-s,g0
     autocmd BufNewFile,BufRead *.go setl ts=4 sts=4 sw=4 noet
     autocmd BufNewFile,BufRead *.py setl ts=4 sw=4 sts=4 et
     autocmd BufNewFile,BufRead *.asd set filetype=lisp
