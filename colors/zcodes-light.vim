@@ -2,7 +2,7 @@
 "
 " Maintainer: zcodes <zcodes@qq.com>
 " Version: 1.0
-" Last Modified: 2018/7/19 15:27:15
+" Last Modified: 2019/08/11 14:06
 "
 " the theme file original copyed from Tomorrow theme.
 " see: https://github.com/chriskempson/vim-tomorrow-theme.git for it.
@@ -413,6 +413,14 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
 
     " YAML
     call <SID>X('yamlBlockMappingKey', s:blue, '', '')
+
+    " haskell
+    call <SID>X("haskellConditional", s:yellow, '', '')
+    call <SID>X("haskellOperators", s:orange, '', '')
+
+    call <SID>X("haskellPragma", s:purple, '', '')
+    call <SID>X("haskellLiquid", s:purple, '', '')
+    call <SID>X("haskellIdentifier", s:aqua, '', '')
 
     " Delete Functions
     delf <SID>X

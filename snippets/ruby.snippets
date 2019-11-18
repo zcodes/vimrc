@@ -1,32 +1,39 @@
 snippet new
 	${1:Class}.new(${2:args})${0}
-
-snippet def0
+snippet de
 	def ${1}
 		${0}
 	end
-
-snippet as0
-	assert ${0}
-
+snippet dd
+	def ${1}
+	end
 snippet test
 	test '${1}' do
 		${0}
 	end
-
 snippet aste
 	assert_template '${1}'
-snippet asno
-	assert_not ${1}
 snippet asred
 	assert_redirected_to ${1}
 snippet asse
 	assert_select '${1}'
 snippet asdi
-	assert_difference '${1}'
+	assert_difference '${1}', ${2} do
+		${3}
+	end
+snippet asnd
+	assert_no_difference '${1}' do
+		${2}
+	end
 snippet asmm
 	assert_match ${1}, ${2}
+snippet as1
+	assert ${1}
+snippet asn1
+	assert_not ${1}
 snippet fzn
 	# frozen_string_literal: true
 	
 	$0
+snippet i
+	%i[${1}]

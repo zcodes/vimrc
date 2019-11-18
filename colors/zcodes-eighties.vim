@@ -444,6 +444,19 @@ if has('gui_running') || &t_Co == 88 || &t_Co == 256
     " YAML
     call <SID>X('yamlBlockMappingKey', s:blue, '', '')
 
+    " haskell
+    call <SID>X("haskellConditional", s:yellow, '', '')
+    call <SID>X("haskellDelimiter", s:grey, '', '')
+    call <SID>X("haskellSeparator", s:grey, '', '')
+    call <SID>X("haskellOperators", s:orange, '', '')
+
+    call <SID>X("haskellPragma", s:purple, '', '')
+    call <SID>X("haskellLiquid", s:purple, '', '')
+    call <SID>X("haskellIdentifier", s:aqua, '', '')
+    " call <SID>X("haskellTypeSig", s:blue, '', '')
+    " call <SID>X("haskellRecordField", s:blue, '', '')
+    " call <SID>X("haskellLeft", s:blue, '', '')
+
     " Delete Functions
     delf <SID>X
     delf <SID>rgb

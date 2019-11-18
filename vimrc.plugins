@@ -27,7 +27,7 @@ nnoremap <leader>bc :NERDTreeClose<cr>
 " snipmate and snippets {{{
 Plugin 'honza/vim-snippets'
 let g:UltiSnipsSnipMateAbsDirectories = [
-            \ $VIM_BUNDLE_ROOT . '/vim-snippets', 
+            \ $VIM_BUNDLE_ROOT . '/vim-snippets',
             \ $VIMRC_ROOT
             \ ]
 let g:UltiSnipsUltiSnipsAbsDirectories = [
@@ -476,6 +476,20 @@ if exists('g:zcodes_enable_haskell')
     " install hindent first
     " https://github.com/commercialhaskell/hindent
     " Plugin 'alx741/vim-hindent'
+    " to enable highlighting of `forall`
+    let g:haskell_enable_quantification = 1
+    " to enable highlighting of `mdo` and `rec`
+    let g:haskell_enable_recursivedo = 1
+    " to enable highlighting of `proc`
+    let g:haskell_enable_arrowsyntax = 1
+    " to enable highlighting of `pattern`
+    let g:haskell_enable_pattern_synonyms = 1
+    " to enable highlighting of type roles
+    let g:haskell_enable_typeroles = 1
+    " to enable highlighting of `static`
+    let g:haskell_enable_static_pointers = 1
+    " to enable highlighting of backpack keywords
+    let g:haskell_backpack = 1
 endif
 
 " rust
