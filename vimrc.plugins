@@ -496,6 +496,11 @@ Plugin 'hnamikaw/vim-autohotkey'
 " cmake
 Plugin 'pboettch/vim-cmake-syntax'
 
+" pascal
+
+let g:pascal_delphi = 1
+let g:pascal_fpc = 1
+
 " }}}
 " preview colors {{{
 " Plugin 'gorodinskiy/vim-coloresque'
@@ -511,7 +516,7 @@ Plugin 'jiangmiao/auto-pairs'
 " <BS> will conflict with SCIM with 'Embered Preedit String into client
 " window' option enabled
 " let g:AutoPairsMapBS = 0
-let g:AutoPairsFlyMode = 1
+let g:AutoPairsFlyMode = 0
 let g:AutoPairsMultilineClose = 0
 " }}}
 " vim-choosewin {{{
