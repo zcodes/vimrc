@@ -507,6 +507,9 @@ endif
 " AutoHotKey
 Plugin 'hnamikaw/vim-autohotkey'
 
+" cmake
+Plugin 'pboettch/vim-cmake-syntax'
+
 " }}}
 " preview colors {{{
 " Plugin 'gorodinskiy/vim-coloresque'
@@ -522,7 +525,8 @@ Plugin 'jiangmiao/auto-pairs'
 " <BS> will conflict with SCIM with 'Embered Preedit String into client
 " window' option enabled
 " let g:AutoPairsMapBS = 0
-let g:AutoPairsFlyMode = 0
+let g:AutoPairsFlyMode = 1
+let g:AutoPairsMultilineClose = 0
 " }}}
 " vim-choosewin {{{
 Plugin 't9md/vim-choosewin'
@@ -549,7 +553,7 @@ endif
 " autocmd FileType vimwiki inoremap <expr> <buffer> <C-Tab> vimwiki#tbl#kbd_tab()
 " autocmd FileType vimwiki inoremap <expr> <buffer> <S-Tab> vimwiki#tbl#kbd_shift_tab()
 " }}}
-" Tools {{{1
+" tools {{{1
 " startify {{{
 Plugin 'mhinz/vim-startify'
 " add file type icons
