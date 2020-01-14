@@ -64,8 +64,8 @@ set fileformats=unix,dos,mac
 " fixed gui menu disappear in Debian
 if $LANG == "zh_CN.utf8" && z#is_gui()
     set langmenu=zh_CN.UTF-8
-    source $VIMRUNTIME/delmenu.vim
-    source $VIMRUNTIME/menu.vim
+    " source $VIMRUNTIME/delmenu.vim
+    " source $VIMRUNTIME/menu.vim
 endif
 " }}}
 " 'timeout' and 'ttimeout' {{{
