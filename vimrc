@@ -152,7 +152,7 @@ if has('reltime')
 endif
 set lazyredraw
 set magic
-set showmatch
+set noshowmatch
 set matchtime=2
 
 " 代码折叠 {{{
