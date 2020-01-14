@@ -129,7 +129,8 @@ set splitbelow
 if has('cmdline_info')
     set ruler
     set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
-    set showcmd
+    " set showcmd
+    set noshowcmd
     set cmdheight=1
 endif
 
@@ -347,7 +348,8 @@ augroup UpdateLastModifiedTimestamps
 augroup END
 " }}}
 " line number {{{
-set number
+" set number
+set nonumber
 set relativenumber
 " 自动在相对行号间切换
 " augroup RelativeLineNumbers
