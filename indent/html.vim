@@ -2,7 +2,7 @@
 " Header: "{{{
 " Maintainer:	Bram Moolenaar
 " Original Author: Andy Wokula <anwoku@yahoo.de>
-" Last Change:	2018/6/4 14:21:13
+" Last Change:	2019 Mar 20
 " Version:	1.0
 " Description:	HTML indent script with cached state for faster indenting on a
 "		range of lines.
@@ -216,8 +216,9 @@ endfunc "}}}
 " Add known tag pairs.
 " Self-closing tags and tags that are sometimes {{{
 " self-closing (e.g., <p>) are not here (when encountering </p> we can find
-" the matching <p>, but not the other way around).  Known self-closing tags:
-" 'p', 'img', 'source'.
+" the matching <p>, but not the other way around).
+" Known self-closing tags: " 'p', 'img', 'source', 'area', 'keygen', 'track',
+" 'wbr'.
 " Old HTML tags:
 call s:AddITags(s:indent_tags, [
     \ 'a', 'abbr', 'acronym', 'address', 'b', 'bdo', 'big',
@@ -227,16 +228,16 @@ call s:AddITags(s:indent_tags, [
     \ 'i', 'iframe', 'ins', 'kbd', 'label', 'legend', 'li',
     \ 'map', 'menu', 'noframes', 'noscript', 'object', 'ol',
     \ 'optgroup', 'q', 's', 'samp', 'select', 'small', 'span', 'strong', 'sub',
-    \ 'sup', 'table', 'textarea', 'title', 'tt', 'u', 'ul', 'var', 'th', 'td', 'dt', 'dd', 'p',
+    \ 'sup', 'table', 'textarea', 'title', 'tt', 'u', 'ul', 'var', 'th', 'td',
     \ 'tr', 'tbody', 'tfoot', 'thead'])
 
 " New HTML5 elements:
 call s:AddITags(s:indent_tags, [
-    \ 'area', 'article', 'aside', 'audio', 'bdi', 'canvas',
-    \ 'command', 'data', 'datalist', 'details', 'embed', 'figcaption',
-    \ 'figure', 'footer', 'header', 'keygen', 'main', 'mark', 'meter',
-    \ 'nav', 'output', 'picture', 'progress', 'rp', 'rt', 'ruby', 'section',
-    \ 'summary', 'svg', 'time', 'track', 'video', 'wbr'])
+    \ 'article', 'aside', 'audio', 'bdi', 'canvas', 'command', 'data',
+    \ 'datalist', 'details', 'dialog', 'embed', 'figcaption', 'figure',
+    \ 'footer', 'header', 'hgroup', 'main', 'mark', 'meter', 'nav', 'output',
+    \ 'picture', 'progress', 'rp', 'rt', 'ruby', 'section', 'summary',
+    \ 'svg', 'time', 'video'])
 
 " Tags added for web components:
 call s:AddITags(s:indent_tags, [
@@ -625,7 +626,7 @@ func! s:CSSIndent()
     return eval(b:hi_css1indent)
   endif
 
-  " If the current line starts with "}" align with it's match.
+  " If the current line starts with "}" align with its match.
   if curtext =~ '^\s*}'
     call cursor(v:lnum, 1)
     try
@@ -663,12 +664,7 @@ func! s:CSSIndent()
     else
       let cur_hasfield = curtext =~ '^\s*[a-zA-Z0-9-]\+:'
       let prev_unfinished = s:CssUnfinished(prev_text)
-      let prev_semicoloned = prev_text =~ ';\s*$'
-      if prev_semicoloned
-        " if previous line is finished by semicolon, no extra indent for
-        " current line.
-        let extra = 0
-      elseif !cur_hasfield && (prev_hasfield || prev_unfinished)
+      if prev_unfinished
         " Continuation line has extra indent if the previous line was not a
         " continuation line.
         let extra = shiftwidth()
@@ -721,9 +717,13 @@ func! s:CSSIndent()
 endfunc "}}}
 
 " Inside <style>: Whether a line is unfinished.
+" 	tag:
+" 	tag: blah
+" 	tag: blah &&
+" 	tag: blah ||
 func! s:CssUnfinished(text)
   "{{{
-  return a:text =~ '\s\(||\|&&\|:\)\s*$'
+  return a:text =~ '\(||\|&&\|:\|\k\)\s*$'
 endfunc "}}}
 
 " Search back for the first unfinished line above "lnum".
@@ -902,11 +902,18 @@ func! s:InsideTag(foundHtmlString)
   "{{{
   if a:foundHtmlString
     " Inside an attribute string.
-    " Align with the previous line or use an external function.
+    " Align with the opening quote or use an external function.
     let lnum = v:lnum - 1
     if lnum > 1
       if exists('b:html_indent_tag_string_func')
         return b:html_indent_tag_string_func(lnum)
+      endif
+      " If there is a double quote in the previous line, indent with the
+      " character after it.
+      if getline(lnum) =~ '"'
+	call cursor(lnum, 0)
+	normal f"
+	return virtcol('.')
       endif
       return indent(lnum)
     endif
@@ -935,11 +942,11 @@ func! s:InsideTag(foundHtmlString)
       let idx = match(text, '<' . s:tagname . '\s\+\zs\w')
     endif
     if idx == -1
-      " after just <tag indent one level more
+      " after just "<tag" indent one level more
       let idx = match(text, '<' . s:tagname . '$')
       if idx >= 0
-        call cursor(lnum, idx)
-        return virtcol('.') + shiftwidth()
+	call cursor(lnum, idx)
+	return virtcol('.') + shiftwidth()
       endif
     endif
     if idx > 0

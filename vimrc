@@ -64,8 +64,8 @@ set fileformats=unix,dos,mac
 " fixed gui menu disappear in Debian
 if $LANG == "zh_CN.utf8" && z#is_gui()
     set langmenu=zh_CN.UTF-8
-    source $VIMRUNTIME/delmenu.vim
-    source $VIMRUNTIME/menu.vim
+    " source $VIMRUNTIME/delmenu.vim
+    " source $VIMRUNTIME/menu.vim
 endif
 " }}}
 " 'timeout' and 'ttimeout' {{{
@@ -129,7 +129,8 @@ set splitbelow
 if has('cmdline_info')
     set ruler
     set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
-    set showcmd
+    " set showcmd
+    set noshowcmd
     set cmdheight=1
 endif
 
@@ -152,7 +153,7 @@ if has('reltime')
 endif
 set lazyredraw
 set magic
-set showmatch
+set noshowmatch
 set matchtime=2
 
 " 代码折叠 {{{
@@ -347,7 +348,8 @@ augroup UpdateLastModifiedTimestamps
 augroup END
 " }}}
 " line number {{{
-set number
+" set number
+set nonumber
 set relativenumber
 " 自动在相对行号间切换
 " augroup RelativeLineNumbers

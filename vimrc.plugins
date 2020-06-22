@@ -634,6 +634,14 @@ autocmd BufEnter ControlP let b:ale_enabled = 0
 " Plugin 'valloric/youcompleteme'
 
 " use matchup instead of default matchparen
+if has('timers') && exists('*timer_pause')
+    let g:matchup_matchparen_deferred = 1
+    let g:matchup_matchparen_deferred_show_delay = 100
+    let g:matchup_matchparen_deferred_fade_time = 500
+    let g:matchup_matchparen_nomode = 'i'
+else
+    let g:matchup_matchparen_enabled = 0
+endif
 Plugin 'andymass/vim-matchup'
 "}}}
 "
