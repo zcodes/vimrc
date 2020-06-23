@@ -5,6 +5,8 @@
 "   https://github.com/mhinz/vim-galore
 
 
+profile start ~/vim_profile.txt
+profile func *
 " bootstrap {{{
 set nocompatible
 filetype off
@@ -19,20 +21,27 @@ endif
 " }}}
 " 使用 Vundle 管理插件 {{{
 " Vundle: https://github.com/VundleVim/Vundle.vim
-if exists('g:zcodes_custom_bundle_path')
-    exec 'set rtp+=' . g:zcodes_custom_bundle_path . '/Vundle.vim'
-    let $VIM_BUNDLE_ROOT = g:zcodes_custom_bundle_path
-    call vundle#begin(g:zcodes_custom_bundle_path)
+" if exists('g:zcodes_custom_bundle_path')
+"     exec 'set rtp+=' . g:zcodes_custom_bundle_path . '/Vundle.vim'
+"     let $VIM_BUNDLE_ROOT = g:zcodes_custom_bundle_path
+"     call vundle#begin(g:zcodes_custom_bundle_path)
+" else
+"     exec 'set rtp+=' . $VIMRC_ROOT . '/bundle/Vundle.vim'
+"     let $VIM_BUNDLE_ROOT = $VIMRC_ROOT . '/bundle'
+"     call vundle#begin($VIMRC_ROOT. '/bundle')
+" endif
+
+if (exists('g:zcodes_custom_bundle_path'))
+    call plug#begin(g:zcodes_custom_bundle_path)
 else
-    exec 'set rtp+=' . $VIMRC_ROOT . '/bundle/Vundle.vim'
-    let $VIM_BUNDLE_ROOT = $VIMRC_ROOT . '/bundle'
-    call vundle#begin($VIMRC_ROOT. '/bundle')
+    call plug#begin($VIMRC_ROOT . '/bundle')
 endif
 
 " 插件单独分在 vimrc.plugins 文件中
 exec 'source' $VIMRC_ROOT . '/vimrc.plugins'
 exec 'source' $VIMRC_ROOT . '/vimrc.colors'
-call vundle#end()
+" call vundle#end()
+call plug#end()
 " }}}
 "
 " 配置从这里开始
