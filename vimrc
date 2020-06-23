@@ -6,8 +6,8 @@
 
 
 " bootstrap {{{
-set nocompatible
-filetype off
+" set nocompatible
+" filetype off
 
 " set $VIMRC_ROOT to ~/vimfiles or ~/.vim
 let $VIMRC_ROOT = fnamemodify(expand('<sfile>'), ':p:h:gs?\\?/?')
@@ -47,8 +47,8 @@ call plug#end()
 "
 " plugin load before indent, see:
 " https://stackoverflow.com/questions/2061321/incorrect-comments-set-for-php-in-vim
-filetype plugin indent on
-syntax on
+" filetype plugin indent on
+" syntax on
 
 " encoding and format {{{
 " 默认编码

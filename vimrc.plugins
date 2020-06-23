@@ -14,18 +14,17 @@ Plug 'jlanzarotta/bufexplorer'
 
 " nerdtree {{{
 " Plug 'scrooloose/nerdtree'
-Plug 'zcodes/nerdtree', { 'for': 'NERDTreeToggle' }
 let g:NERDTreeDirArrowExpandable='+'
 let g:NERDTreeDirArrowCollapsible='~'
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeDirArrows=0
+Plug 'zcodes/nerdtree', { 'on': 'NERDTreeFocus' }
 nmap <F3> :NERDTreeFocus<cr>
 nmap <F4> :NERDTreeClose<cr>
 nnoremap <leader>bn :NERDTreeFocus<cr>
 nnoremap <leader>bc :NERDTreeClose<cr>
 " }}}
 " snipmate and snippets {{{
-Plug 'honza/vim-snippets'
 let g:UltiSnipsSnipMateAbsDirectories = [
             \ $VIM_BUNDLE_ROOT . '/vim-snippets', 
             \ $VIMRC_ROOT
@@ -34,35 +33,36 @@ let g:UltiSnipsUltiSnipsAbsDirectories = [
             \ $VIM_BUNDLE_ROOT . '/vim-snippets/UltiSnips',
             \ $VIMRC_ROOT . '/UltiSnips'
             \ ]
+Plug 'honza/vim-snippets'
 
 if has('pythonx')
     " Plug 'sirver/ultisnips'
-    Plug 'zcodes/ultisnips'
-
     let g:UltiSnipsExpandTrigger = "<tab>"
     let g:UltiSnipsJumpForwardTrigger = "<tab>"
     let g:UltiSnipsJumsBackwardTrigger = "<c-z>"
     let g:UltiSnipsEditSplit = "vertical"
     let g:UltiSnipsUsePythonVersion = 3
+    Plug 'zcodes/ultisnips'
 else
-    Plug 'MarcWeber/vim-addon-mw-utils'
-    Plug 'tomtom/tlib_vim'
-    Plug 'garbas/vim-snipmate'
-
     let g:snipMate = {}
     let g:snipMate.scope_aliases = {}
     let g:snipMate.scope_aliases['ruby'] = 'ruby,ruby-rails,ruby-1.9'
     let g:snipMate.scope_aliases['vimwiki'] = 'vimwiki'
     let g:snipMate.scope_aliases['php'] = 'php'
+
+    Plug 'MarcWeber/vim-addon-mw-utils'
+    Plug 'tomtom/tlib_vim'
+    Plug 'garbas/vim-snipmate'
 endif
 " }}}
 " {{{emmet
-" C-y , expand expression
-Plug 'mattn/emmet-vim'
-
 " https://github.com/mattn/emmet-vim/issues/168
 let g:user_emmet_install_global = 0
 let g:user_emmet_complete_tag = 1
+
+" C-y , expand expression
+Plug 'mattn/emmet-vim'
+
 augroup MyEnableEmmet
     au!
     autocmd FileType html,css,blade,twig,jsp,htmldjango,xml,svg,eruby EmmetInstall
@@ -70,9 +70,9 @@ augroup END
 
 " }}}
 " file searching {{{
-Plug 'mileszs/ack.vim'
 " use the_silver_searcher [ag]
 let g:ackprg='ag --vimgrep'
+Plug 'mileszs/ack.vim'
 " }}}
 " comment {{{
 Plug 'tpope/vim-commentary'
@@ -82,14 +82,11 @@ augroup end
 
 " Alternative plugins for comment
 " Plug 'tomtom/tcomment_vim'
-Plug 'scrooloose/nerdcommenter'
 let g:NERDSpaceDelims = 1
+Plug 'scrooloose/nerdcommenter'
 " }}}
 " ctrlp {{{
 " Plug 'ctrlpvim/ctrlp.vim'
-Plug 'zcodes/ctrlp.vim'
-Plug 'FelikZ/ctrlp-py-matcher'
-Plug 'tacahiroy/ctrlp-funky'
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_funky_use_cache = 1
@@ -106,6 +103,11 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 if z#is_win()
     let g:ctrlp_system_filename_encoding = 'gbk'
 endif
+
+Plug 'zcodes/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'tacahiroy/ctrlp-funky'
+
 augroup CtrlPLeaderKeyMapping
     au!
     nnoremap <leader>pp :CtrlP<cr>
@@ -119,7 +121,6 @@ augroup END
 " }}}
 " git plugin {{{
 " Plug 'airblade/vim-gitgutter'
-Plug 'zcodes/vim-gitgutter'
 let g:gitgutter_max_signs = 1000
 let g:gitgutter_log = 1
 let g:gitgutter_async = 1
@@ -131,20 +132,21 @@ let g:gitgutter_sign_modified_removed = '~_'
 if executable('ag')
     let g:gitgutter_grep = 'ag --nocolor -S'
 endif
+Plug 'zcodes/vim-gitgutter'
 
-Plug 'mhinz/vim-signify'
 let g:signify_vcs_list = ['svn']
 let g:signify_realtime = 1
 " let g:signify_disable_by_default = 1
+Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 " }}}
 " supertab {{{
-Plug 'ervandew/supertab'
 " SuperTab Settings
 " g:SuperTabDefaultCompletionType
 " g:SuperTabContextDefaultCompletionType
 " b:SuperTabContextDefaultCompletionType
 let g:SuperTabDefaultCompletionType = 'context'
+Plug 'ervandew/supertab'
 
 augroup MyEnableSupertab
     au!
@@ -155,17 +157,15 @@ augroup MyEnableSupertab
 augroup END
 " }}}
 " list tags {{{
-Plug 'majutsushi/tagbar'
 let g:tagbar_show_linenumbers = 0
 let g:tagbar_foldlevel = 2
+Plug 'majutsushi/tagbar'
 nnoremap <F5> :TagbarOpenAutoClose<cr>
 nnoremap <leader>tt :TagbarOpenAutoClose<cr>
 nnoremap <leader>to :TagbarOpen<cr>
 nnoremap <leader>tc :TagbarClose<cr>
 " }}}
 " airline {{{
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 let g:airline_theme = 'tomorrow'
 let g:airline_powerline_fonts = 0
 let g:airline_symbols_ascii = 1
@@ -187,31 +187,31 @@ let g:airline_extensions = []
 " let g:airline#extensions#whitespace#mixed_indent_format = 'mi[%s]'
 " let g:airline#extensions#whitespace#long_format = 'long[%s]'
 " let g:airline#extensions#whitespace#mixed_indent_file_format = 'mif[%s]'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " }}}
 " file type support {{{
 
 " html5
-Plug 'othree/html5.vim'
 let g:html_indent_style1 = 'inc'
 let g:html_indent_script1 = 'inc'
+Plug 'othree/html5.vim'
 
 " javascript
-Plug 'pangloss/vim-javascript'
-Plug 'maxmellon/vim-jsx-pretty'
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow = 1
 let g:vim_jsx_pretty_colorful_config = 1
+Plug 'pangloss/vim-javascript', {'for': 'javascript'}
+Plug 'maxmellon/vim-jsx-pretty', {'for': 'javascript'}
 
 " json
-Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
+Plug 'elzr/vim-json', {'for': 'json'}
 
 " markdown
 " text align
 " vim-markdown need's tabular
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
 " another markdown plugin
 " Plug 'gabrielelana/vim-markdown'
 " let g:vim_markdown_folding_style_pythonic = 1
@@ -220,30 +220,32 @@ let g:vim_markdown_folding_level = 6
 " let g:vim_markdonw_toc_autofit = 1
 " let g:vim_markdown_conceal = 0
 let g:vim_markdown_frontmatter = 1
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 
 " mustache
 Plug 'mustache/vim-mustache-handlebars'
 
 " ruby
-Plug 'vim-ruby/vim-ruby'
+Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
 
 " php {{{
 " Plug 'StanAngeloff/php.vim'
-Plug 'zcodes/php.vim'
+Plug 'zcodes/php.vim', {'for': 'php'}
 " let g:php_syntax_extensions_enabled = []
 " let g:php_syntax_extensions_disabled = []
 
 " Plug '2072/PHP-Indenting-for-VIm'
-Plug 'zcodes/PHP-Indenting-for-Vim'
 let g:PHP_vintage_case_default_indent = 1
 let g:PHP_noArrowMatching = 1
+Plug 'zcodes/PHP-Indenting-for-Vim', {'for': 'php'}
 
 " php twig
 Plug 'evidens/vim-twig'
 
 " php complete
-Plug 'shawncplus/phpcomplete.vim'
 let g:phpcomplete_enhance_jump_to_definition = 0
+Plug 'shawncplus/phpcomplete.vim', {'for': 'php'}
 
 " php unit
 " Plug 'wdalmut/vim-phpunit'
@@ -252,12 +254,12 @@ let g:phpcomplete_enhance_jump_to_definition = 0
 " Plug 'arnaud-lb/vim-php-namespace'
 
 " laravel blade
-Plug 'zcodes/vim-blade'
+Plug 'zcodes/vim-blade', {'for': 'blade'}
 " Plug 'jwalton512/vim-blade'
 " }}}
 
 " c++
-Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['c', 'c++']}
 " Plug 'Shougo/vimproc.vim'
 " Plug 'rhysd/vim-clang-format'
 Plug 'Chiel92/vim-autoformat'
@@ -267,9 +269,9 @@ Plug 'rodjek/vim-puppet'
 
 " css
 " Plug 'JulesWang/css.vim'
-Plug 'hail2u/vim-css3-syntax'
+Plug 'hail2u/vim-css3-syntax', {'for': 'css'}
 " less
-Plug 'genoma/vim-less'
+Plug 'genoma/vim-less', {'for': 'less'}
 
 " python {{{
 "
@@ -281,8 +283,6 @@ if has('pythonx')
         set pyxversion=2
     endif
 endif
-" Plug 'python-mode/python-mode'
-Plug 'zcodes/python-mode', {'branch': 'develop'}
 " enable pymode
 let g:pymode = 1
 let g:pymode_trim_whitespaces = 1
@@ -310,6 +310,7 @@ let g:pymode_run_bind = '<leader>rr'
 let g:pymode_breakpoint = 0
 " let g:pymode_breakpoint_bind = '<leader>b'
 " let g:pymode_breakpoint_cmd = ''
+"
 
 " code check
 " ============================================================
@@ -370,14 +371,6 @@ let g:pymode_rope_goto_definition_cmd = 'new'
 " let g:pymode_rope_move_bind = '<C-c>rv'
 " let g:pymode_rope_change_signature_bind = '<C-c>rs'
 "
-" close doc window
-" see: https://github.com/python-mode/python-mode/issues/384
-augroup MyDisablePythonDocWindow
-    au!
-    autocmd CursorMovedI *.py if pumvisible() == 0|pclose|endif
-    autocmd InsertLeave *.py if pumvisible() == 0|pclose|endif
-augroup END
-
 " 默认使用 python3
 let g:pymode_python = 'python3'
 
@@ -392,6 +385,17 @@ let g:pymode_syntax_highlight_self = g:pymode_syntax_all
 " let g:jedi#rename_command = '<leader>rn'
 " let g:jedi#popup_on_dot = 0
 "
+" Plug 'python-mode/python-mode'
+Plug 'zcodes/python-mode', {'branch': 'develop', 'for': 'python'}
+"
+" close doc window
+" see: https://github.com/python-mode/python-mode/issues/384
+augroup MyDisablePythonDocWindow
+    au!
+    autocmd CursorMovedI *.py if pumvisible() == 0|pclose|endif
+    autocmd InsertLeave *.py if pumvisible() == 0|pclose|endif
+augroup END
+"
 " }}}
 
 " django
@@ -400,15 +404,14 @@ if exists('g:zcodes_enable_django')
 endif
 
 " jade
-Plug 'digitaltoad/vim-jade'
+Plug 'digitaltoad/vim-jade', {'for': 'jade'}
 
 " coffeescript
 " Plug 'kchmck/vim-coffee-script'
-Plug 'zcodes/vim-coffee-script'
+Plug 'zcodes/vim-coffee-script', {'for': 'coffee'}
 
 " go {{{
 if (v:version >= 800 || (v:version >= 704 && has('patch1689')))
-    Plug 'fatih/vim-go'
     " use :GoInstallBinaries install additional tools
     " and set it's installtion path
     " let g:go_bin_path = expand("~/.gotools")
@@ -427,6 +430,8 @@ if (v:version >= 800 || (v:version >= 704 && has('patch1689')))
     let g:go_play_open_browser = 0
     " Disable updating dependencies when installing/updating binaries:
     let g:go_get_update = 0
+
+    Plug 'fatih/vim-go', {'for': 'go'}
 
     " keybinds for vim-go
     augroup MyGoKeyMap
@@ -454,21 +459,21 @@ endif
 Plug 'zcodes/vim-eco'
 
 " plugin for typescript
-Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 
 " Vim Powershell Plug
-Plug 'PProvost/vim-ps1'
+Plug 'PProvost/vim-ps1', {'for': 'ps1'}
 
 " windows dosbatch file indent
 " Plug 'k-takata/vim-dosbatch-indent'
 Plug 'zcodes/vim-dosbatch-indent'
 
 " Lisp
-Plug 'kovisoft/slimv'
+Plug 'kovisoft/slimv', {'for': 'lisp'}
 
 " Haskell
 if exists('g:zcodes_enable_haskell')
-    Plug 'neovimhaskell/haskell-vim'
+    Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
     " should install stylish-haskell
     " https://github.com/jaspervdj/stylish-haskell
     " Plug 'nbouscal/vim-stylish-haskell'
@@ -479,8 +484,8 @@ if exists('g:zcodes_enable_haskell')
 endif
 
 " rust
-Plug 'rust-lang/rust.vim'
-Plug 'cespare/vim-toml'
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
+Plug 'cespare/vim-toml', {'for': 'ini'}
 
 " nginx
 Plug 'chr4/nginx.vim'
@@ -494,10 +499,9 @@ endif
 Plug 'hnamikaw/vim-autohotkey'
 
 " cmake
-Plug 'pboettch/vim-cmake-syntax'
+Plug 'pboettch/vim-cmake-syntax', {'for': 'cmake'}
 
 " pascal
-
 let g:pascal_delphi = 1
 let g:pascal_fpc = 1
 
@@ -512,22 +516,24 @@ let g:pascal_fpc = 1
 " nnoremap <leader>ct <plug>Colorizer
 " }}}
 " auto-pairs {{{
-Plug 'jiangmiao/auto-pairs'
 " <BS> will conflict with SCIM with 'Embered Preedit String into client
 " window' option enabled
 " let g:AutoPairsMapBS = 0
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsMultilineClose = 0
+
+Plug 'jiangmiao/auto-pairs'
 " }}}
 " vim-choosewin {{{
-Plug 't9md/vim-choosewin'
 nmap <leader>w <Plug>(choosewin)
 let g:choosewin_overlay_enable = 0
 let g:choosewin_blink_on_land = 0
 let g:choosewin_return_on_single_win = 0
+
+Plug 't9md/vim-choosewin'
 " }}}
 " pangu {{{
-Plug 'zcodes/pangu.vim'
+Plug 'zcodes/pangu.vim', {'for': ['markdown', 'txt']}
 if has('autocmd')
     augroup enablePanGu
         au!
@@ -546,22 +552,28 @@ endif
 " }}}
 " tools {{{1
 " startify {{{
+let g:startify_lists = [
+        \ { 'type': 'files',     'header': ['   MRU']            },
+        \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+        \ { 'type': 'sessions',  'header': ['   Sessions']       },
+        \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+        \ ]
 Plug 'mhinz/vim-startify'
 " add file type icons
 " Plug 'ryanoasis/vim-devicons'
 " }}}
 " vim session {{{
-Plug 'tpope/vim-obsession'
-Plug 'dhruvasagar/vim-prosession'
 let g:prosession_on_startup = 0
 if z#is_win()
     let g:prosession_dir = '~/vimfiles/session/'
 endif
+Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'
 " }}}
 " taboo.vim -- Few utilities for pretty tabs {{{
 " Plug 'gcmt/taboo.vim'
-Plug 'zcodes/taboo.vim'
 let g:taboo_tab_format=' %N %p%m '
+Plug 'zcodes/taboo.vim'
 " }}}
 " tabman {{{
 " Tab management
@@ -582,10 +594,10 @@ Plug 'tpope/vim-repeat'
 " Plug 'nathanaelkane/vim-indent-guides'
 
 " editor config
-Plug 'editorconfig/editorconfig-vim'
 " 'trim_trailing_whitespace' set to true cause problem when 'updatetime' set
 " to a small value
 let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
+Plug 'editorconfig/editorconfig-vim'
 
 " lorem fake generator
 Plug 'tkhren/vim-fake'
@@ -596,7 +608,6 @@ Plug 'terryma/vim-multiple-cursors'
 " linter {{{
 " 1. https://github.com/w0rp/ale
 " 2. https://github.com/vim-syntastic/syntastic
-Plug 'dense-analysis/ale'
 let g:ale_sign_column_always = 1
 "
 " standard: npm i -g standard
@@ -613,6 +624,7 @@ let g:ale_fixers = {
             \ 'javascript': ['eslint'],
             \ 'ruby': ['rubocop'],
             \ }
+Plug 'dense-analysis/ale'
 nnoremap <silent> <F8> :ALEFix<cr>
 
 " see: https://github.com/w0rp/ale/issues/891
@@ -628,7 +640,7 @@ if has('timers') && exists('*timer_pause')
 else
     let g:matchup_matchparen_enabled = 0
 endif
-Plug 'andymass/vim-matchup'
+" Plug 'andymass/vim-matchup'
 "}}}
 "
 " 1}}}
