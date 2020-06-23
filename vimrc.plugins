@@ -6,7 +6,7 @@
 "
 scriptencoding utf-8
 
-Plug 'VundleVim/Vundle.vim'
+" Plug 'VundleVim/Vundle.vim'
 
 " bufexplorer {{{
 Plug 'jlanzarotta/bufexplorer'
@@ -14,7 +14,7 @@ Plug 'jlanzarotta/bufexplorer'
 
 " nerdtree {{{
 " Plug 'scrooloose/nerdtree'
-Plug 'zcodes/nerdtree'
+Plug 'zcodes/nerdtree', { 'for': 'NERDTreeToggle' }
 let g:NERDTreeDirArrowExpandable='+'
 let g:NERDTreeDirArrowCollapsible='~'
 let g:NERDTreeMinimalUI=1
