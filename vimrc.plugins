@@ -6,26 +6,25 @@
 "
 scriptencoding utf-8
 
-Plugin 'VundleVim/Vundle.vim'
+" Plug 'VundleVim/Vundle.vim'
 
 " bufexplorer {{{
-Plugin 'jlanzarotta/bufexplorer'
+Plug 'jlanzarotta/bufexplorer'
 " }}}
 
 " nerdtree {{{
-" Plugin 'scrooloose/nerdtree'
-Plugin 'zcodes/nerdtree'
+" Plug 'scrooloose/nerdtree'
 let g:NERDTreeDirArrowExpandable='+'
 let g:NERDTreeDirArrowCollapsible='~'
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeDirArrows=0
+Plug 'zcodes/nerdtree', { 'on': 'NERDTreeFocus' }
 nmap <F3> :NERDTreeFocus<cr>
 nmap <F4> :NERDTreeClose<cr>
 nnoremap <leader>bn :NERDTreeFocus<cr>
 nnoremap <leader>bc :NERDTreeClose<cr>
 " }}}
 " snipmate and snippets {{{
-Plugin 'honza/vim-snippets'
 let g:UltiSnipsSnipMateAbsDirectories = [
             \ $VIM_BUNDLE_ROOT . '/vim-snippets',
             \ $VIMRC_ROOT
@@ -34,35 +33,36 @@ let g:UltiSnipsUltiSnipsAbsDirectories = [
             \ $VIM_BUNDLE_ROOT . '/vim-snippets/UltiSnips',
             \ $VIMRC_ROOT . '/UltiSnips'
             \ ]
+Plug 'honza/vim-snippets'
 
 if has('pythonx')
-    " Plugin 'sirver/ultisnips'
-    Plugin 'zcodes/ultisnips'
-
+    " Plug 'sirver/ultisnips'
     let g:UltiSnipsExpandTrigger = "<tab>"
     let g:UltiSnipsJumpForwardTrigger = "<tab>"
     let g:UltiSnipsJumsBackwardTrigger = "<c-z>"
     let g:UltiSnipsEditSplit = "vertical"
     let g:UltiSnipsUsePythonVersion = 3
+    Plug 'zcodes/ultisnips'
 else
-    Plugin 'MarcWeber/vim-addon-mw-utils'
-    Plugin 'tomtom/tlib_vim'
-    Plugin 'garbas/vim-snipmate'
-
     let g:snipMate = {}
     let g:snipMate.scope_aliases = {}
     let g:snipMate.scope_aliases['ruby'] = 'ruby,ruby-rails,ruby-1.9'
     let g:snipMate.scope_aliases['vimwiki'] = 'vimwiki'
     let g:snipMate.scope_aliases['php'] = 'php'
+
+    Plug 'MarcWeber/vim-addon-mw-utils'
+    Plug 'tomtom/tlib_vim'
+    Plug 'garbas/vim-snipmate'
 endif
 " }}}
 " {{{emmet
-" C-y , expand expression
-Plugin 'mattn/emmet-vim'
-
 " https://github.com/mattn/emmet-vim/issues/168
 let g:user_emmet_install_global = 0
 let g:user_emmet_complete_tag = 1
+
+" C-y , expand expression
+Plug 'mattn/emmet-vim'
+
 augroup MyEnableEmmet
     au!
     autocmd FileType html,css,blade,twig,jsp,htmldjango,xml,svg,eruby EmmetInstall
@@ -70,26 +70,23 @@ augroup END
 
 " }}}
 " file searching {{{
-Plugin 'mileszs/ack.vim'
 " use the_silver_searcher [ag]
 let g:ackprg='ag --vimgrep'
+Plug 'mileszs/ack.vim'
 " }}}
 " comment {{{
-Plugin 'tpope/vim-commentary'
+Plug 'tpope/vim-commentary'
 augroup MyCommentary
     autocmd FileType cpp setlocal commentstring=//\ %s
 augroup end
 
 " Alternative plugins for comment
-" Plugin 'tomtom/tcomment_vim'
-Plugin 'scrooloose/nerdcommenter'
+" Plug 'tomtom/tcomment_vim'
 let g:NERDSpaceDelims = 1
+Plug 'scrooloose/nerdcommenter'
 " }}}
 " ctrlp {{{
-" Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'zcodes/ctrlp.vim'
-Plugin 'FelikZ/ctrlp-py-matcher'
-Plugin 'tacahiroy/ctrlp-funky'
+" Plug 'ctrlpvim/ctrlp.vim'
 let g:ctrlp_funky_matchtype = 'path'
 let g:ctrlp_funky_syntax_highlight = 1
 let g:ctrlp_funky_use_cache = 1
@@ -106,6 +103,11 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 if z#is_win()
     let g:ctrlp_system_filename_encoding = 'gbk'
 endif
+
+Plug 'zcodes/ctrlp.vim'
+Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'tacahiroy/ctrlp-funky'
+
 augroup CtrlPLeaderKeyMapping
     au!
     nnoremap <leader>pp :CtrlP<cr>
@@ -118,8 +120,7 @@ augroup CtrlPLeaderKeyMapping
 augroup END
 " }}}
 " git plugin {{{
-" Plugin 'airblade/vim-gitgutter'
-Plugin 'zcodes/vim-gitgutter'
+" Plug 'airblade/vim-gitgutter'
 let g:gitgutter_max_signs = 1000
 let g:gitgutter_log = 1
 let g:gitgutter_async = 1
@@ -131,20 +132,21 @@ let g:gitgutter_sign_modified_removed = '~_'
 if executable('ag')
     let g:gitgutter_grep = 'ag --nocolor -S'
 endif
+Plug 'zcodes/vim-gitgutter'
 
-Plugin 'mhinz/vim-signify'
 let g:signify_vcs_list = ['svn']
 let g:signify_realtime = 1
 " let g:signify_disable_by_default = 1
-Plugin 'tpope/vim-fugitive'
+Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-fugitive'
 " }}}
 " supertab {{{
-Plugin 'ervandew/supertab'
 " SuperTab Settings
 " g:SuperTabDefaultCompletionType
 " g:SuperTabContextDefaultCompletionType
 " b:SuperTabContextDefaultCompletionType
 let g:SuperTabDefaultCompletionType = 'context'
+Plug 'ervandew/supertab'
 
 augroup MyEnableSupertab
     au!
@@ -155,17 +157,15 @@ augroup MyEnableSupertab
 augroup END
 " }}}
 " list tags {{{
-Plugin 'majutsushi/tagbar'
 let g:tagbar_show_linenumbers = 0
 let g:tagbar_foldlevel = 2
+Plug 'majutsushi/tagbar'
 nnoremap <F5> :TagbarOpenAutoClose<cr>
 nnoremap <leader>tt :TagbarOpenAutoClose<cr>
 nnoremap <leader>to :TagbarOpen<cr>
 nnoremap <leader>tc :TagbarClose<cr>
 " }}}
 " airline {{{
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 let g:airline_theme = 'tomorrow'
 let g:airline_powerline_fonts = 0
 let g:airline_symbols_ascii = 1
@@ -187,89 +187,91 @@ let g:airline_extensions = []
 " let g:airline#extensions#whitespace#mixed_indent_format = 'mi[%s]'
 " let g:airline#extensions#whitespace#long_format = 'long[%s]'
 " let g:airline#extensions#whitespace#mixed_indent_file_format = 'mif[%s]'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " }}}
 " file type support {{{
 
 " html5
-Plugin 'othree/html5.vim'
 let g:html_indent_style1 = 'inc'
 let g:html_indent_script1 = 'inc'
+Plug 'othree/html5.vim'
 
 " javascript
-Plugin 'pangloss/vim-javascript'
-Plugin 'maxmellon/vim-jsx-pretty'
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow = 1
 let g:vim_jsx_pretty_colorful_config = 1
+Plug 'pangloss/vim-javascript', {'for': 'javascript'}
+Plug 'maxmellon/vim-jsx-pretty', {'for': 'javascript'}
 
 " json
-Plugin 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
+Plug 'elzr/vim-json', {'for': 'json'}
 
 " markdown
 " text align
 " vim-markdown need's tabular
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 " another markdown plugin
-" Plugin 'gabrielelana/vim-markdown'
+" Plug 'gabrielelana/vim-markdown'
 " let g:vim_markdown_folding_style_pythonic = 1
 " let g:vim_markdown_override_foldtext = 1
 let g:vim_markdown_folding_level = 6
 " let g:vim_markdonw_toc_autofit = 1
 " let g:vim_markdown_conceal = 0
 let g:vim_markdown_frontmatter = 1
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 
 " mustache
-Plugin 'mustache/vim-mustache-handlebars'
+Plug 'mustache/vim-mustache-handlebars'
 
 " ruby
-Plugin 'vim-ruby/vim-ruby'
+Plug 'vim-ruby/vim-ruby', {'for': 'ruby'}
 
 " php {{{
-" Plugin 'StanAngeloff/php.vim'
-Plugin 'zcodes/php.vim'
+" Plug 'StanAngeloff/php.vim'
+Plug 'zcodes/php.vim', {'for': 'php'}
 " let g:php_syntax_extensions_enabled = []
 " let g:php_syntax_extensions_disabled = []
 
-" Plugin '2072/PHP-Indenting-for-VIm'
-Plugin 'zcodes/PHP-Indenting-for-Vim'
+" Plug '2072/PHP-Indenting-for-VIm'
 let g:PHP_vintage_case_default_indent = 1
 let g:PHP_noArrowMatching = 1
+Plug 'zcodes/PHP-Indenting-for-Vim', {'for': 'php'}
 
 " php twig
-Plugin 'evidens/vim-twig'
+Plug 'evidens/vim-twig'
 
 " php complete
-Plugin 'shawncplus/phpcomplete.vim'
 let g:phpcomplete_enhance_jump_to_definition = 0
+Plug 'shawncplus/phpcomplete.vim', {'for': 'php'}
 
 " php unit
-" Plugin 'wdalmut/vim-phpunit'
+" Plug 'wdalmut/vim-phpunit'
 
 " php namespace
-" Plugin 'arnaud-lb/vim-php-namespace'
+" Plug 'arnaud-lb/vim-php-namespace'
 
 " laravel blade
-Plugin 'zcodes/vim-blade'
-" Plugin 'jwalton512/vim-blade'
+Plug 'zcodes/vim-blade', {'for': 'blade'}
+" Plug 'jwalton512/vim-blade'
 " }}}
 
 " c++
-Plugin 'octol/vim-cpp-enhanced-highlight'
-" Plugin 'Shougo/vimproc.vim'
-" Plugin 'rhysd/vim-clang-format'
-Plugin 'Chiel92/vim-autoformat'
+Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['c', 'c++']}
+" Plug 'Shougo/vimproc.vim'
+" Plug 'rhysd/vim-clang-format'
+Plug 'Chiel92/vim-autoformat'
 
 " puppet
-Plugin 'rodjek/vim-puppet'
+Plug 'rodjek/vim-puppet'
 
 " css
-" Plugin 'JulesWang/css.vim'
-Plugin 'hail2u/vim-css3-syntax'
+" Plug 'JulesWang/css.vim'
+Plug 'hail2u/vim-css3-syntax', {'for': 'css'}
 " less
-Plugin 'genoma/vim-less'
+Plug 'genoma/vim-less', {'for': 'less'}
 
 " python {{{
 "
@@ -281,8 +283,6 @@ if has('pythonx')
         set pyxversion=2
     endif
 endif
-" Plugin 'python-mode/python-mode'
-Plugin 'zcodes/python-mode'
 " enable pymode
 let g:pymode = 1
 let g:pymode_trim_whitespaces = 1
@@ -310,6 +310,7 @@ let g:pymode_run_bind = '<leader>rr'
 let g:pymode_breakpoint = 0
 " let g:pymode_breakpoint_bind = '<leader>b'
 " let g:pymode_breakpoint_cmd = ''
+"
 
 " code check
 " ============================================================
@@ -370,14 +371,6 @@ let g:pymode_rope_goto_definition_cmd = 'new'
 " let g:pymode_rope_move_bind = '<C-c>rv'
 " let g:pymode_rope_change_signature_bind = '<C-c>rs'
 "
-" close doc window
-" see: https://github.com/python-mode/python-mode/issues/384
-augroup MyDisablePythonDocWindow
-    au!
-    autocmd CursorMovedI *.py if pumvisible() == 0|pclose|endif
-    autocmd InsertLeave *.py if pumvisible() == 0|pclose|endif
-augroup END
-
 " 默认使用 python3
 let g:pymode_python = 'python3'
 
@@ -387,28 +380,38 @@ let g:pymode_syntax_slow_sync = 0
 let g:pymode_syntax_all = 1
 let g:pymode_syntax_highlight_self = g:pymode_syntax_all
 
-" Plugin 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 " let g:jedi#force_py_version = 3
 " let g:jedi#rename_command = '<leader>rn'
 " let g:jedi#popup_on_dot = 0
+"
+" Plug 'python-mode/python-mode'
+Plug 'zcodes/python-mode', {'branch': 'develop', 'for': 'python'}
+"
+" close doc window
+" see: https://github.com/python-mode/python-mode/issues/384
+augroup MyDisablePythonDocWindow
+    au!
+    autocmd CursorMovedI *.py if pumvisible() == 0|pclose|endif
+    autocmd InsertLeave *.py if pumvisible() == 0|pclose|endif
+augroup END
 "
 " }}}
 
 " django
 if exists('g:zcodes_enable_django')
-    Plugin 'tweekmonster/django-plus.vim'
+    Plug 'tweekmonster/django-plus.vim'
 endif
 
 " jade
-Plugin 'digitaltoad/vim-jade'
+Plug 'digitaltoad/vim-jade', {'for': 'jade'}
 
 " coffeescript
-" Plugin 'kchmck/vim-coffee-script'
-Plugin 'zcodes/vim-coffee-script'
+" Plug 'kchmck/vim-coffee-script'
+Plug 'zcodes/vim-coffee-script', {'for': 'coffee'}
 
 " go {{{
 if (v:version >= 800 || (v:version >= 704 && has('patch1689')))
-    Plugin 'fatih/vim-go'
     " use :GoInstallBinaries install additional tools
     " and set it's installtion path
     " let g:go_bin_path = expand("~/.gotools")
@@ -427,6 +430,8 @@ if (v:version >= 800 || (v:version >= 704 && has('patch1689')))
     let g:go_play_open_browser = 0
     " Disable updating dependencies when installing/updating binaries:
     let g:go_get_update = 0
+
+    Plug 'fatih/vim-go', {'for': 'go'}
 
     " keybinds for vim-go
     augroup MyGoKeyMap
@@ -450,32 +455,24 @@ if (v:version >= 800 || (v:version >= 704 && has('patch1689')))
 endif
 " }}}
 
-" Plugin 'AndrewRadev/vim-eco'
-Plugin 'zcodes/vim-eco'
+" Plug 'AndrewRadev/vim-eco'
+Plug 'zcodes/vim-eco'
 
 " plugin for typescript
-Plugin 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim', {'for': 'typescript'}
 
-" Vim Powershell Plugin
-Plugin 'PProvost/vim-ps1'
+" Vim Powershell Plug
+Plug 'PProvost/vim-ps1', {'for': 'ps1'}
 
 " windows dosbatch file indent
-" Plugin 'k-takata/vim-dosbatch-indent'
-Plugin 'zcodes/vim-dosbatch-indent'
+" Plug 'k-takata/vim-dosbatch-indent'
+Plug 'zcodes/vim-dosbatch-indent'
 
 " Lisp
-Plugin 'kovisoft/slimv'
+Plug 'kovisoft/slimv', {'for': 'lisp'}
 
 " Haskell
 if exists('g:zcodes_enable_haskell')
-    Plugin 'neovimhaskell/haskell-vim'
-    " should install stylish-haskell
-    " https://github.com/jaspervdj/stylish-haskell
-    " Plugin 'nbouscal/vim-stylish-haskell'
-
-    " install hindent first
-    " https://github.com/commercialhaskell/hindent
-    " Plugin 'alx741/vim-hindent'
     " to enable highlighting of `forall`
     let g:haskell_enable_quantification = 1
     " to enable highlighting of `mdo` and `rec`
@@ -490,35 +487,43 @@ if exists('g:zcodes_enable_haskell')
     let g:haskell_enable_static_pointers = 1
     " to enable highlighting of backpack keywords
     let g:haskell_backpack = 1
+
+    " install hindent first
+    " https://github.com/commercialhaskell/hindent
+    " Plugin 'alx741/vim-hindent'
+
+    Plug 'neovimhaskell/haskell-vim', {'for': 'haskell'}
+    " should install stylish-haskell
+    " https://github.com/jaspervdj/stylish-haskell
+    " Plug 'nbouscal/vim-stylish-haskell'
 endif
 
 " rust
-Plugin 'rust-lang/rust.vim'
-Plugin 'cespare/vim-toml'
+Plug 'rust-lang/rust.vim', {'for': 'rust'}
+Plug 'cespare/vim-toml', {'for': 'ini'}
 
 " nginx
-Plugin 'chr4/nginx.vim'
+Plug 'chr4/nginx.vim'
 
 " Racket
 if exists('g:zcodes_enable_racket')
-    Plugin 'wlangstroth/vim-racket'
+    Plug 'wlangstroth/vim-racket'
 endif
 
 " AutoHotKey
-Plugin 'hnamikaw/vim-autohotkey'
+Plug 'hnamikaw/vim-autohotkey'
 
 " cmake
-Plugin 'pboettch/vim-cmake-syntax'
+Plug 'pboettch/vim-cmake-syntax', {'for': 'cmake'}
 
 " pascal
-
 let g:pascal_delphi = 1
 let g:pascal_fpc = 1
 
 " }}}
 " preview colors {{{
-" Plugin 'gorodinskiy/vim-coloresque'
-" Plugin 'lilydjwg/colorizer'
+" Plug 'gorodinskiy/vim-coloresque'
+" Plug 'lilydjwg/colorizer'
 " no enable by default
 " let g:colorizer_startup = 0
 " no mapping
@@ -526,22 +531,24 @@ let g:pascal_fpc = 1
 " nnoremap <leader>ct <plug>Colorizer
 " }}}
 " auto-pairs {{{
-Plugin 'jiangmiao/auto-pairs'
 " <BS> will conflict with SCIM with 'Embered Preedit String into client
 " window' option enabled
 " let g:AutoPairsMapBS = 0
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsMultilineClose = 0
+
+Plug 'jiangmiao/auto-pairs'
 " }}}
 " vim-choosewin {{{
-Plugin 't9md/vim-choosewin'
 nmap <leader>w <Plug>(choosewin)
 let g:choosewin_overlay_enable = 0
 let g:choosewin_blink_on_land = 0
 let g:choosewin_return_on_single_win = 0
+
+Plug 't9md/vim-choosewin'
 " }}}
 " pangu {{{
-Plugin 'zcodes/pangu.vim'
+Plug 'zcodes/pangu.vim', {'for': ['markdown', 'txt']}
 if has('autocmd')
     augroup enablePanGu
         au!
@@ -550,7 +557,7 @@ if has('autocmd')
 endif
 " }}}
 " vimwiki {{{
-" Plugin 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 " let g:vimwiki_folding = 'expr'
 " let g:vimwiki_table_mappings = 0
 " let g:vimwiki_conceallevel = 0
@@ -560,57 +567,62 @@ endif
 " }}}
 " tools {{{1
 " startify {{{
-Plugin 'mhinz/vim-startify'
+let g:startify_lists = [
+        \ { 'type': 'files',     'header': ['   MRU']            },
+        \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+        \ { 'type': 'sessions',  'header': ['   Sessions']       },
+        \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+        \ ]
+Plug 'mhinz/vim-startify'
 " add file type icons
-" Plugin 'ryanoasis/vim-devicons'
+" Plug 'ryanoasis/vim-devicons'
 " }}}
 " vim session {{{
-Plugin 'tpope/vim-obsession'
-Plugin 'dhruvasagar/vim-prosession'
 let g:prosession_on_startup = 0
 if z#is_win()
     let g:prosession_dir = '~/vimfiles/session/'
 endif
+Plug 'tpope/vim-obsession'
+Plug 'dhruvasagar/vim-prosession'
 " }}}
 " taboo.vim -- Few utilities for pretty tabs {{{
-" Plugin 'gcmt/taboo.vim'
-Plugin 'zcodes/taboo.vim'
+" Plug 'gcmt/taboo.vim'
 let g:taboo_tab_format=' %N %p%m '
+Plug 'zcodes/taboo.vim'
 " }}}
 " tabman {{{
 " Tab management
-Plugin 'kien/tabman.vim'
+Plug 'kien/tabman.vim'
 " }}}
 " surround {{{
-" Plugin 'tpope/vim-surround'
-Plugin 'zcodes/vim-surround'
+" Plug 'tpope/vim-surround'
+Plug 'zcodes/vim-surround'
 " }}}
 
-" Plugin 'elentok/plaintasks.vim'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'tpope/vim-repeat'
+" Plug 'elentok/plaintasks.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-repeat'
 
 " indent guides
-" Plugin 'Yggdroot/indentLine'
+" Plug 'Yggdroot/indentLine'
 " let g:indentLine_char = '┊'
-" Plugin 'nathanaelkane/vim-indent-guides'
+" Plug 'nathanaelkane/vim-indent-guides'
 
 " editor config
-Plugin 'editorconfig/editorconfig-vim'
 " 'trim_trailing_whitespace' set to true cause problem when 'updatetime' set
 " to a small value
 let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
+Plug 'editorconfig/editorconfig-vim'
 
 " lorem fake generator
-Plugin 'tkhren/vim-fake'
+Plug 'tkhren/vim-fake'
 
-Plugin 'zcodes/drawit'
-Plugin 'terryma/vim-multiple-cursors'
+Plug 'zcodes/drawit'
+Plug 'terryma/vim-multiple-cursors'
 
 " linter {{{
 " 1. https://github.com/w0rp/ale
 " 2. https://github.com/vim-syntastic/syntastic
-Plugin 'w0rp/ale'
 let g:ale_sign_column_always = 1
 "
 " standard: npm i -g standard
@@ -627,11 +639,12 @@ let g:ale_fixers = {
             \ 'javascript': ['eslint'],
             \ 'ruby': ['rubocop'],
             \ }
+Plug 'dense-analysis/ale'
 nnoremap <silent> <F8> :ALEFix<cr>
 
 " see: https://github.com/w0rp/ale/issues/891
 autocmd BufEnter ControlP let b:ale_enabled = 0
-" Plugin 'valloric/youcompleteme'
+" Plug 'valloric/youcompleteme'
 
 " use matchup instead of default matchparen
 if has('timers') && exists('*timer_pause')
@@ -642,7 +655,7 @@ if has('timers') && exists('*timer_pause')
 else
     let g:matchup_matchparen_enabled = 0
 endif
-Plugin 'andymass/vim-matchup'
+" Plug 'andymass/vim-matchup'
 "}}}
 "
 " 1}}}

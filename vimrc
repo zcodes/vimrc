@@ -6,8 +6,8 @@
 
 
 " bootstrap {{{
-set nocompatible
-filetype off
+" set nocompatible
+" filetype off
 
 " set $VIMRC_ROOT to ~/vimfiles or ~/.vim
 let $VIMRC_ROOT = fnamemodify(expand('<sfile>'), ':p:h:gs?\\?/?')
@@ -19,20 +19,27 @@ endif
 " }}}
 " 使用 Vundle 管理插件 {{{
 " Vundle: https://github.com/VundleVim/Vundle.vim
-if exists('g:zcodes_custom_bundle_path')
-    exec 'set rtp+=' . g:zcodes_custom_bundle_path . '/Vundle.vim'
-    let $VIM_BUNDLE_ROOT = g:zcodes_custom_bundle_path
-    call vundle#begin(g:zcodes_custom_bundle_path)
+" if exists('g:zcodes_custom_bundle_path')
+"     exec 'set rtp+=' . g:zcodes_custom_bundle_path . '/Vundle.vim'
+"     let $VIM_BUNDLE_ROOT = g:zcodes_custom_bundle_path
+"     call vundle#begin(g:zcodes_custom_bundle_path)
+" else
+"     exec 'set rtp+=' . $VIMRC_ROOT . '/bundle/Vundle.vim'
+"     let $VIM_BUNDLE_ROOT = $VIMRC_ROOT . '/bundle'
+"     call vundle#begin($VIMRC_ROOT. '/bundle')
+" endif
+
+if (exists('g:zcodes_custom_bundle_path'))
+    call plug#begin(g:zcodes_custom_bundle_path)
 else
-    exec 'set rtp+=' . $VIMRC_ROOT . '/bundle/Vundle.vim'
-    let $VIM_BUNDLE_ROOT = $VIMRC_ROOT . '/bundle'
-    call vundle#begin($VIMRC_ROOT. '/bundle')
+    call plug#begin($VIMRC_ROOT . '/bundle')
 endif
 
 " 插件单独分在 vimrc.plugins 文件中
 exec 'source' $VIMRC_ROOT . '/vimrc.plugins'
 exec 'source' $VIMRC_ROOT . '/vimrc.colors'
-call vundle#end()
+" call vundle#end()
+call plug#end()
 " }}}
 "
 " 配置从这里开始
@@ -40,8 +47,8 @@ call vundle#end()
 "
 " plugin load before indent, see:
 " https://stackoverflow.com/questions/2061321/incorrect-comments-set-for-php-in-vim
-filetype plugin indent on
-syntax on
+" filetype plugin indent on
+" syntax on
 
 " encoding and format {{{
 " 默认编码

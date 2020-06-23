@@ -7,39 +7,39 @@
 
 scriptencoding utf-8
 " Default colors
-Plugin 'zcodes/vim-colors-basic'
+Plug 'zcodes/vim-colors-basic'
 
 " other awesome themes {{{
-" Plugin 'ajh17/Spacegray.vim'
-" Plugin 'altercation/vim-colors-solarized'
-" Plugin 'arcticicestudio/nord-vim'
-" Plugin 'chriskempson/vim-tomorrow-theme'
-" Plugin 'dracula/vim'
-" Plugin 'jacoborus/tender.vim'
-" Plugin 'jonathanfilip/vim-lucius'
-" Plugin 'joshdick/onedark.vim'
-" Plugin 'KeitaNakamura/neodark.vim'
-" Plugin 'kristijanhusak/vim-hybrid-material'
-" Plugin 'marcopaganini/termschool-vim-theme'
-" Plugin 'mhartington/oceanic-next'
-" Plugin 'nanotech/jellybeans.vim'
-" Plugin 'rakr/vim-one'
-" Plugin 'rakr/vim-two-firewatch'
-" Plugin 'romainl/Apprentice'
-" Plugin 'tomasr/molokai'
-" Plugin 'trevordmiller/nova-vim'
-" Plugin 'vim-scripts/pyte'
-" Plugin 'wimstefan/Lightning'
-" Plugin 'chriskempson/base16-vim'
+" Plug 'ajh17/Spacegray.vim'
+" Plug 'altercation/vim-colors-solarized'
+" Plug 'arcticicestudio/nord-vim'
+" Plug 'chriskempson/vim-tomorrow-theme'
+" Plug 'dracula/vim'
+" Plug 'jacoborus/tender.vim'
+" Plug 'jonathanfilip/vim-lucius'
+" Plug 'joshdick/onedark.vim'
+" Plug 'KeitaNakamura/neodark.vim'
+" Plug 'kristijanhusak/vim-hybrid-material'
+" Plug 'marcopaganini/termschool-vim-theme'
+" Plug 'mhartington/oceanic-next'
+" Plug 'nanotech/jellybeans.vim'
+" Plug 'rakr/vim-one'
+" Plug 'rakr/vim-two-firewatch'
+" Plug 'romainl/Apprentice'
+" Plug 'tomasr/molokai'
+" Plug 'trevordmiller/nova-vim'
+" Plug 'vim-scripts/pyte'
+" Plug 'wimstefan/Lightning'
+" Plug 'chriskempson/base16-vim'
 " }}}
 " theme configuration {{{
 " let g:molokai_original = 0
 " let g:rehash256 = 1
 " }}}
 " vim colors collection {{{
-" Plugin 'https://github.com/flazz/vim-colorschemes'
+" Plug 'https://github.com/flazz/vim-colorschemes'
 " forked it !
-" Plugin 'zcodes/vim-colorschemes'
+" Plug 'zcodes/vim-colorschemes'
 " }}}
 
 " vim: ts=4 sts=4 sw=4 et fdm=marker fdl=0:
