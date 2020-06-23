@@ -5,8 +5,6 @@
 "   https://github.com/mhinz/vim-galore
 
 
-profile start ~/vim_profile.txt
-profile func *
 " bootstrap {{{
 set nocompatible
 filetype off
