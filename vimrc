@@ -30,10 +30,11 @@ endif
 " endif
 
 if (exists('g:zcodes_custom_bundle_path'))
-    call plug#begin(g:zcodes_custom_bundle_path)
+    let $VIM_BUNDLE_ROOT = g:zcodes_custom_bundle_path
 else
-    call plug#begin($VIMRC_ROOT . '/bundle')
+    let $VIM_BUNDLE_ROOT = $VIMRC_ROOT . '/bundle'
 endif
+call plug#begin($VIM_BUNDLE_ROOT)
 
 " 插件单独分在 vimrc.plugins 文件中
 exec 'source' $VIMRC_ROOT . '/vimrc.plugins'

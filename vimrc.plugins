@@ -24,6 +24,7 @@ nmap <F4> :NERDTreeClose<cr>
 nnoremap <leader>bn :NERDTreeFocus<cr>
 nnoremap <leader>bc :NERDTreeClose<cr>
 " }}}
+
 " snipmate and snippets {{{
 let g:UltiSnipsSnipMateAbsDirectories = [
             \ $VIM_BUNDLE_ROOT . '/vim-snippets',
@@ -55,6 +56,7 @@ else
     Plug 'garbas/vim-snipmate'
 endif
 " }}}
+
 " {{{emmet
 " https://github.com/mattn/emmet-vim/issues/168
 let g:user_emmet_install_global = 0
