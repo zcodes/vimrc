@@ -58,7 +58,7 @@ if exists('g:custom_python3_dll_path')
     let &pythonthreedll=g:custom_python3_dll_path
 else
     " just python35 here, customize it in vimrc.local
-    set pythonthreedll=C:/Python36/python36.dll
+    set pythonthreedll=C:/Python37/python37.dll
 endif
 " }}}
 

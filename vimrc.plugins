@@ -550,7 +550,7 @@ let g:choosewin_return_on_single_win = 0
 Plug 't9md/vim-choosewin'
 " }}}
 " pangu {{{
-Plug 'zcodes/pangu.vim', {'for': ['markdown', 'text']}
+Plug 'zcodes/pangu.vim', {'for': ['markdown', 'text', 'rst']}
 if has('autocmd')
     augroup enablePanGu
         au!
