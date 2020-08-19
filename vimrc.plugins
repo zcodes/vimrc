@@ -626,6 +626,7 @@ Plug 'terryma/vim-multiple-cursors'
 " 1. https://github.com/w0rp/ale
 " 2. https://github.com/vim-syntastic/syntastic
 let g:ale_sign_column_always = 1
+let g:ale_set_highlights = 0
 "
 " standard: npm i -g standard
 let g:ale_linters_explicit = 1
