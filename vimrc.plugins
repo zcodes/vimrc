@@ -18,6 +18,7 @@ let g:NERDTreeDirArrowExpandable='+'
 let g:NERDTreeDirArrowCollapsible='~'
 let g:NERDTreeMinimalUI=1
 let g:NERDTreeDirArrows=0
+let g:NERDTreeIgnore=['\.o$[[file]]', '\.elc$[[file]]']
 Plug 'zcodes/nerdtree', { 'on': 'NERDTreeFocus' }
 nmap <F3> :NERDTreeFocus<cr>
 nmap <F4> :NERDTreeClose<cr>
