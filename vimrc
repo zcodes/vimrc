@@ -153,8 +153,8 @@ if exists('+fixendofline')
 endif
 
 " 搜索设置
-set ignorecase
-set smartcase
+set noignorecase
+set nosmartcase
 set hlsearch
 if has('reltime')
     set incsearch
