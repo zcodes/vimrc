@@ -288,7 +288,7 @@ if has('pythonx')
 endif
 " enable pymode
 let g:pymode = 1
-let g:pymode_trim_whitespaces = 1
+let g:pymode_trim_whitespaces = 0
 let g:pymode_options = 1
 let g:pymode_options_max_line_length = 79
 let g:pymode_options_colorcolumn = 0

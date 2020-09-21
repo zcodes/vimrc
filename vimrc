@@ -149,7 +149,7 @@ set formatoptions=tcqm
 set hidden " allow switch buffer without saving.
 
 if exists('+fixendofline')
-    set fixendofline
+    set nofixendofline
 endif
 
 " 搜索设置
