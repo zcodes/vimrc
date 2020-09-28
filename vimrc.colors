@@ -8,7 +8,7 @@
 scriptencoding utf-8
 " Default colors
 Plug 'zcodes/vim-colors-basic'
-Plug 'zcodes/base16-vim'
+Plug 'zcodes/vim-base16'
 
 " other awesome themes {{{
 " Plug 'ajh17/Spacegray.vim'
