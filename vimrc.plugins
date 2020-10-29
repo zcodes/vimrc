@@ -219,7 +219,7 @@ Plug 'elzr/vim-json', {'for': 'json'}
 " Plug 'gabrielelana/vim-markdown'
 " let g:vim_markdown_folding_style_pythonic = 1
 " let g:vim_markdown_override_foldtext = 1
-let g:vim_markdown_folding_level = 6
+let g:vim_markdown_folding_level = 3
 " let g:vim_markdonw_toc_autofit = 1
 " let g:vim_markdown_conceal = 0
 let g:vim_markdown_frontmatter = 1
@@ -662,6 +662,9 @@ endif
 " Plug 'andymass/vim-matchup'
 "}}}
 "
+" osc 52
+Plug 'fcpg/vim-osc52'
+let g:osc52_term = ''
 " 1}}}
 
 " vim: ts=4 sts=4 sw=4 et fdm=marker fdl=0
