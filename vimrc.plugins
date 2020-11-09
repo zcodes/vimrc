@@ -555,7 +555,7 @@ Plug 'zcodes/pangu.vim', {'for': ['markdown', 'text', 'rst']}
 if has('autocmd')
     augroup enablePanGu
         au!
-        autocmd BufWritePre *.markdown,*.md,*.txt,*.wiki,*.rst call PanGuSpacing()
+        autocmd BufWritePre *.markdown,*.md,*.txt,*.wiki,*.rst if &ft != 'cmake' | call PanGuSpacing()
     augroup END
 endif
 " }}}
