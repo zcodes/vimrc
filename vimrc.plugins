@@ -266,6 +266,7 @@ Plug 'octol/vim-cpp-enhanced-highlight', {'for': ['c', 'c++']}
 " Plug 'Shougo/vimproc.vim'
 " Plug 'rhysd/vim-clang-format'
 Plug 'Chiel92/vim-autoformat'
+noremap <leadr>ff :Autoformat<cr>
 
 " puppet
 Plug 'rodjek/vim-puppet'

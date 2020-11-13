@@ -410,7 +410,7 @@ endif
 "
 " python3
 if z#has_py3()
-    exec 'source' $VIMRC_ROOT . '/vimrc.local'
+    exec 'source' $VIMRC_ROOT . '/vimrc.python'
 endif
 " }}}
 

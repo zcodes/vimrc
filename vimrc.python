@@ -6,17 +6,17 @@ scriptencoding utf-8
 
 " format json
 if !exists(':JsonFormat')
-    command JsonFormat :exec ':%!python3 ' . expand($VIMHOME . '/python/format_json.py')
+    command JsonFormat :exec ':%!python3 ' . expand($VIMRC_ROOT . '/python/format_json.py')
 endif
 
 " format json and decode encoded unicode data
 if !exists(':JsonFormatDecode')
-    command JsonFormatDecode :exec ':%!python3 ' . expand($VIMHOME . '/python/format_json.py') . ' --decode-unicode'
+    command JsonFormatDecode :exec ':%!python3 ' . expand($VIMRC_ROOT . '/python/format_json.py') . ' --decode-unicode'
 endif
 
 " format xml
 if !exists(':XmlFormat')
-    command XmlFormat :exec '%!python3 ' . expand($VIMHOME . '/python/format_xml.py')
+    command XmlFormat :exec '%!python3 ' . expand($VIMRC_ROOT . '/python/format_xml.py')
 endif
 
 " vim: ts=4 sts=4 sw=4 et fdm=marker fdl=0
