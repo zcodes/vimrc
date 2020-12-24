@@ -638,6 +638,7 @@ let g:ale_linters = {
             \ 'javascript': ['eslint --no-ignore', 'standard'],
             \ 'cpp': ['gcc'],
             \ 'ruby': ['rubocop'],
+            \ 'go': ['gofmt'],
             \ }
 
 let g:ale_fixers = {
