@@ -281,6 +281,7 @@ augroup tabWidth
     autocmd FileType lisp setl ts=4 sw=4 sts=4 et
     autocmd BufNewFile,BufRead $VIMRC_ROOT/bundle/vim-gitgutter/**.vim setl ts=2 sts=2 sw=2 et
     autocmd FileType vim setl ts=2 sts=2 sw=2 et
+    autocmd FileType pascal setl ts=2 sts=2 sw=2 et
 
     " Semantic UI
     autocmd BufNewFile,BufRead *.overrides,*.variables setl filetype=less
